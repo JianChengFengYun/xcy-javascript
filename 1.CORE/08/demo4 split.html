@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+		<title>split</title>
+		<meta charset="utf-8" />
+		<script>
+			var lis="<li>tom1</li>\t	<li>tom5</li> <li>tom7</li>\n<li>tom4</li>";
+			var lisN=lis.slice(4,-5);
+			var reg=/<\/li>\s*<li>/;
+			var arr=lisN.split(reg);
+			//console.log(arr);
+			var html="<ul><li>"+arr.sort().join("</li><li>")+"</li></ul>";
+			document.write(html);
+		 </script>
+	</head>
+	<body>
+	</body>
+</html>

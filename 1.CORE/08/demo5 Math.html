@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Math.round</title>
+		<meta charset="utf-8" />
+		<script>
+		/***
+
+		***/
+			function round(num,d){
+				//step1:num*10的d次方；
+				//step2:将结果四舍五入；
+				//step3：return 四舍五入的结果/10的d次方；
+				return Math.round(num*Math.pow(10,d))/Math.pow(10,d);
+			}
+			console.log(round(345.456,2));
+			console.log(round(345.456,-1));
+			console.log(round(555.555,2));
+
+			/*
+			双色球：
+			随机生成6个红球
+			随机范围：1-33；
+			红球不能重复；
+
+			随机生成一个篮球：1-16；
+			*/
+			function doubleBall(){
+				var reds=[];//保存生成的红球；
+				//循环生成6个红球，reds.length<6;
+				//随机生成1个1-33的整数，如果 reds中不包含该数字 indexOf()返回-1;才追加到reds中；
+				//循环结束后，在1-16之间生成一个蓝球；
+				while(reds.length<6){
+					var count=parseInt(Math.random()*(33-1+1)+1);
+					var i=reds.indexOf(count);
+					if(i==-1){
+						reds.push(count);
+					}
+				}
+				var blue=parseInt(Math.random()*(16-1+1)+1);
+				alert(reds+"|"+blue); //8,12,21,29,19,31 | 15
+
+			};
+
+			/***
+			随机生成验证码；
+			如何将所有字符保存为连续的结构 十进制的unicode号
+			如何将每个字符放入数组；
+			***/
+			//生成4位验证码；
+			function getCode(){
+				var chars=[];
+				//将0-9存入数组
+				// 48 57
+				for(var c=48;c<=57;chars.push(String.fromCharCode(c++)));
+				//将A-Z存入数组
+				// 65 90
+				for(var c=65;c<=90;chars.push(String.fromCharCode(c++)));
+				//将a-z存入数组
+				// 97 122
+				for(var c=97;c<=122;chars.push(String.fromCharCode(c++)));
+				//console.log("chars:"+chars);
+				//console.log(chars.length);//62
+
+				for(var i=0,arr=[];i<4;i++){
+					var n=parseInt(Math.random()*(61-0+1)+0); //0-61取随机；
+					arr.push(chars[n]);
+				}
+				return arr.join("");
+
+			}
+			/**
+			验证用户输入的是否正确；
+			**/
+
+			function valiCode(){
+				//先生成验证码
+				//再输入字符串
+				var Code=getCode();
+				while(prompt("输入验证码："+Code).toLowerCase()!=Code.toLowerCase()){
+					alert("验证码错误！");
+					Code=getCode();
+
+				}
+				document.write('<h1 style="color:green;">验证通过</h1>');
+
+			}
+		 </script>
+	</head>
+	<body>
+	<button onclick="doubleBall()">机选</button>
+	<button onclick="alert(getCode())">生成4位验证码</button>
+	<button onclick="valiCode()">验证</button>
+	</body>
+</html>

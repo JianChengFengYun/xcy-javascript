@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态操作表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:500px; border-collapse:collapse;
+		text-align:center;
+	}
+	th,td{border:1px solid #ccc}
+</style>
+<script>
+	var data=[
+{"id":1001,"name":'可口可乐',"price":2.5,"count":3000},
+{"id":1003,"name":'百事可乐',"price":2.5,"count":5000},
+{"id":1011,"name":'非常可乐',"price":2.3,"count":1000}
+	];
+window.onload=function(){
+	var tbody=document.querySelector("#data table tbody");
+	for(var r=0;r<data.length;r++){
+		var newtr=tbody.insertRow();//创建行
+		for(var key in data[r]){	//在每行加入列
+			newtr.insertCell().innerHTML=key=="price"?"&yen;"+parseFloat(data[r][key]).toFixed(2):data[r][key];
+		};
+		//删除功能
+		var btntd=newtr.insertCell();
+		var btn=document.createElement("button");
+		btn.innerHTML="删除";
+		btn.onclick=function(){
+				//deleteRow(this.parentNode.parentNode.rowIndex);
+				var tr=this.parentNode.parentNode;
+				//确定用户是否真删；
+				var pname=tr.cells[1].innerHTML;
+				confirm("是继续删除"+pname+"?")&&tr.parentNode.removeChild(tr);
+			};
+		btntd.appendChild(btn);
+	}
+}
+</script>
+</head>
+<body>
+	<div id="data">
+		<table>
+			<thead>
+				<tr>
+					<th>编号</th>
+					<th>名称</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

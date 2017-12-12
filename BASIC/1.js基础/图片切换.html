@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px; list-style:none;}
+img{ margin:0px; padding:0px;display:block;}
+#box{width:210px;height:210px; margin:0px auto; background:#ccc; position:relative;}
+.nav{width:210px;height:210px;}
+.map{width:156px; height:156px; float:left; }
+.tupian{ width:50px; height:50px;float:left; border:1px solid #ccc; }
+a:hover{border:1px solid #FF0; width:52px; height:52px;float:left;}
+</style>
+<script>
+window.onload=function()
+{
+	var obox=document.getElementById('box');
+	var amap=obox.getElementsByTagName('img')[0];
+	var onav=document.getElementById('nav');
+	var abtn=onav.getElementsByTagName('img');
+	var i=0
+	
+				
+
+	for(i=0;i<=abtn.length;i++)
+	{
+		abtn[i].index=i;
+		abtn[i].onmouseover=function()
+		{
+			amap.src='map/'+(this.index+1)+'.jpg';
+		};
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+<img src="map/3.jpg" height="158" style="width:152px; height:152px; border:2px solid #FF0; position:absolute; left: 0px; top: 0px;" />
+<div id="nav" class="nav">
+<p id="map" class="map"></p>
+<a href="#"><img src="map/1.jpg" class="tupian" /></a>
+<a href="#"><img src="map/2.jpg"  class="tupian" /></a>
+<a href="#"><img src="map/3.jpg" class="tupian" /></a>
+<a href="#"><img src="map/4.jpg" class="tupian"  /></a>
+<a href="#"><img src="map/5.jpg"  class="tupian" /></a>
+<a href="#"><img src="map/6.jpg"  class="tupian" /></a>
+<a href="#"><img src="map/7.jpg"  class="tupian" /></a>
+</div>
+</div>
+</body>
+</html>

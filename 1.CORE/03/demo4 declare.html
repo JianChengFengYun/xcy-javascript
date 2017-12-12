@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>function 参数 返回值</title>
+		<meta charset="utf-8" />
+		<script>
+			var a=100;		//a全局
+
+			function fun1(a)	//a局部
+			{
+				a++;		//a局部
+				alert("有参第1次"+a);
+			}
+
+			fun1(a);			//a全局
+			alert("有参第2次"+a);//a全局
+
+/***********************************************************/
+
+			var b=100;		//b全局
+
+			function fun2()	
+			{
+				b++;		//b全局
+				alert("没参第1次"+b);
+			}
+
+			fun2();			
+			alert("没参第2次"+b);//b全局
+		</script>
+	</head>
+	<body>
+
+
+	</body>
+</html>

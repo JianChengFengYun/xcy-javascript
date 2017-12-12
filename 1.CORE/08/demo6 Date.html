@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Date</title>
+		<meta charset="utf-8" />
+		<script>
+		/***
+		活了多少天
+		***/
+		var now=new Date();
+		var birth=new Date("1987/08/03");
+		var days=(now-birth)/1000/60/60/24/365;
+		//alert("活了"+days+"年！");
+
+
+
+		 </script>
+	</head>
+	<body>
+	<button onclick="doubleBall()">机选</button>
+	<button onclick="alert(getCode())">生成4位验证码</button>
+	<button onclick="valiCode()">验证</button>
+	</body>
+</html>

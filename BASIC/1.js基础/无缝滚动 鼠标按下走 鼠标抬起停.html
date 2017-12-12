@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px;padding:0px;list-style:none;}
+div{ float:left;}
+#div{width:800px;height:200px; position:relative; background:#f00; overflow:hidden; }
+#div ul{width:800px;height:200px; position:absolute; left:0px; top:0px;}
+#div li{float:left; width:200px; height:200px;}
+#div img{width:200px;height:200px;}
+.btn{width:100px;height:200px;text-align:center;}
+.btn img{ position:relative; top:50px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var oLi=oUl.getElementsByTagName('li');
+	var speed=-2;
+	
+	oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+	oUl.style.width=oLi[0].offsetWidth*oLi.length+'px';
+	var time=null;
+	function xuan()
+	{
+						 if(oUl.offsetLeft<-oUl.offsetWidth/2)
+						 {
+							oUl.style.left='0'; 
+						 }
+						 if(oUl.offsetLeft>0)
+						 {
+							 oUl.style.left=-oUl.offsetWidth/2+'px'
+						 };
+						oUl.style.left=oUl.offsetLeft+speed+'px';
+					}
+	document.getElementsByTagName('a')[0].onmousedown=function()
+	{
+		time=setInterval(xuan,30);
+		speed=-2;
+	};
+	document.getElementsByTagName('a')[0].onmouseup=function()
+	{
+		clearInterval(time);
+	};
+	document.getElementsByTagName('a')[1].onmousedown=function()
+	{
+		time=setInterval(xuan,30);
+		speed=2;
+	};
+	document.getElementsByTagName('a')[1].onmouseup=function()
+	{
+		clearInterval(time);
+	};
+};
+</script>
+</head>
+
+<body>
+<div class="btn"><a href="javascript:;"><img src="images/yewu6.jpg" width="26" height="57" /></a></div>
+    <div id="div">
+      <ul> 
+            <li><img src="images/yewu1.jpg" /></li>   
+            <li><img src="images/yewu2.jpg" /></li>
+            <li><img src="images/yewu3.jpg" /></li> 
+            <li><img src="images/yewu4.jpg" /></li>
+        </ul>
+    </div>
+    
+<div class="btn"><a href="javascript:;"><img src="images/yewu5.jpg" width="26" height="56" /></a></div>
+</body>
+</html>

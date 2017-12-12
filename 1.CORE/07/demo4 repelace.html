@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title>字符串 替换</title>
+		<meta charset="utf-8" />
+		<script>
+			var kword=/no/ig;
+			var replay=prompt("输入回复：");
+			var arr=replay.match(kword);//查找所有关键字 找不到返回null
+			replay=replay.replace(kword,"**");
+			document.write(replay);
+			/*
+			if(arr){
+				document.write("<br />共替换"+arr.length+"处");
+			}else{
+				document.write("<br />共替换0处");
+			}
+			*/
+			document.write("<br />共替换"+(arr?arr.length:0)+"处");
+		 </script>
+	</head>
+	<body>
+
+	</body>
+</html>

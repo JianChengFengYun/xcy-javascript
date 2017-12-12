@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<title>二维数组</title>
+		<meta charset="utf-8" />
+		<script>		
+		 var provs=["北京市","河北省","湖北"];
+		 var cities=[
+			["朝阳区","海淀区","昌平区"],
+			["石家庄","唐山","保定"],
+			["武汉","鄂州","恩施"]
+		 ];
+		 function gitCities(shen){
+			 var i=provs.indexOf(shen);
+			 if(i!=-1){
+				alert(cities[i]);
+			 }else{
+				alert("找不到");
+
+			 }
+
+		 }
+
+/************************
+2048 
+判断所有格子是不是都满了？(有0就没满,满了就是true)
+	遍历data里的每一行的每一个元素，
+	只要发现当前元素==0；返回false；
+	如果遍历正常，返回true；
+
+************/
+		 var data=[
+			["4","2","4","2"],
+			["2","2","2","4"],
+			["4","2","4","2"],
+			["2","4","2","4"]
+		 ];
+		 function isFull(arr){
+			for(var r=0;r<arr.length;r++){
+				for(var c=0;c<arr[r].length;c++){
+					if(arr[r][c]==0){
+						return false;
+
+					}
+				}
+			}
+			return true;
+		 }
+		console.log(isFull(data));
+
+
+/****
+判断游戏是否结束?(每个格子的数不等-结束游戏true)
+	如果不满，直接返回false；
+	遍历每个元素，
+
+
+***/
+		function isGameOver(arr){
+			if(!isFull(arr)){return false;}
+			for(var r=0;r<arr.length;r++){
+				for(var c=0;c<arr[r].length;c++){
+					if(c!=arr[r].length-1){
+						if(arr[r][c]==arr[r][c+1]){
+							return false;
+							}
+					};
+					if(r!=arr[r].length-1){
+						if(arr[r][c]==arr[r+1][c]){
+							return false;
+							}
+					};
+				}
+			}
+			return true;
+
+		}
+		console.log(isGameOver(data));
+
+		 </script>
+	</head>
+	<body>
+		<button onclick="gitCities(prompt('输入省：'))">click</button>
+	</body>
+</html>

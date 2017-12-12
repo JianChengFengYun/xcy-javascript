@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oul=document.getElementById('ul');
+	//alert(oul.childNodes.length);//数组 获取元素子节点（包括文本节点和元素节点）
+	for( var i=0; i<oul.childNodes.length;i++)
+	{
+		//alert(oul.childNodes[i].nodeType);//获取节点的类型
+		if(oul.childNodes[i].nodeType==1)//判断子节点是不是元素节点
+		{
+			oul.childNodes[i].style.background='red';
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<ul id="ul">
+<li></li>
+<li></li>
+aaaaa  文本节点  没有style
+<span>aaaa  元素节点</span>
+</ul>
+</body>
+</html>

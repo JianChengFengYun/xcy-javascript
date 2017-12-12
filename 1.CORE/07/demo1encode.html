@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<title>转为大小写 编码</title>
+		<meta charset="utf-8" />
+		<script>
+			/*
+			在程序里固定保存一个4位的验证码：
+			让用户反复输入验证码，输对为止
+			提示输入正确
+			
+			var code="4eAt";
+			var input="";
+			while((input=prompt("输入验证码："+code)).toLowerCase!=code.toLowerCase){ //两边的值 都转为大写 或 都转为小写;
+				alert("验证码错误：");
+			};
+			document.write("<h1 style='color:green;'>验证码输入正确</h1>");
+			*/
+
+
+
+
+
+			/***
+				请用户输入一句话：
+					遍历每个字符
+					暂时存入一个数组arr中
+					遍历结束后，arr.join("");
+			***/
+			function enCode(input){
+				for(var i=0,arr=[];i<input.length;i++){
+					var unicode=input.charCodeAt(i);
+					/*
+					if(unicode<100){
+						unicode=parseInt("000"+unicode);
+					}else if(unicode<1000){
+						unicode=parseInt("00"+unicode);
+					}
+					*/
+					unicode=(unicode+100000+"").slice(1);//将字符的Unicode号都变成“五位数”；3-->51 51+100000=100051 取后5位；
+					arr.push(unicode);
+				}
+				return arr.join("");
+			};
+
+			
+
+
+
+
+
+
+
+			/********indexOf()
+			var kords="关键字";
+			function findKwords(input){
+				var index=-1;
+				//先找一次 在判断 再输出位置；
+				while((index=input.indexOf(kords,index+1))!=-1){
+					alert("在位置"+index+"发现敏感词");
+
+				}
+			}
+			*****/
+
+
+			/********lastIndexOf()
+			*****/
+			var kords="关键字";
+			function findKwords(input){
+				var index=input.length;
+				//先找一次 在判断 再输出位置；
+				while((index=input.lastIndexOf(kords,index-1))!=-1){
+					alert("在位置"+index+"发现敏感词");
+					if(index==0){   //防止第一个字符就是关键字，死循环
+						break;
+					}
+
+				}
+			}
+		 </script>
+	</head>
+	<body>
+		<button onclick="document.write(enCode(prompt('输入一句话：')))">编码</button>
+		<button onclick="findKwords(prompt('输入一句话，看看有没有敏感词\'关键字\'：'))">找敏感词</button>
+	</body>
+</html>

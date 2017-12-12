@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px;}
+#div1{width:100px; height:100px; background:#f00; position:absolute;}
+</style>
+<script>
+		
+var iSpeedX=1000;
+var iSpeedY=0;
+		
+	function startMove()
+	{
+		setInterval(function(){
+			var oDiv=document.getElementById('div1');
+			iSpeedY+=3;  //向下的速度变快
+			
+			
+			var leftN=oDiv.offsetLeft+iSpeedX;
+			var topN=oDiv.offsetTop+iSpeedY;
+			
+			if(topN>=document.documentElement.clientHeight-oDiv.offsetHeight)
+			{
+				iSpeedY*=-0.8;
+				iSpeedX*=0.8;//乘以小数  速度越来越小
+				topN=document.documentElement.clientHeight-oDiv.offsetHeight
+			}
+			else if(topN<=0)
+			{
+				iSpeedY*=-0.8;
+				iSpeedX*=0.8;
+				topN=0
+			};
+			
+			if(leftN>=document.documentElement.clientWidth-oDiv.offsetWidth)
+			{
+				iSpeedX*=-0.8;
+				leftN=document.documentElement.clientWidth-oDiv.offsetWidth
+			}
+			else if(leftN<=0)
+			{
+				iSpeedX*=-0.8;
+				leftN=0
+			};
+			
+			if(Math.abs(iSpeedX)<1)
+			{
+				iSpeedX=0;
+			};
+			if(Math.abs(iSpeedY)<1)
+			{
+				iSpeedY=0;
+			};
+			
+			oDiv.style.left=leftN+'px';
+			oDiv.style.top=topN+'px';
+			
+					document.title=iSpeedX;
+
+		},30)
+	};
+</script>
+</head>
+
+<body>
+<input type="button" value="开始运动" id="btn1" onclick="startMove()" />
+<div id="div1">速度绝对值小于1时 让速度=0;</div>
+</body>
+</html>

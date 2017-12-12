@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	
+	var otext=document.getElementById('text1');
+	var obtn=document.getElementById('btn1');
+	obtn.onclick=function()
+	{
+		//otext.value='afhfgi';
+		//otext.setAttribute('value','ddddd');//DOM设置属性
+		alert(otext.getAttribute('value'));//获取
+		//otext.removeAttribute('value');//删除
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" value="1111" id="text1" /><input type="button" id="btn1" />
+</body>
+</html>

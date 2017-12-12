@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{
+	width:100px;
+	height:100px;
+	background:#F00;
+filter:alpha(opacity:30);	opacity:0.3;
+	position:absolute;
+	left: 4px;
+	top: 42px;
+}
+</style>
+<script type="text/javascript" src="move2.js"></script>
+<script type="text/javascript" >
+
+window.onload=function()
+{
+	var obtn=document.getElementById('btn');
+	var odiv=document.getElementById('div1');
+	
+	obtn.onmouseover=function()
+	{
+		startMove(odiv,{width:102,height:200,opacity:100},function(){
+			startMove(odiv,{left:200})
+		});
+	};
+	obtn.onmouseout=function()
+	{
+		startMove(odiv,{left:0},function(){
+			startMove(odiv,{width:100,height:100,opacity:30})
+		})
+	};
+};
+
+</script>
+</head>
+
+<body>
+<input name="" type="button" id="btn" value="开始运动" />
+<div id="div1"></div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<title>hash数组（去重）</title>
+		<meta charset="utf-8" />
+		<script>
+  /*			
+		  var fbb=[];
+		  fbb["name"]="范冰冰";
+		  fbb["height"]="180cm";
+		  fbb["age"]=35;
+		
+		  console.log("姓名"+fbb["name"]);
+		  console.log("身高"+fbb["height"]);
+		  console.log("年龄"+fbb["age"]);
+
+		  
+		  for(var key in fbb){
+			console.log(key+":"+fbb[key])
+		  }
+*/
+		
+/********
+数组去重
+依次遍历旧数组中每个元素
+将元素的值作为key，value默认取1，放入hash中
+遍历结束后，输出hash的内容
+******/
+		var arr=['1','2','3','3','4','5','5'];
+		var hash=[];
+		for(var i=0;i<arr.length;i++){
+			hash[arr[i]]=1;
+		}
+		//console.log(hash);
+		var newArr=[];
+
+		/*
+		for(var key in hash){
+			//将key“追加”到newArr
+			newArr[newArr.length]=key;
+		}
+		*/
+
+		for(newArr[newArr.length] in hash);
+		console.log(newArr);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

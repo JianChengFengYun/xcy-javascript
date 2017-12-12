@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<title>解析邮箱名</title>
+		<meta charset="utf-8" />
+		<script>
+
+			function mail(email){
+				var i=email.indexOf("@");
+				var userName=email.slice(0,i);
+				var domain=email.slice(i+1);
+				alert("用户名"+userName);
+				alert("域名"+domain);
+
+			}
+
+		/***
+		将英文句子的每个单词首字母大写；you can you up
+		***/
+		function parseFirst(stmt){
+			var arr=stmt.split(" ");
+			for(var i=0;i<arr.length;i++){
+				arr[i]=arr[i][0].toUpperCase()+arr[i].slice(1);
+			}
+			return arr.join(" ");
+
+		}
+		
+		/***
+		颠倒单词顺序
+		***/
+		function reverse(str){
+			return str.split("").reverse().join("");
+		}
+
+		
+
+		/****
+		Tom@补给兵@60%#Mary@医护兵@80%#John@特种兵@30%
+		****/
+		var roles="Tom@补给兵@60%#Mary@医护兵@80%#John@特种兵@30%";
+		function printRoles(str){
+			var arr=str.split("#");
+			for(var i=0;i<arr.length;i++){
+				var ee=arr[i].split("@");
+				ee[2]="生命："+ee[2];
+				arr[i]=ee.join(" ");
+				
+				
+			}
+			//console.log(arr.join("\n"));
+			document.write(arr.join("<br />"));
+		}
+		 </script>
+	</head>
+	<body>
+		<button onclick="mail(prompt('输入邮箱地址：'))">邮箱</button>
+		<button onclick="document.write(parseFirst(prompt('输入一句英文：')))">首字符转大写</button>
+		<button onclick="document.write(reverse(prompt('输入单词：')))">颠倒单词顺序</button>
+		<button onclick="printRoles(roles)">打印游戏角色</button>
+	</body>
+</html>

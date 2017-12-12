@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <script>
+	function Student(sname,age){
+		this.sname=sname;
+		this.age=age;
+		if(!Student.prototype.intrSelf){
+			Student.prototype.intrSelf=function(){
+		alert("I'm "+this.sname+"; I'm "+this.age);
+			}
+		}
+	}
+	var father={car:"BMW",balance:100000000};
+	//Student.prototype=father;
+
+	var lilei=new Student("Li Lei",19);
+	//Step1: 创建对象
+	//var hmm=new Student("Han Meimei",18);
+	//Step2: 继承父对象
+	//Object.setPrototypeOf(hmm,father);
+	var hmm=Object.create(father,
+		{sing:{value:sing},
+		 sname:{value:"Han Meimei"},
+		 age:{value:18,writable:false},
+		 intrSelf:{value:intrSelf}
+		}
+	);
+	//console.log(hmm);
+	//Step3: 
+	/*重写*/
+	function intrSelf(){
+		alert("我是"+this.sname+",今年"+this.age);
+	}
+	function toString(){
+return "{sname:"+this.sname+", age:"+this.age+"}";
+	}
+	/*console.log(lilei.toString());
+	console.log(hmm.toString());*/
+	/*扩展*/
+	function sing(){
+		console.log("你是我的小丫小苹果儿");
+	}
+	console.log(hmm.sing());
+	console.log(hmm.intrSelf());
+	hmm.age=19;
+	console.log(hmm.intrSelf());
+	//console.log(lilei.sing());
+	
+	//hmm.__proto__=father;
+	//console.log(hmm.car);
+	//console.log(lilei.car);
+
+  </script>
+ </head>
+
+ <body>
+  <button onclick="lilei.intrSelf()">李雷的自我介绍</button>
+  <button onclick="hmm.intrSelf()">韩梅梅的自我介绍</button>
+ </body>
+</html>

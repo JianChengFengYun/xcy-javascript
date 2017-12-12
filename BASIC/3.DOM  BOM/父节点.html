@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	
+	var aA=document.getElementsByTagName('a');
+	//alert(aA[1].parentNode);
+	for(var i=0;i<aA.length;i++)
+	{
+		aA[i].onclick=function()
+		{
+			this.parentNode.style.display='none';//查找元素的父节点
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<ul>
+<li>11111111<a href="javascript:;">隐藏</a></li>
+<li>22222222222222<a href="javascript:;">隐藏</a></li>
+<li>333333333333<a href="javascript:;">隐藏</a></li>
+<li>4444444444444<a href="javascript:;">隐藏</a></li>
+<li>5555555555555555555<a href="javascript:;">隐藏</a></li>
+</ul>
+</body>
+</html>

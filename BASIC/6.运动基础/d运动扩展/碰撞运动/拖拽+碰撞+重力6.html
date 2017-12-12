@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px;}
+#div1{width:100px; height:100px; background:#f00; position:absolute; border-radius: 100px; /* 所有角都使用半径为5px的圆角，此属性为CSS3标准属性 */ 
+-moz-border-radius: 100px; /* Mozilla浏览器的私有属性 */ 
+-webkit-border-radius: 100px; /* Webkit浏览器的私有属性 */ 
+div{width:3px; height:3px; position:absolute; background:black;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	
+	var lastX=0;
+	var lastY=0;//前一个点的速度
+	
+	
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		
+		var disX=oEvent.clientX-oDiv.offsetLeft;
+		var disY=oEvent.clientY-oDiv.offsetTop;
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			
+			var left=oEvent.clientX-disX;
+			var top=oEvent.clientY-disY;
+			
+			oDiv.style.left=left+'px';
+			oDiv.style.top=top+'px';
+			
+			/*var oBg=document.createElement('div');
+			oBg.style.left=left+'px';
+			oBg.style.top=top+'px';
+			document.body.appendChild(oBg);//拖拽是由点组成的  计算两个点之间的速度就能知道 拖拽对象的方向与速度；*/
+		
+			iSpeedX=left-lastX;
+			iSpeedY=top-lastY;//后一个点的速度
+			lastX=left//记录这个点的速度
+			lastY=top;
+			document.title='x:'+iSpeedX+', y:'+iSpeedY;
+		};
+		document.onmouseup=function()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+			
+			startMove(oDiv);
+		};
+		clearInterval(oDiv.timer)
+	};
+};
+
+var iSpeedX=0;
+var iSpeedY=0;
+		
+	function startMove(obj)
+	{
+		clearInterval(obj.timer)
+		obj.timer=setInterval(function(){
+			iSpeedY+=3;  //向下的速度变快
+			
+			
+			var leftN=obj.offsetLeft+iSpeedX;
+			var topN=obj.offsetTop+iSpeedY;
+			
+			if(topN>=document.documentElement.clientHeight-obj.offsetHeight)
+			{
+				iSpeedY*=-0.8;
+				iSpeedX*=0.8;//乘以小数  速度越来越小
+				topN=document.documentElement.clientHeight-obj.offsetHeight
+			}
+			else if(topN<=0)
+			{
+				iSpeedY*=-0.8;
+				iSpeedX*=0.8;
+				topN=0
+			};
+			
+			if(leftN>=document.documentElement.clientWidth-obj.offsetWidth)
+			{
+				iSpeedX*=-0.8;
+				leftN=document.documentElement.clientWidth-obj.offsetWidth
+			}
+			else if(leftN<=0)
+			{
+				iSpeedX*=-0.8;
+				leftN=0
+			};
+			
+			if(Math.abs(iSpeedX)<1)
+			{
+				iSpeedX=0;
+			};
+			if(Math.abs(iSpeedY)<1)
+			{
+				iSpeedY=0;
+			};
+			
+			obj.style.left=leftN+'px';
+			obj.style.top=topN+'px';
+			
+
+		},30)
+	};
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

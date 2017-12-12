@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:100px;height:100px;background:#F00;position:absolute;left:0;top:50px;}
+</style>
+<script>
+		function startmove(itarget)//目标值
+		{
+			var timer=null;
+			var oDiv=document.getElementById('div1');
+			clearInterval(timer);
+			timer=setInterval(
+			function ()
+			{
+				var ispeed=(itarget-oDiv.offsetLeft)/8;
+				
+				if(oDiv.offsetLeft>=itarget)//是否到达终点
+				{
+					clearInterval(timer);//到达终点
+				}
+				else
+				{
+					oDiv.style.left=oDiv.offsetLeft+ispeed+'px';//到达之前
+					
+					document.title=oDiv.offsetLeft+':'+'ispeed:'+ispeed
+				};
+			},40);
+		};
+</script>
+</head>
+
+<body>
+<input type="button" value="开始运动" id="btn" onclick="startmove(500)" />
+<div id="div1"></div>
+<span style="width:1px;height:300px; background:#000;position:absolute;left:500px;top:0px;"></span>
+</body>
+</html>

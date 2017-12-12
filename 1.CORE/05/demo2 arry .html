@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>数组</title>
+		<meta charset="utf-8" />
+		<script>
+		/*
+			var week=['日','一','二','三','四','五','六'];
+			for(var i=0;i<week.length;i++){
+				week[i]="星期"+week[i];
+			}
+			console.log(week);
+
+			*/
+			/****找数组中的最大值****/
+			function getMax(arr){
+				for(var i=1,max=arr[0];i<arr.length;arr[i]>max&&(max=arr[i]),i++);
+					return max;
+			}
+			//console.log(getMax([9,56,12,8,76]));
+			//console.log(getMax([9,56,273,8,76]));
+
+
+
+
+
+			/*****
+			定义一个函数，查找数组中某个值得位置；没找到返回-1；
+			*****/
+			var emps=['eric','john','smith','rose','scppt'];
+			function indexOf(arr,ename){
+				for(var i=0;i<arr.length;i++){
+					if(ename==arr[i]){
+						return i; //跳出函数；
+					}
+				}
+				return -1;
+			}
+			console.log(indexOf(emps,"john"));//1
+			console.log(indexOf(emps,"rose"));//3
+			console.log(indexOf(emps,"tom")); //-1
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

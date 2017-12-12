@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> function </title>
+  <meta charset="utf-8" />
+  <script>
+  function calc(){
+	  /*
+		在每个函数里，都有一个，arguments对象：
+	  */
+
+  }
+/*
+无论用户传入几个参数，都可以求和；
+*/
+function add(){
+	for(var i=0,sum=0;i<arguments.length;sum+=arguments[i++]);
+	return sum;
+}
+alert(add(1,2,3));
+alert(add(1,2,3,4,5,6,7));
+  </script>
+ </head>
+
+ <body>
+ </body>
+</html>

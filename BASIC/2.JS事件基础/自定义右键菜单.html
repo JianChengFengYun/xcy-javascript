@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#ul{width:100px;height:200px;color:#fff;line-height:30px; background:#f00;display:none;position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul');
+	
+document.oncontextmenu=function (ev)
+	{
+		var oUl=document.getElementById('ul');
+		var oEvent=ev||event;
+		
+		var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+		var scrollleft=document.documentElement.scrollLeft||document.body.scrollLeft;
+		
+		
+		oUl.style.display='block';
+		oUl.style.left=scrollleft+oEvent.clientX+'px';
+		oUl.style.top=scrolltop+oEvent.clientY+'px';
+		return false;
+	};
+	document.onclick=function()
+	{
+		oUl.style.display='none';
+	};
+};
+</script>
+</head>
+
+<body style=" height:2000px;">
+<ul id="ul">
+<li>粘贴</li>
+<li>复制</li>
+<li>剪切</li>
+<li>查看原文件</li>
+<li>图片另存为</li>
+</ul>
+</body>
+</html>

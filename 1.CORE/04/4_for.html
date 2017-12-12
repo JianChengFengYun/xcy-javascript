@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <script>
+	/*计算从1加到100的和
+		先定义一个变量sum，保存每次累加后的和
+		从1开始，依次累加每个数，直到加到100为止
+		三要素：
+		1. 循环条件：加数<=100
+		2. 循环变量：加数, 每加一次，加数+1
+		3. 循环体：将当前的加数,累加到sum中
+
+		循环结束后，输出sum中的值
+	*/
+	for(var a=1,sum=0;a<=100;sum+=a++);
+	console.log(sum);
+	/*计算从1乘到100的值*/
+	//乘数,每乘一次，乘数+1
+	for(var n=2,r=1;n<=100;r*=n++);
+	console.log(r);
+	/*计算从1+1/3+1/5+...+1/999
+		使用变量sum，保存每次累加的和
+		三要素：
+		1. 循环条件：分母<=999
+		2. 循环变量：分母，每加一次，分母+2
+		3. 循环体：将1/分母的值，累加到sum中
+
+		循环结束后，输出sum的值
+	*/
+	for(var m=1,sum=0;m<=999;sum+=1/m,m+=2);
+	console.log(sum);
+
+	/*定义函数，输出乘法口诀表任意一行
+		比如：第三行
+		1x3=3 2x3=6 3x3=9 
+		假设用户输入行号l
+	定义一个变量str，保存所有子算式拼成的一个字符串
+		三要素：
+		1. 循环条件：乘数<=l
+		2. 循环变量：乘数，从1开始，每次+1
+		3. 循环体：拼子算式：乘数+"x"+l+"="+乘数*l+" "
+		           将子算式拼接到str中
+
+		循环结束后，将str中的字符串输出到控制台
+	*/
+    function fun(l){
+for(var i=1,str="";i<=l;str+=i+"x"+l+"="+ i++*l +" ");
+		console.log(str);
+	}
+
+
+	function getLeapYears(year){
+		/*定义变量n，存储已输出的闰年个数*/
+		/*从year开始，依次判断今后每一年
+			只要碰到闰年，就输出
+			三要素：
+			1. 循环条件：n<5
+			2. 循环变量：n，从0开始，碰到闰年才+1
+			            year，每次+1
+			3. 循环体：判断当前年份，如果是闰年
+			           n+1
+					   输出year
+		*/
+		year=parseInt(year);
+		for(var n=0;n>=5;n==0?year++:year+=4){
+			console.log("当前年份"+year);
+			if(year%4==0&&year%100!=0
+			   ||year%400==0){
+				console.log(year);
+				n++;
+			}
+		}
+	}
+
+	var bao=4;
+	for(var i=1;i<9;i++){
+		if(i==bao){
+			continue;
+		}else{
+			console.log("跳到"+i);
+		}
+	}
+  </script>
+ </head>
+ <body>
+  <button onclick="fun(prompt('输入行号'))">打印乘法口诀表指定行</button><br>
+  <button onclick="getLeapYears(prompt('输入一个年份'))">获得5个闰年</button>
+ </body>
+</html>

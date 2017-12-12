@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px;padding:0px;font-size:12px; list-style:none;}
+#div1{width:200px;margin:50px auto; border:1px solid #ccc; background:url(images/down_list_h2_bg.gif) repeat-x;}
+#div1 h2{line-height:25px;width:180px;float:left;}
+#div1 p{width:20px;height:25px;float:right; cursor:pointer;}
+.up{ background:url(images/up.gif) no-repeat 5px center;}
+.down{ background:url(images/down.gif) no-repeat 5px center;}
+#div1 li{line-height:20px;}
+.clear{ clear:both;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oP=oDiv.getElementsByTagName('p')[0];
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	oP.onclick=function()
+	{
+	if(oUl.style.display == 'none')
+	{
+		oUl.style.display='block';
+		oP.className='up';
+	}
+	else
+	{
+		oUl.style.display='none';
+		oP.className='down';
+	}
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+<p class="up"></p>
+<h2>收缩展开列表</h2>
+<ul>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+</ul>
+<DIV class="clear"></DIV>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html onclick="alert('html')" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{ width:300px; height:300px;}
+#div2{ width:200px; height:200px;}
+#div3{ width:100px; height:100px;}
+</style>
+</head>
+
+<body onclick="alert('body')">
+    <div id="div1" style=" background:red;" onclick="alert(this.style.background)">
+        <div id="div2" style="  background:blue;" onclick="alert(this.style.background)">
+            <div id="div3" style=" background:yellow;" onclick="alert(this.style.background)">//事件冒泡就是：自己发生事件以后不断地传给父级 </div>
+        </div>
+    </div>
+</body>
+</html>

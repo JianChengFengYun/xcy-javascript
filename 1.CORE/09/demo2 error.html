@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> Error </title>
+  <meta charset="utf-8" />
+  <script>
+	/*var kword=/no/ig;
+	var input=prompt("输入一句话");
+	var arr=input.match(kword);*/
+	/*try{
+		alert("共找到"+arr.length+"处");
+	}catch(err){
+		alert("没找到");
+		console.log(err.toString());
+	}finally{
+		alert("释放资源！");
+		arr=null;
+	}*/
+	/*if(arr){
+		alert("共找到"+arr.length+"处");
+	}else{
+		alert("没找到");
+	}
+	arr=null;*/
+
+    /*try{
+		new XMLHttpRequest();
+		document.write("<h1 style='color:green'>支持XMLHttpRequest对象</h1>");
+	}catch(err){
+		document.write("<h1 style='color:red'>不支持XMLHttpRequest对象</h1>");
+	}*/
+	/*if(window.XMLHttpRequest){
+		document.write("<h1 style='color:green'>支持XMLHttpRequest对象</h1>");
+	}else{
+		document.write("<h1 style='color:red'>不支持XMLHttpRequest对象</h1>");
+	}*/
+
+	function fun1(num){
+		if(isNaN(num)){
+			throw new Error("你数学是体育老师教的?!");
+		}else{
+			alert(num);
+		}
+	}
+
+	function fun2(input){
+		try{
+			fun1(input);
+		}catch(err){
+			alert("必须输入数字!")
+			console.log(err.toString());
+		}
+	}
+  </script>
+ </head>
+
+ <body>
+  <button onclick="fun2(prompt('输入数字'))">输出数字</button>
+ </body>
+</html>

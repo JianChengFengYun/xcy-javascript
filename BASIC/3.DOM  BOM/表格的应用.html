@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	//alert(document.getElementById('tab').getElementsByTagName('tbody')[0].getElementsByTagName('tr')[2].getElementsByTagName('td')[2].innerHTML);
+	//alert(document.getElementById('tab').tBodies[0].rows[2].cells[2].innerHTML);
+	var otab=document.getElementById('tab');
+	var atbd=otab.tBodies[0];
+	var atr=atbd.getElementsByTagName('tr');
+	var oldcolor="";
+	
+	for( var i=0;i<atr.length;i++)
+	{
+		
+		atr[i].onmouseover=function()
+		{
+			oldcolor=this.style.background;
+			this.style.background='blue';
+		};
+		
+		atr[i].onmouseout=function()
+		{
+			this.style.background=oldcolor;
+		};
+		
+		if(i%2==1)
+		{
+			atr[i].style.background='';
+		}
+		else
+		{
+			atr[i].style.background='red';
+		};
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<table width="300" border="1" id="tab">
+    <thead>
+          <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>编辑</th>
+          </tr>
+    </thead>
+    <tbody>
+          <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>33</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>44</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>55</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>44</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>55</td>
+                <td>&nbsp;</td>
+          </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

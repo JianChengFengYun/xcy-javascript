@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px; padding:0px;}
+li{list-style:none;}
+#div1{width:100px;height:400px;overflow:hidden; position:relative;}
+#div1 ul{
+	width:100px;
+	position:absolute;
+	left: 0px;
+	top:0px;
+}
+#div1 img{width:100px;height:100px;}
+input{width:40px;height:20px}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var oLi=oUl.getElementsByTagName('li');
+	var speed=-2;
+	
+	var oUp=document.getElementById('btn1');
+	var oDown=document.getElementById('btn2');
+	
+	var time=null;
+	
+	oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+	
+	function xuan()
+	{
+						 if(oUl.offsetTop<-oUl.offsetHeight/2)
+						 {
+							oUl.style.top='0'; 
+						 }
+						 if(oUl.offsetTop>0)
+						 {
+							 oUl.style.top=-oUl.offsetHeight/2+'px'
+						 };
+						oUl.style.top=oUl.offsetTop+speed+'px';
+					}
+	oUp.onmousedown=function()
+	{
+		time=setInterval(xuan,30);
+		speed=-2;
+	};
+	oUp.onmouseup=function()
+	{
+		clearInterval(time);
+	};
+	oDown.onmousedown=function()
+	{
+		time=setInterval(xuan,30);
+		speed=2;
+	};
+	oDown.onmouseup=function()
+	{
+		clearInterval(time);
+	};
+					
+};
+
+
+</script>
+</head>
+
+<body>
+    <input type="button" value="向上"  id="btn1" />
+<div id="div1">
+    <ul>
+        <li><img src="map/2987.jpg" /></li>
+        <li><img src="map/3777.jpg" /></li>
+        <li><img src="map/3916.jpg" /></li>
+        <li><img src="map/3951.jpg" /></li>
+    </ul>
+</div>
+    <input type="button" value="向下"  id="btn2" />
+</body>
+</html>

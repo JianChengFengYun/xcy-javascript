@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:100px;height:100px; background:#f00; position:absolute;top:200px;right:0px;}
+</style>
+<script>
+window.onscroll=function()
+{
+	var oDiv=document.getElementById('div1');
+	var scrolltop=document.documentElement.scrollTop||document.body.scrollTop;
+	
+	var t=scrolltop+(document.documentElement.clientHeight-oDiv.offsetHeight)/2;
+	startmove(parseInt(t));// 以防目标值是小数点（计算机不认小数点） div就会上下跳动  将目标值取整
+};
+	var timer=null;
+function startmove(itarget)
+{
+	var oDiv=document.getElementById('div1');
+	var otext=document.getElementById('TEXT');
+	
+	
+	clearInterval(timer);
+	timer=setInterval(
+					  function()
+					  {
+						var ispeed=(itarget-oDiv.offsetTop)/8;
+						ispeed>0?ispeed=Math.ceil(ispeed):ispeed=Math.floor(ispeed);
+						if(oDiv.offsetTop==itarget)//停止条件：两点重合
+						{
+							clearInterval(timer);
+						}
+						else
+						{
+							oDiv.style.top=oDiv.offsetTop+ispeed+'px';
+							
+						};
+						otext.value='div的 top：'+oDiv.offsetTop+'目标值：'+itarget;
+
+					  },30)
+	
+	
+	
+};
+</script>
+</head>
+
+<body style="height:2000px;">
+<div id="div1"><textarea name="one" cols="1" rows="3" id="TEXT" style="width:100px;height:60px;line-height:20px;"></textarea></div>
+</body>
+</html>

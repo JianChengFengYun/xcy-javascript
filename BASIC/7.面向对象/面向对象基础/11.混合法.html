@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+function CreatePerson(name, sex)
+{
+	this.name=name;
+	this.sex=sex;
+}
+
+CreatePerson.prototype.showName=function ()
+{
+	alert('我的名字叫：'+this.name);
+};
+CreatePerson.prototype.showSex=function ()
+{
+	alert('我是'+this.sex+'的');
+};
+
+var p1= new CreatePerson('blue', '男');
+var p2= new CreatePerson('leo', '女');
+
+
+p1.showName();
+p1.showSex();
+p2.showName();
+p2.showSex();
+
+alert(p1.showName==p2.showName)
+</script>
+</head>
+
+<body>
+相同的东西加在原型你  不同的东西加在构造函数里
+</body>
+</html>

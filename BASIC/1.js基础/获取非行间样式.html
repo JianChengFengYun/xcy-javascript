@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px;parding:0px;}
+#div1{width:400px;height:400px;background:#F00;}
+</style>
+<script>
+/*window.onload=function()
+{
+	
+	var oDiv=document.getElementById('div1');
+	//alert(oDiv.style.width);// 获取行间样式
+	//alert(oDiv.currentStyle.width);// 只兼容IE
+	//alert(getComputedStyle(oDiv,false).width); //兼容chrome FF
+	// 让浏览器都兼容
+	//alert(oDiv.currentStyle);//在IE里面是个对象oDiv.currentStyle==true 在火狐里面没定义什么都不是
+	if(oDiv.currentStyle)
+	{
+		//IE
+		alert(oDiv.currentStyle.width)
+	}
+	else
+	{
+		//FF chrome
+		alert(getComputedStyle(oDiv,false).width)
+	};
+};*/
+//可以总结成一个公共的行数 用的时候比较方便
+function getstyle(obj,name)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[name];
+	}
+	else
+	{
+		return getComputedStyle(obj,false)[name];
+	};
+};
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	alert(getstyle(oDiv,'width'))
+};
+/*只能获取单一样式（width height等 ） 不能获取复合样式（如background border）*/
+</script>
+
+</head>
+
+<body>
+<div id="div1"></div>
+
+</body>
+</html>

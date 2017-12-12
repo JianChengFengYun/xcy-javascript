@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>编码 解码</title>
+		<meta charset="utf-8" />
+		<script>
+			/*
+				请用户输入关键词
+				程序将关键字编码为单字节
+				拼接一个url，输出
+			*/
+			var url="http://www.baidu.com/s?word=";
+			var input=prompt("百度一下：");
+			input=encodeURIComponent(input);
+			alert("向服务器发送："+url+input);
+
+			/*
+				模拟服务器端解码
+			*/
+			alert("服务器端解码后："+decodeURIComponent(input));
+
+/**************************************************************************/
+			var suan=prompt("输入一个算式：");
+			alert(eval(suan));
+			
+			var ma=prompt("输入一段正确的代码：");
+			eval(ma);
+
+
+
+
+
+
+
+
+		</script>
+	</head>
+	<body>
+
+
+	</body>
+</html>

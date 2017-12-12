@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+ 
+<html>
+ 
+<head>
+ 
+  <title> New Document </title>
+ 
+  <meta charset="utf-8" />
+ 
+        <style>
+ 
+                h2 {margin: 0; padding: 0;}
+ 
+                #ul1 ul {display: none;}
+ 
+                #ul1 .next {color: red;}
+ 
+        </style>
+ 
+        <script src="http://code.jquery.com/jquery-1.8.2.js" type="text/javascript"></script>
+ 
+        <script>
+ 
+
+                $(function(){
+ 
+                
+                        $('#ul1 li').find('h2').click(function(){
+ 
+
+                                var oUl = $(this).parent().find('ul')[0];
+ 
+                                var aUl = $(this).parent().siblings('li').find('ul');
+ 
+
+                                $(aUl).slideUp();
+ 
+                                $(aUl).not(oUl).attr('bClk',false);
+ 
+                        
+                                if($(oUl).attr('bClk')=='true'){
+ 
+                                        $(oUl).slideUp().attr('bClk',false);
+ 
+                                        $(oUl).find('ul').slideUp().attr('bClk',false);
+ 
+                                }else{
+ 
+                                        $(oUl).slideDown().attr('bClk',true);
+ 
+                                }
+ 
+                                
+                        })
+ 
+                
+                });
+ 
+
+        </script>
+ 
+</head>
+ 
+
+<body>
+ 
+  <ul id="ul1">
+ 
+                <li><h2>1111</h2></li>
+ 
+                <li><h2 class="next">2222</h2>
+ 
+                        <ul>
+ 
+                                <li><h2 class="next">aaaa</h2>
+ 
+                                        <ul>
+ 
+                                                <li><h2>aaaa</h2></li>
+ 
+                                                <li><h2>bbbb</h2></li>
+ 
+                                                <li><h2>cccc</h2></li>
+ 
+                                                <li><h2>dddd</h2></li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li><h2 class="next">aaaa</h2>
+ 
+                                        <ul>
+ 
+                                                <li><h2>aaaa</h2></li>
+ 
+                                                <li><h2 class="next">bbbb</h2>
+ 
+                                                        <ul>
+ 
+                                                                <li><h2>aaaa</h2></li>
+ 
+                                                                <li><h2>bbbb</h2></li>
+ 
+                                                                <li><h2>cccc</h2></li>
+ 
+                                                                <li><h2>dddd</h2></li>
+ 
+                                                        </ul>
+ 
+                                                </li>
+ 
+                                                <li><h2 class="next">cccc</h2>
+ 
+                                                        <ul>
+ 
+                                                                <li><h2>aaaa</h2></li>
+ 
+                                                                <li><h2>bbbb</h2></li>
+ 
+                                                                <li><h2>cccc</h2></li>
+ 
+                                                                <li><h2>dddd</h2></li>
+ 
+                                                        </ul>
+ 
+                                                </li>
+ 
+                                                <li><h2>dddd</h2></li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li><h2>cccc</h2></li>
+ 
+                                <li><h2>dddd</h2></li>
+ 
+                        </ul>
+ 
+                </li>
+ 
+                <li><h2 class="next">3333</h2>
+ 
+                        <ul>
+ 
+                                <li><h2 class="next">aaaa</h2>
+ 
+                                        <ul>
+ 
+                                                <li><h2>aaaa</h2></li>
+ 
+                                                <li><h2>bbbb</h2></li>
+ 
+                                                <li><h2>cccc</h2></li>
+ 
+                                                <li><h2>dddd</h2></li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li><h2 class="next">aaaa</h2>
+ 
+                                        <ul>
+ 
+                                                <li><h2>aaaa</h2></li>
+ 
+                                                <li><h2>bbbb</h2></li>
+ 
+                                                <li><h2>cccc</h2></li>
+ 
+                                                <li><h2>dddd</h2></li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li><h2>cccc</h2></li>
+ 
+                                <li><h2>dddd</h2></li>
+ 
+                        </ul>
+ 
+                </li>
+ 
+                <li><h2>4444</h2>
+ 
+                </li>
+ 
+        </ul>
+ 
+</body>
+ 
+</html>
+ 

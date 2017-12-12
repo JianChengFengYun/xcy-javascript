@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<title>密码验证</title>
+		<meta charset="utf-8" />
+		<script>
+		/*
+		请用户输入新密码：
+			利用reg.test()验证pwd；
+			如果验证未通过，提示：“密码必须是6位数”
+			如果验证通过，提示：“密码修改成功”
+
+		
+		var reg=/^\d{6}$/;
+		while(!reg.test(prompt("输入新密码："))){
+			alert("密码强度要求：6-8位，只能是数字，字母组合；至少包含一位大写字母，至少包含一个数字.");
+
+		}
+		alert("密码修改成功");
+		*/
+
+		
+		/***找关键字，并返回位置
+		var str="明明喜欢我，却不告诉我；别理我，我想静静；静静是谁，你先告诉我明明是谁";
+		var reg=/明明|静静/g;
+		var arr=null;
+		while((arr=reg.exec(str))!=null){
+			console.log("在位置"+arr.index+"发现关键字"+arr[0]);
+			console.log("下次从"+reg.lastIndex+"开始找！");
+
+		}
+		***/
+
+		/***
+		找网页里所有a的href的值；
+		***/
+		var str='<a class="red" href="http://www.baidu.com"></a><div></div><A class="red" href="http://www.taobao.com"></A>';
+		//var reg=/<a\s+(.*?)href\s*=\s*['"]([^'"]*)['"]/ig;
+					//  1                   2:() 要取出的url
+		var reg=/<a\s+(.*?)href\s*=\s*(['"])([^'"]*)(\2)/ig;
+					//  1              2     3:()	 (\2):和2的内容一致；
+					//                      要取出的url
+		var arr=null;
+		while((arr=reg.exec(str))!=null){
+			console.log(RegExp.$3);
+			
+
+		}
+		 </script>
+	</head>
+	<body>
+
+	</body>
+</html>

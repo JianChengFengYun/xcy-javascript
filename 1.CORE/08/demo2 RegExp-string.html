@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>去前后 空字符</title>
+		<meta charset="utf-8" />
+		<script>
+		/***
+		去掉str前的空字符
+		***/
+		function ltrim(str){
+			var reg=/^\s+/;
+			return str.replace(reg,"");
+			//return str.replace(/^\s+/,"");
+
+		}
+		
+		/***
+		去掉str后的空字符
+		***/
+		function rtrim(str){
+			var reg=/\s+$/;
+			return str.replace(reg,"");
+			//return str.replace(/\s+$/,"");
+
+		}
+
+		
+		/***
+		同时去掉str前后的空字符
+		***/
+		function trim(str){
+			var reg=/^\s+|\s+$/g;
+			return str.replace(reg,"");
+			//return str.replace(/^\s+|\s+$/g8 o l ,"");
+
+		}
+		var str=" \tHello world\t ";
+
+
+		 </script>
+	</head>
+	<body>
+		<button onclick="console.log(ltrim(str))">去掉str前的空字符</button>
+		<button onclick="console.log(rtrim(str))">去掉str后的空字符</button>
+		<button onclick="console.log(trim(str))">去掉str前后空字符</button>
+	</body>
+</html>

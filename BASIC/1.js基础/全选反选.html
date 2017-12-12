@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var obtn=document.getElementById('btn');
+	var otab=document.getElementById('tab');
+	var abtn=obtn.getElementsByTagName('input');
+	var atab=otab.getElementsByTagName('input');
+	abtn[0].onclick=function()
+	{
+		for(var i=0;i<atab.length;i++)
+		{
+			atab[i].checked=true;
+		};
+	};
+	abtn[2].onclick=function()
+	{
+		for(var i=0;i<atab.length;i++)
+		{
+			atab[i].checked=false;
+		};
+	};
+	abtn[1].onclick=function()
+	{
+		for(var i=0;i<atab.length;i++)
+		{
+			if(atab[i].checked)
+			{
+				atab[i].checked=false;
+			}
+			else
+			{
+				atab[i].checked=true;
+			};
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="btn">
+<input type="button" value="全选" />
+<input type="button" value="反选" />
+<input type="button" value="不选" />
+</div>
+<div id="tab">
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+<input type="checkbox" />
+</div>
+</body>
+</html>

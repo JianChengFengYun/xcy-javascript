@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+		<title>找最大值</title>
+		<meta charset="utf-8" />
+		<script>
+			function max(a,b,c){
+				var max=parseFloat(a)>parseFloat(b)?a:b;
+				parseFloat(c)>parseFloat(max)&&(max=c);
+				return max;
+			}
+		</script>
+	</head>
+	<body>
+	<button onclick="alert(max(prompt('第1个数'),prompt('第2个数'),prompt('第3个数')))">click</button>
+
+	</body>
+</html>

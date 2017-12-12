@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<title>home work</title>
+		<meta charset="utf-8" />
+		<script>
+			/*
+			**请用户输入“1个字符”；判断字符种类；
+			**  0<=字符<=9;										数字
+			**  "一"<=字符<="" 或 "\u4e00"<=字符<="\u9fa5";		汉字
+			**  "a"<=字符<="z"和"A"<=字符<="Z"；					英文字母
+			*/
+
+			/*var font=prompt("请输入1个字符：");
+			document.write(
+										  font>=0&&font<=9?"是数字":
+							font>="\u4e00"&&font<="\u9fa5"?"是汉字":
+				font>="a"&&font<="z"||font>="A"&&font<="Z"?"是字母":
+													   	"其他字符！"
+			);*/
+
+			/*
+			**计算闰年：1.能被4整除，不能被100整除。或者 2.能被400整除。
+			*/
+
+			/*
+			**请用户输入：身高(m), 保存在height
+			**			  体重(kg),     weight
+			** 计算可莱托指数(clayto)=体重/身高的平方；
+			** 如果clayto < 20 瘦；
+			** 如果clayto > 25 胖；
+			*/
+			var height=prompt("请输入身高(m)：");
+			var weight=prompt("请输入体重(kg)：");
+			var clayto=weight/(height*height);
+			document.write(
+				clayto<20?"瘦":
+				clayto>25?"胖":
+						"正常"
+			);
+
+		</script>
+	</head>
+	<body>
+
+
+	</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px; list-style:none; font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+#main{
+	width:500px;
+	margin:0px auto;
+	font-size:12px;
+	
+	position:relative;
+}
+#nav{ float:left;width:500px;background:#030;position:relative;color:#fff;}
+#nav li{width:100px;height:30px;line-height:30px; font-weight:bold; text-align:center; float:left; cursor:default;}
+.btn{width:100px;height:30px;line-height:30px; font-weight:bold; text-align:center; float:left;color:#fff; cursor:default;}
+.navactive{border:2px solid #F00; border-bottom:0px; color:#F00;background:#FFF; position:relative;z-index:5;}
+#box{
+	width:120px;
+	line-height:30px;
+	font-weight:bold;
+	font-size:10px;
+	text-align:center;
+	color:#333;
+	background:#fff;
+	position:absolute;
+	left: 0px;
+	top: 30px;
+	z-index:1;
+	display:none;
+	border:2px solid #f00;
+}
+#ctn{
+	width:200px;
+	height:80px;
+	line-height:20px;
+	font-size:10px;
+	text-align:center;
+	color:#333;
+	background:#fff;
+	border:2px solid #f00;
+	position:absolute;
+	left: 118px;
+	top: 0px;
+	display:none;
+	z-index:-5;
+}
+.border{ border:0px;}
+.ctnactive{height:26px;border:2px solid #f00;border-right:0px;border-left:0px;position:relative;z-index:5; background-color:#fff;}
+</style>
+<script>
+window.onload=function()
+{
+	var obox=document.getElementById('box');
+	var onav=document.getElementById('nav');
+	var actn=obox.getElementsByTagName('div');
+	var abtn=onav.getElementsByTagName('li');
+	var ali=obox.getElementsByTagName('li');
+	var time=null;
+	var moretime=null;
+	var e=0
+	var ctntime=null;
+	abtn[0].onmouseover=function()
+	{
+		clearTimeout(time);
+		obox.style.display='block';
+		abtn[0].className='navactive';
+
+	};
+	abtn[0].onmouseout=function()
+	{
+		time=setTimeout(function(){obox.style.display='none';
+		abtn[0].className='btn';},2000);
+
+	};	
+	obox.onmouseover=function()
+	{
+		clearTimeout(time);
+
+	};
+	obox.onmouseout=function()
+	{
+		time=setTimeout(function(){obox.style.display='none';
+		abtn[0].className='btn';},2000);
+	};	
+	
+	for(var i=0;i<ali.length;i++)
+	{
+		ali[i].index=i;
+		ali[i].onmouseover=function()
+		{
+			for(e=0;e<actn.length;e++)
+			{
+				actn[e].style.display='none';
+			};
+			actn[this.index].style.display='block';actn[this.index].style.top=this.index*30+'px';
+			for(var i=0;i<ali.length;i++)
+			{
+				ali[i].className='';
+			};
+			this.className='ctnactive';
+		};
+		
+		ali[i].onmouseout=function()
+		{
+			ctntime=setTimeout(function(){actn[this.index].style.display='none';
+			this.className='border';},1000)
+		};
+		actn[i].onmouseover=function()
+		{
+			clearTimeout(ctntime);
+		};
+		actn[i].onmouseout=function()
+		{
+			var m=this;
+			setTimeout(function(){m.style.display='none';
+			ali[i].className='border';},1000)
+		};
+	
+	};	
+	
+	
+		};
+</script>
+</head>
+
+<body>
+<div id="main">
+    <ul id="nav">
+        <li>商品分类</li>
+        <li>天猫商城</li>
+        <li>淘宝首页</li>
+        <li>亚马逊</li>
+    </ul>
+        <ul id="box">
+            <li>分类1</li>
+            <div id="ctn">
+                <p>zi分类1</p>
+                <p>zi分类1</p>
+                <p>zi分类1</p>
+                <p>zi分类1</p>
+            </div>
+            <li>分类1</li>
+            <div id="ctn">
+                <p>子分类2</p>
+                <p>子分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+            </div>
+            <li>分类1</li>
+            <div id="ctn">
+                <p>子分3类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+            </div>
+            <li>分类1</li>
+            <div id="ctn">
+                <p>子4分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+            </div>
+            <li>分类1</li>
+            <div id="ctn">
+                <p>子5分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+            </div>
+            <li>分类1</li>
+            <div id="ctn">
+                <p>子6分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+            </div>
+            <li>分类1</li>
+            <div id="ctn">
+                <p>子7分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+            </div>
+            <li>分类1</li>
+            <div id="ctn">
+                <p>子8分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+                <p>子分类</p>
+            </div>
+        </ul>
+<img src="images/yewu3.jpg" width="500" height="415" style="float:left;" />
+</div>
+</body>
+</html>
+

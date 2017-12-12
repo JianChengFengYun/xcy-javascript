@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="rightArea" style='Z-INDEX: 10000000;VISIBILITY: visible;POSITION: absolute'>
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td id=MovePicHtml>
+				<!--div onclick="javascript:openChat();"--><Table id="ourterTab0" name="outerTab0" border="0" cellspacing="0" cellpadding="0" style="width:100%; height:100%" ms_positioning="GridLayout"><tr><td valign=top id="ChinaECHtml"><TABLE id="" style="WIDTH: 77px; HEIGHT: 162px" cellSpacing=1 cellPadding=1 width=77 bgColor=#ffffff border=0 heihgt="">
+<TBODY>
+<TR>
+<TD>&nbsp;<IMG src="http://img1.chinaec.net//29/1200001079/编辑器上传文件/u=321746308,2049294797&fm=0&gp=14.jpg" border=0></TD></TR>
+<TR>
+<TD>
+<P align=left><A href="http://wpa.qq.com/msgrd?V=1&Uin=83183296&Menu=yes" target=blank><IMG style="WIDTH: 74px; HEIGHT: 24px" height=30 alt=点击这里给我发消息 src="http://wpa.qq.com/pa?p=1:83183296:1" width=129 border=0></A> <A href="http://wpa.qq.com/msgrd?V=1&Uin=83183296&Menu=yes" target=blank><IMG style="WIDTH: 74px; HEIGHT: 22px" height=22 alt=点击这里给我发消息 src="http://wpa.qq.com/pa?p=1:83183296:2" width=74 border=0></A> </P></TD></TD></TR></TBODY></TABLE></td></tr></table><!--/div-->
+			</td>
+		</tr>
+	</table>
+</div>
+<SCRIPT language="JavaScript">
+
+    var imgHeight = document.all.item("MovePicHtml").offsetHeight;
+
+    if (CheckShow()) {
+        document.all.item("rightArea").style.display = "none";
+    }
+
+    //document.all.item("mainArea").style.display = "none";
+
+    function mymove() {
+        imgHeight = document.all.item("MovePicHtml").offsetHeight;
+        rightArea.style.top = document.body.scrollTop + (document.body.offsetHeight - imgHeight) / 2;
+        rightArea.style.right = 5;
+        setTimeout("mymove();", 10);
+    }
+    mymove();
+
+</SCRIPT>
+
+<script type="text/javascript">
+
+    function SetEcAdShow() {
+        if (!document.getElementById("showEcAd")) {
+            return;
+        }
+        var adobj = document.getElementById("showEcAd");
+        imgHeight = adobj.offsetHeight;
+        adobj.style.top = document.body.scrollTop + document.body.offsetHeight - imgHeight - 5;
+        adobj.style.left = (document.body.offsetWidth - adobj.offsetWidth) / 2;
+
+        window.setTimeout("SetEcAdShow()", 20);
+    }
+</script>
+
+
+		
+
+
+<div id=ad_left style="Z-INDEX: 1; LEFT: 0px; WIDTH: 109px; POSITION: absolute; TOP: 200px; HEIGHT: 430px"><table cellSpacing="0" cellPadding="0" border="0" align=left><tr><td><Table id="ourterTab0" name="outerTab0" border="0" cellspacing="0" cellpadding="0" style="width:100%; height:100%" ms_positioning="GridLayout"><tr><td valign=top id="ChinaECHtml">
+<TABLE id="" style="WIDTH: 77px; HEIGHT: 162px" cellSpacing=1 cellPadding=1 width=77 bgColor=#ffffff border=0 heihgt="">
+<TBODY>
+<TR>
+<TD>&nbsp;<IMG src="http://img1.chinaec.net//29/1200001079/编辑器上传文件/u=321746308,2049294797&fm=0&gp=14.jpg" border=0></TD></TR>
+<TR>
+<TD>
+
+<P align=left><A href="http://wpa.qq.com/msgrd?V=1&Uin=83183296&Menu=yes" target=blank><IMG style="WIDTH: 74px; HEIGHT: 24px" height=30 alt=点击这里给我发消息 src="http://wpa.qq.com/pa?p=1:83183296:1" width=129 border=0></A> <A href="http://wpa.qq.com/msgrd?V=1&Uin=83183296&Menu=yes" target=blank><IMG style="WIDTH: 74px; HEIGHT: 22px" height=22 alt=点击这里给我发消息 src="http://wpa.qq.com/pa?p=1:83183296:2" width=74 border=0></A> </P></TD></TD></TR></TBODY></TABLE></td></tr></table></td></tr></table></div><SCRIPT language=javascript>
+lastScrollY=-1;function heartBeat(){diffY=document.body.scrollTop;percent=.1*(diffY-lastScrollY);if(percent>0)percent=Math.ceil(percent);else percent=Math.floor(percent);document.all.ad_left.style.pixelTop+=percent;lastScrollY=lastScrollY+percent;}window.setInterval("heartBeat()",1);</SCRIPT><div id=ad_right style="Z-INDEX: 1; right: 0px; WIDTH: 109px; POSITION: absolute; TOP: 200px; HEIGHT: 430px"><table cellSpacing="0" cellPadding="0" border="0" align=right><tr><td></td></tr></table></div><SCRIPT language=javascript>
+lastScrollY2=-1;function heartBeat2(){diffY2=document.body.scrollTop;percent2=.1*(diffY2-lastScrollY2);if(percent2>0)percent2=Math.ceil(percent2);else percent2=Math.floor(percent2);document.all.ad_right.style.pixelTop+=percent2;lastScrollY2=lastScrollY2+percent2;}window.setInterval("heartBeat2()",1);</SCRIPT>
+
+<script>
+function hiddenLeftAD()
+{
+  try
+  {
+    document.getElementById("ad_left").style.display = "none";
+  }
+  catch(e){}
+  return;
+}
+function hiddenRightAD()
+{
+  try
+  {
+    document.getElementById("ad_right").style.display = "none";
+  }
+  catch(e){}
+  return;
+}
+</script>
+
+
+</body>
+</html>

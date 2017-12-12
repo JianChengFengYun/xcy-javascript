@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:100px;height:100px; background:#f00; margin-top:50px; border:1px solid #000;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	
+	setInterval(function()
+						 {
+							 oDiv.style.width=oDiv.offsetWidth-1+'px';//加上边框之后  div的宽不仅没减少  反而增加  因为offsetWidth包含边框  造成bug  用oDiv.style.width替代它
+						 },30);
+		
+	
+};
+</script>
+
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px;padding:0px;font-size:12px; list-style:none;}
+#div1{width:200px;margin:50px auto; border:1px solid #ccc; background:url(images/down_list_h2_bg.gif) repeat-x;}
+#div1 h2{line-height:25px;width:180px;float:left;}
+#div1 img{width:8px;height:4px;float:right;margin:6px 6px; cursor:pointer;}
+#div1 ul{width:200px;float:left;}
+#div1 li{line-height:20px;}
+.clear{ clear:both;}
+</style>
+<script>
+var oBtn=null;
+var oUl=null;
+window.onload=function()
+{
+	new Qiehuan('div1')
+};
+function Qiehuan(id)
+{
+	var oDiv=document.getElementById(id);
+	this.oBtn=oDiv.getElementsByTagName('img')[0];
+	this.oUl=oDiv.getElementsByTagName('ul')[0];
+	var _this=this;
+	this.oBtn.onclick=function()
+	{
+		_this.show();
+	};
+}
+Qiehuan.prototype.show=function()
+	{
+		if(this.oUl.style.display === 'none')
+		{
+			this.oUl.style.display='block';
+			this.oBtn.src='images/up.gif';
+		}
+		else
+		{
+			this.oUl.style.display='none';
+			this.oBtn.src='images/down.gif';
+		}
+	};
+</script>
+</head>
+
+<body>
+<div id="div1">
+<img src="images/up.gif"/>
+<h2>收缩展开列表</h2>
+<ul>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+<li>日不落-蔡依林</li>
+</ul>
+<DIV class="clear"></DIV>
+</div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px;padding:0px;}
+#parent{width:630px;height:200px;background:#3e3e3e;border:20px solid #3e3e3e;}
+#content{width:630px;height:150px;position:relative;overflow:hidden;}
+#content ul{width:640px;position:absolute;left:-10px;top:0px;}
+#content li{width:150px;height:140px;float:left;list-style:none;background:#000;margin-left:10px;_margin-left:7px;padding-top:10px;color:#ffffff;line-height:30px;text-align:center;}
+#wheel{width:618px;height:19px;margin-left:6px;_margin-left:4px;margin-top:20px;_margin-top:15px;}
+#wheel div{float:left;} 
+#left{width:20px;height:19px;}
+#right{width:21px;height:19px;}
+#center{width:577px;height:17px;padding-top:2px;background:url(images/gundt_04.jpg) no-repeat;position:relative;left:0;top:0;}
+#center div{width:167px;height:15px;position:absolute;top:-2;left:0;}
+</style>
+<script>
+function myAddEvent(obj,sEvent,fn)
+{
+	if(obj.attachEvent)
+	{
+		obj.attachEvent('on'+sEvent,fn);	
+	}
+	else
+	{
+		obj.addEventListener(sEvent,fn,false);
+	};
+};
+window.onload=function()
+{
+	var oParent=document.getElementById('parent');
+	var oContent=document.getElementById('content');
+	var oWheelUl=document.getElementById('WheelUl');
+	var oWheelLi=oWheelUl.getElementsByTagName('li');
+	var oBtnLeft=document.getElementById('left');
+	var oBtnRight=document.getElementById('right');
+	var oCenter=document.getElementById('center');
+	var oBtnWheel=oCenter.getElementsByTagName('div')[0];
+	
+	//左右按钮 ：按下走，抬起停。
+	oWheelUl.innerHTML=oWheelUl.innerHTML+oWheelUl.innerHTML;
+	oWheelUl.style.width=(oWheelLi[0].offsetWidth+10)*oWheelLi.length+'px';
+	var time=null;
+	var speed=-2;
+	function onLeftRight()
+	{
+		if(oWheelUl.offsetLeft<-oWheelUl.offsetWidth/2)
+		{
+			oWheelUl.style.left=-10+'px';
+		};//向左
+		if(oWheelUl.offsetLeft>-10)
+		{
+			oWheelUl.style.left=-oWheelUl.offsetWidth/2+'px';
+		};//向右
+		oWheelUl.style.left=oWheelUl.offsetLeft+speed+'px';
+		
+	};
+	oBtnLeft.onmousedown=function()
+	{
+		time=setInterval(onLeftRight,10);
+		speed=-2;
+	};
+	oBtnRight.onmousedown=function()
+	{
+		time=setInterval(onLeftRight,10);
+		speed=2;
+	};
+	oBtnRight.onmouseup=oBtnLeft.onmouseup=function()
+	{
+		clearInterval(time);
+	};
+	//滚动条，滚轮效果。
+	oBtnWheel.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oBtnWheel.offsetLeft;
+		if(oBtnWheel.setCapture)
+		{
+			oBtnWheel.onmousemove=fnmove;
+			oBtnWheel.onmouseup=fnup;
+			oBtnWheel.setCapture();
+		}
+		else
+		{
+			document.onmousemove=fnmove;
+			document.onmouseup=fnup;
+			
+		};
+		function fnmove (ev)
+				{
+					var oEvent=ev||event;
+					
+					var l=oEvent.clientX-disX;
+					setLeft(l);
+				};
+		function fnup()
+		{
+			this.onmousemove=null;
+			this.onmouseup=null;
+			if(this.releaseCapture)
+			{
+				this.releaseCapture();
+			};
+		};
+		
+		return false;
+	};
+	function setLeft(l)
+	{
+			if(l<0)
+			{
+				l=0;
+			}
+			else if(l>oCenter.offsetWidth-oBtnWheel.offsetWidth)
+			{
+				l=oCenter.offsetWidth-oBtnWheel.offsetWidth;
+			};
+			oBtnWheel.style.left=l+'px';
+			var scale=l/(oCenter.offsetWidth-oBtnWheel.offsetWidth);
+			oWheelUl.style.left=-(oWheelUl.offsetWidth-oContent.offsetWidth)*scale+'px';
+	};
+	function onMouseWheel(ev)
+	{
+		var oEvent=ev||event;
+		var bDown=true;
+		bDown=oEvent.wheelDelta?oEvent.wheelDelta<0:oEvent.detail>0;
+		if(bDown)
+		{
+			setLeft(oBtnWheel.offsetLeft-10);
+			//oWheelUl.style.left=oWheelUl.offsetLeft-10+'px';
+		}
+		else
+		{
+			setLeft(oBtnWheel.offsetLeft+10);
+			//oWheelUl.style.left=oWheelUl.offsetLeft+10+'px';
+		};
+		if(oEvent.preventDefault)
+		{
+			oEvent.preventDefault();
+		};
+		return false;
+	};
+	myAddEvent(oParent,'mousewheel',onMouseWheel);
+	myAddEvent(oParent,'DOMMouseScroll',onMouseWheel);
+	
+	
+	
+	
+	
+	
+};
+</script>
+</head>
+
+<body>
+<div id="parent">
+	<div id="content">
+        <ul id="WheelUl">
+        	<li><img src="images/wheel_03.jpg" /><br />iPod Classic</li>
+        	<li><img src="images/wheel_05.jpg" /><br />iPod Classic</li>
+        	<li><img src="images/wheel_07.jpg" /><br />iPod Classic</li>
+        	<li><img src="images/wheel_09.jpg" /><br />iPod Classic</li>
+        </ul>
+  </div>
+    <div id="wheel">
+    	<div id="left"><img src="images/gundt_03.jpg" width="20" height="19" /></div>
+    	<div id="center">
+            <div><img src="images/gundt.gif" width="167" height="15" /></div>
+        </div>
+    	<div id="right"><img src="images/gundt_05.jpg" width="20" height="19" /></div>
+  </div>
+</div>
+</body>
+</html>

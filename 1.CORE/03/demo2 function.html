@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<title>function 参数 返回值</title>
+		<meta charset="utf-8" />
+		<script>
+			function rename(what,money){
+				document.write("一次定义<br />");
+				document.write("多次调用，"+what+"<br />");
+				document.write("一次修改<br />");
+				document.write("处处生效，"+money+"<br />"+"<br />");
+				return "优化:"+what;
+			}
+			rename("代码重用","参数让函数更灵活");
+			var dy=rename("代码重用","参数让函数更灵活");
+			document.write(dy);
+			
+		</script>
+	</head>
+	<body>
+
+
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+var obj={a:15,b:8,d:90};
+var arr=[4,5,8];
+//alert(obj['a']);//json的下标是 字符串
+//alert(arr[1]);   //数组的下标是 数字
+var i=0;
+//for(i;i<arr.length;i++)
+/*for(i in arr)
+{
+	alert(i+'='+arr[i]);
+};*/
+
+for(i in obj)
+{
+	alert(i+'='+obj[i]);
+};
+//差别：数组：for  for...in... 一般用for 可以定义 i=2 ;
+//     json:for...in...因为json没有length
+</script>
+</head>
+
+<body>
+</body>
+</html>

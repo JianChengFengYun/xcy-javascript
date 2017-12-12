@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <script>
+	/*公式：打印第l行
+	for(var i=1,str="";i<=l;i++){
+		str+=i+"x"+l+"="+i*l+" ";
+		i*l<10&&(str+=" ");
+	}
+	console.log(str);*/
+
+	/*三要素:
+		1. 循环条件：行号<=9
+		2. 循环变量：行号,从1开始，每次增1
+		3. 循环体：公式：打印第l行
+	*/
+	//for(var l=1;l<=9;l++){
+		/*公式：打印第l行*/
+		
+	//}
+
+	/*定义函数输出正三角
+	  *
+	  **
+	  ***
+	  ****
+	  *****
+	*/
+	function printTriangle(l){
+		for(var r=1;r<=l;r++){
+			/*打印任意一行的公式*/
+			for(var i=0,str="";i<r;str+="*",i++);
+			console.log(str);
+		}
+	}
+	/*定义函数输出反三角
+	      *
+         **
+	    ***
+	   ****
+	  *****
+	*/
+	function printTriangle2(l){
+		for(var r=1;r<=l;r++){
+			/*输出三角中的任意一行！*/
+			//每行输出l-r个空格,之后都是*
+			/*三要素：
+			1. 循环条件：字符个数<l
+			2. 循环变量：字符个数，从0开始，每次+1
+		              str="",每次向其中拼一个字符
+			3. 循环体：如果字符个数<(l-r),拼空格
+		             否则拼*
+			*/
+			for(var i=0,str="";i<l;i++){
+				str+=i<(l-r)?" ":"*";
+			}
+			console.log(str);
+		}
+	}
+	/*定义函数输出等腰三角
+	      *
+         ***
+	    *****
+	   *******
+	  *********
+	*/
+	function printTriangle3(l){
+	}
+  </script>
+ </head>
+
+ <body>
+	<button onclick="printTriangle(prompt('输入行数'))">输出正三角</button>
+	<button onclick="printTriangle2(prompt('输入总行数'))">输出反三角</button>
+	<button onclick="printTriangle3(prompt('输入总行数'))">输出等腰三角</button>
+ </body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+img{ filter:alpha(opacity:30); opacity:0.3;}
+</style>
+<script>
+window.onload=function()
+{
+	var 	oImg=document.getElementById('img1');
+	var 	oImg2=document.getElementById('img2');
+	var 	oImg3=document.getElementById('img3');
+	oImg.onmouseover=function()
+	{
+		startmove(100);
+	};
+	
+	oImg.onmouseout=function()
+	{
+		startmove(30);
+	};
+	
+	oImg2.onmouseover=function()
+	{
+		startmove2(100);
+	};
+	
+	oImg2.onmouseout=function()
+	{
+		startmove2(30);
+	};
+	
+	oImg3.onmouseover=function()
+	{
+		startmove3(100);
+	};
+	
+	oImg3.onmouseout=function()
+	{
+		startmove3(30);
+	};
+};
+
+
+	var timer=null;
+    var alpha=30;
+
+function startmove(itarget)
+{
+	var 	oImg=document.getElementById('img1');
+	clearInterval(timer);
+	timer=setInterval(
+					  function()
+					  {
+						  var ispeed=0;
+						  if(alpha<itarget)
+						  {
+							  ispeed=1;
+						  }
+						  else
+						  {
+							 ispeed=-1; 
+						  };
+						  
+						  if(alpha==itarget)
+						  {
+							  clearInterval(timer);
+						  }
+						  else
+						  {
+							  alpha+=ispeed;
+							  oImg.style.filter='alpha(opacity:'+alpha+')';
+							  oImg.style.opacity=alpha/100;
+							  
+							  document.title=alpha;
+						  };
+					  },30)
+};
+
+function startmove2(itarget)
+{
+	var 	oImg2=document.getElementById('img2');
+	clearInterval(timer);
+	timer=setInterval(
+					  function()
+					  {
+						  var ispeed=0;
+						  if(alpha<itarget)
+						  {
+							  ispeed=1;
+						  }
+						  else
+						  {
+							 ispeed=-1; 
+						  };
+						  
+						  if(alpha==itarget)
+						  {
+							  clearInterval(timer);
+						  }
+						  else
+						  {
+							  alpha+=ispeed;
+							  oImg2.style.filter='alpha(opacity:'+alpha+')';
+							  oImg2.style.opacity=alpha/100;
+							  
+							  document.title=alpha;
+						  };
+					  },30)
+};
+function startmove3(itarget)
+{
+	var 	oImg3=document.getElementById('img3');
+	clearInterval(timer);
+	timer=setInterval(
+					  function()
+					  {
+						  var ispeed=0;
+						  if(alpha<itarget)
+						  {
+							  ispeed=1;
+						  }
+						  else
+						  {
+							 ispeed=-1; 
+						  };
+						  
+						  if(alpha==itarget)
+						  {
+							  clearInterval(timer);
+						  }
+						  else
+						  {
+							  alpha+=ispeed;
+							  oImg3.style.filter='alpha(opacity:'+alpha+')';
+							  oImg3.style.opacity=alpha/100;
+							  
+							  document.title=alpha;
+						  };
+					  },30)
+};
+
+</script>
+</head>
+
+<body>
+<img src="1.jpg" width="500" height="300" id="img1" />
+<img src="2.jpg" width="500" height="300" id="img2" />
+<img src="3.jpg" width="500" height="300" id="img3" />
+</body>
+</html>

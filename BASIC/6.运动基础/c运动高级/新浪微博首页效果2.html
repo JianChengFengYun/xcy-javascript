@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2</title>
+<style>
+*{ margin:0px; padding:0px;}
+li{ list-style:none;}
+#box{ width:500px; border:1px solid #666; margin:50px 0px; padding:10px;}
+#box div{ width:480px; padding:10px; border-bottom:1px dashed #CCC;word-wrap: break-word; filter:alpha(opacity:0);opacity:0;}
+</style>
+
+<script type="text/javascript" src="move2.js"></script>
+<script>
+window.onload=function()
+{
+	var oText=document.getElementById('text1');
+	var oBtn=document.getElementById('btn1');
+	var oBox=document.getElementById('box');
+	
+	oBtn.onclick=function()
+	{
+		var oPl=document.createElement('div');
+		//oBox.appendChild(oPl);
+		var aPl=oBox.getElementsByTagName('div');
+		
+		if(aPl.length)
+		{
+			oBox.insertBefore(oPl,aPl[0]);
+		}
+		else
+		{
+			oBox.appendChild(oPl);
+		};
+		
+		oPl.innerHTML=oText.value;
+		oText.value='';
+		
+		
+		var iHeight=oPl.offsetHeight-20;
+		oPl.style.height=0;
+		startMove(oPl,{height:iHeight},function(){
+			startMove(oPl,{opacity:100})
+		})
+	};
+};
+</script>
+
+</head>
+
+<body>
+<textarea id="text1" rows="5" cols="50"></textarea>
+<input type="button" id="btn1" value="提交"  />
+<div id="box">
+<div> 改成div在IE7下不会闪</div>
+</div>
+</body>
+</html>

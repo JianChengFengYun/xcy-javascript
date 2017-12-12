@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>js</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<script src="js/demo1.js"></script>
+		<script>
+			document.wrte("HELLO WORLD! &lt;script&gt;");
+			//DOCUMENT 文档 当前网页；
+			//document.write 内容写在body里；
+		</script>
+	</head>
+	<body>
+	
+		<script>
+			document.write("<br />换了另外一行！HELLO body! &lt;script&gt;");
+			//DOCUMENT 文档 当前网页；编写；
+		</script>
+		<br />
+		<button onclick="window.alert('click windowAlert')">click me</button>
+		<script>
+			document.write("<br />换了另外一行！另外 body! &lt;script&gt;");
+			//DOCUMENT 文档 当前网页；编写；
+		</script>
+		<!--------------当前窗口的警告框--------->
+		<br />
+		<button onclick="document.write('click documentWrite')">click me</button>
+	</body>
+</html>

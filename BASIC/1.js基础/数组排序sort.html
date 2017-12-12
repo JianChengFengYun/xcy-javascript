@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+/*var arr=['width','height','alpho','zoom']
+arr.sort();
+alert(arr);*/
+var arr=[112,34,8,99,]
+/*arr.sort();
+alert(arr);//从一到九的排序  当字符串处理啦*/
+//解决方法
+arr.sort(function (n1,n2){
+				   return n1-n2;
+				 /* if(n1<n2)
+				  {
+					  return -1;
+				  }
+				  else if(n1>n2)
+				  {
+					  return 1;
+				  }
+				  else
+				  {
+					return 0;  
+				  };*/
+				  });
+alert(arr);
+</script>
+</head>
+
+<body>
+</body>
+</html>

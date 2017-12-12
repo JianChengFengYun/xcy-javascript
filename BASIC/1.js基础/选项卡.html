@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<style>
+*{margin:0;padding:0;}
+li{list-style:none;}
+img{border:0;display:block;}
+body{font-family:Arial, Helvetica, sans-serif;}
+.main{width:400px;height:400px;background:#F00;}
+.maintd{width:96px;line-height:30px;text-align:center;color:#FFF;background:url(../images/wz_21.jpg) no-repeat;}
+.neirongtd{width:396px;height:200px;line-height:30px;}
+.maintd a,.maintd a:visited{color:#000;text-decoration:none;}
+.maintd a.hover{color:#00f;}
+.maintd a.tabactive {color:#FFF; text-decoration:none;background:url(../images/wz.jpg) no-repeat;display:block; font-weight:bold;  position:relative;}
+</style>
+</head>
+<body>
+
+<script type="text/javascript"> 
+function easytabs(active,start,length) 
+{
+	
+	for (i=start; i <= length; i++)
+	{
+		document.getElementById("tablink"+i).className='tab'+i;
+		document.getElementById("tabcontent"+i).style.display = 'none';
+	}
+	document.getElementById("tablink"+active).className='tab'+active+' tabactive';
+	document.getElementById("tabcontent"+active).style.display = 'block';
+}
+window.onload=function()
+{
+	easytabs('1',1,4);
+	easytabs('5',5,8);
+}
+</script>
+
+
+<div class="main">
+<table width="400" border="0">
+  <tr>
+    <td>
+    	<table border="0">
+          <tr>
+            <td class="maintd"><a href="#" onmouseover="easytabs('1',1,4);"   onclick="return false;" id="tablink1">选项1</a></td>
+            <td class="maintd"><a href="#" onmouseover="easytabs('2',1,4);"   onclick="return false;" id="tablink2">选项2</a></td>
+            <td class="maintd"><a href="#" onmouseover="easytabs('3',1,4);"   onclick="return false;" id="tablink3">选项3</a></td>
+            <td class="maintd"><a href="#" onmouseover="easytabs('4',1,4);"   onclick="return false;" id="tablink4">选项4</a></td>
+          </tr>
+        </table>
+
+    </td>
+  </tr>
+  <tr>
+    <td  id="tabcontent1" class="neirongtd">1111111111111111111111111111111111</td>
+  </tr>
+  <tr>
+    <td  id="tabcontent2" class="neirongtd" style="display:none;">2222222222222222222222222222222222</td>
+  </tr>
+  <tr>
+    <td  id="tabcontent3" class="neirongtd" style="display:none;">3333333333333333333333333333333333</td>
+  </tr>
+  <tr>
+    <td  id="tabcontent4" class="neirongtd" style="display:none;">4444444444444444444444444444444444</td>
+  </tr>
+</table>
+
+</div>
+
+
+
+</body>
+</html>

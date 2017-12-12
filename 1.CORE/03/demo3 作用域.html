@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<title>变量作用域</title>
+		<meta charset="utf-8" />
+		<script>
+			var hotel="饮水机";
+			function room(){
+				var water="矿泉水";
+				document.write(hotel);
+				document.write(water);
+			};
+			room();
+			document.write(hotel);
+			document.write(water); //ReferenceError
+
+		</script>
+	</head>
+	<body>
+
+
+	</body>
+</html>

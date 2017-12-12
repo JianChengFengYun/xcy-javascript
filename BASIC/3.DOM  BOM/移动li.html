@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+ul{width:200px;}
+li{width:200px;line-height:30px;}
+#ul1{ background:#ccc;}
+#ul2{ background:#CFF;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var jian=document.getElementById('ul1');
+	var jia=document.getElementById('ul2');
+	
+		oBtn.onclick=function()
+		{
+			oLi=jian.children[0];
+			//jian.removeChild(oLi);
+			jia.appendChild(oLi);//appendchlid有两个功能：1.将元素从原有的父级删除 2.添加到新的父级
+		};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="移动" id="btn" />
+<ul id="ul1">
+	<li>11</li>
+	<li>22</li>
+	<li>33</li>
+	<li>44</li>
+	<li>55</li>
+	<li>66</li>
+</ul>
+<ul id="ul2">
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+	<head>
+		<title>while循环</title>
+		<meta charset="utf-8" />
+		<script>
+/*
+			var i=0;
+			while(i<3){
+				alert("转"+i+"圈");
+				i++;
+			}
+			var r=0;
+			while(r<3){
+				console.log("转3圈");
+				r++;
+			}
+*/
+
+/******************
+	三要素：
+		循环条件：输入！=0 ---继续循环的条件
+		循环变量：输入，每执行一次，都请用户“重新”输入；
+		循环体： 请用户输入
+				根据输入执行操作
+*****************
+			var input="";
+			while(input!="0"){
+				input=prompt("请输入");
+				switch(input){
+					case "1":
+						alert("正在查询");
+						break;
+					case "2":
+						alert("取款进行中...");
+						break;
+					case "3":
+						alert("转账进行中...");
+						break;
+					case "0":
+						alert("退出");
+						break;
+					default:
+						alert("输入有误！")
+				}
+			}
+******/
+
+/******************
+猜数字游戏：
+	三要素：
+		循环条件：输入！=0 ---继续循环的条件
+		循环变量：输入，每执行一次，都请用户“重新”输入；
+		循环体： 请用户输入0-9的数字
+				根据输入执行操作
+****************
+			var num=parseInt(Math.random()*(9-0+1)+0);
+			var input="";
+			while(input!=num&&input!="exit"){
+				input=prompt("猜一个数字：");
+				alert(
+						input>num?"大了！":
+						input<num?"小了！":
+					   input==num?"猜对了":
+			          input=="exit"?"退出":
+						         "输入有误"
+				
+				);
+
+			}
+
+			***/
+/**************以下代码不建议使用**********************/
+
+			var num=parseInt(Math.random()*(9-0+1)+0);
+			var input="";
+			while(true){
+				input=prompt("猜一个数字：");
+				if(input=="exit"){
+					alert("退出");
+					break;
+				}
+				alert(
+						input>num?"大了！":
+						input<num?"小了！":
+					   input==num?"猜对了":
+						         "输入有误"
+				
+				);
+				if(input==num){
+					break;
+				}
+
+			}
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

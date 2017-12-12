@@ -1,0 +1,52 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>取消与利用冒泡</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/3.css"/>
+		<script>
+			/*2. 利用冒泡，简化计算器程序*/
+			function calc(){
+			//根据点击的不同按钮，判断执行不同的操作
+				var e=window.event||arguments[0];
+				var src=e.srcElement||e.target;
+				//如果src是按钮时，才。。。
+				if(src.nodeName=="BUTTON"){
+				var txt=document.querySelector("#sc");
+				switch(src.innerHTML){
+					case "C":
+						txt.innerHTML="";
+						break;
+					case "=":
+						//将txt的内容放入eval()中执行
+						//结果放回txt中
+						try{
+							txt.innerHTML=
+								eval(txt.innerHTML);
+						}catch(err){
+						txt.innerHTML=err.toString();
+						}
+						break;
+					default:
+					//将src的内容，追加到txt的内容中
+						txt.innerHTML+=src.innerHTML;
+				}
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div onclick="calc()">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button><br>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="sc" style="resize:none;width:200px; height:50px;" readonly></textarea>
+	</body>
+</html>

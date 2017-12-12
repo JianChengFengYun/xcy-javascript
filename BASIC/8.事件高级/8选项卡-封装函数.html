@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1 div{width:400px;height:100px;backlground:#CCC;display:none;}
+#div1 .active{background:#FF0;}
+#div2 div{width:400px;height:100px;backlground:#CCC;display:none;}
+#div2 .active{background:#F00;}
+</style>
+
+<script>
+window.onload=function()
+{
+	xuanTab('div1','input','div')
+	xuanTab('div2','input','div')
+};
+
+function xuanTab(id,btnName,divName)
+{
+	var oDiv=document.getElementById(id);
+	var oBtn=oDiv.getElementsByTagName(btnName);
+	var aDiv=oDiv.getElementsByTagName(divName);
+	for(var i=0;i<oBtn.length;i++)
+	{
+		oBtn[i].index=i;
+		oBtn[i].onmouseover=function()
+		{
+			for(var i=0;i<oBtn.length;i++)
+			{
+			oBtn[i].className='';
+			aDiv[i].style.display='none';
+			}
+			this.className='active';
+			aDiv[this.index].style.display='block'
+		};
+	};
+};
+
+</script>
+</head>
+<body>
+<div id="div1">
+    <input class="active" type="button" value="选项1" />
+    <input type="button" value="选项2" />
+    <input type="button" value="选项3" />
+    <input type="button" value="选项4" />
+    <div style="display:block;">1111111111</div>
+    <div>2222222222</div>
+    <div>3333333333</div>
+    <div>4444444444</div>
+</div>
+
+<div id="div2">
+    <input class="active" type="button" value="选项1" />
+    <input type="button" value="选项2" />
+    <input type="button" value="选项3" />
+    <input type="button" value="选项4" />
+    <div style="display:block;">1111111111</div>
+    <div>2222222222</div>
+    <div>3333333333</div>
+    <div>4444444444</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+div{width:10px;height:10px; background:red; position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+	var aDiv=document.getElementsByTagName('div');
+	var i=0;
+	document.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		var scrollTOP=document.documentElement.scrollTop||document.body.scrollTop;
+		var scrollLEFT=document.documentElement.scrollLeft||document.body.scrollLeft;
+		
+		for(i=aDiv.length-1;i>0;i--)
+		{
+			aDiv[i].style.left=aDiv[i-1].style.left;
+			aDiv[i].style.top=aDiv[i-1].style.top;
+		};
+		aDiv[0].style.left=scrollLEFT+oEvent.clientX+'px';
+		aDiv[0].style.top=scrollTOP+oEvent.clientY+'px';
+	};
+};
+</script>
+</head>
+
+<body style="height:2000PX;">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

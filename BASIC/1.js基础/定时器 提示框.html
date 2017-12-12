@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px; padding:0px;}
+#box{width:200px;height:500px;background:#333; position:relative;}
+#top{
+	width:400px;
+	height:200px;
+	background:#030;
+	position:absolute;
+	left: 1px;
+	top: 162px;
+	z-index:5px;
+	display:none;
+}
+</style>
+<script>
+window.onload=function()
+{
+	var obox=document.getElementById('box');
+	var aimg=obox.getElementsByTagName('img')[0];
+	var otop=document.getElementById('top');
+	var time=null
+	otop.onmouseover=aimg.onmouseover=function()
+	{
+		clearTimeout(time)
+		otop.style.display='block';
+	};
+	otop.onmouseout=aimg.onmouseout=function()
+	{
+		time=setTimeout(function(){otop.style.display='none';},1000)
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<div id="box"><img src="images/yewu3.jpg" width="200" height="160" /></div>
+<div id="top"></div>
+</body>
+</html>

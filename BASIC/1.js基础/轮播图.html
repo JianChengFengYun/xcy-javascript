@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px; padding:0px;}
+li{list-style:none;}
+#div1{width:100px;height:100px;background:red; position:relative; overflow:hidden;}
+#div1 ul{
+	width:100px;
+	position:absolute;
+	left: 0px;
+	top:0px;
+}
+#div1 img{width:100px;height:100px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var oLi=oUl.getElementsByTagName('li');
+	
+	oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+					function xuan()
+					{
+						 if(oUl.offsetTop==-oUl.offsetHeight/2)  
+						 {
+							oUl.style.top=0+'px'; 
+						 }
+						oUl.style.top=oUl.offsetTop-100+'px';
+					}
+					setInterval(xuan,1000);
+};
+
+
+</script>
+</head>
+
+<body>
+<div id="div1">
+    <ul>
+        <li><img src="map/2987.jpg" /></li>
+        <li><img src="map/3777.jpg" /></li>
+        <li><img src="map/3916.jpg" /></li>
+        <li><img src="map/3951.jpg" /></li>
+    </ul>
+</div>
+</body>
+</html>

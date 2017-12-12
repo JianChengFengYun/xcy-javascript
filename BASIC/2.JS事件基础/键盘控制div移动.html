@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:100px;height:100px;background:red;position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	
+	document.onkeydown=function  (ev)
+	{
+		oEvent=ev||event;
+		//alert(oEvent.keyCode);//检测用户按了键盘的哪个键
+		//←           37
+		//↑           38
+		//you          39
+		//↓           40
+		if(oEvent.keyCode==37)
+		{
+			oDiv.style.left=oDiv.offsetLeft-10+'px';
+		}
+		else if(oEvent.keyCode==39)
+		{
+			oDiv.style.left=oDiv.offsetLeft+10+'px';
+		}
+		else if(oEvent.keyCode==38)
+		{
+			oDiv.style.top=oDiv.offsetTop-10+'px';
+		}
+		else if(oEvent.keyCode==40)
+		{
+			oDiv.style.top=oDiv.offsetTop+10+'px';
+		};
+
+	};
+
+};
+</script>
+</head>
+
+<body>
+<div id="div1">div移动前有迟疑一秒，怎样解决这个问题？</div>
+</body>
+</html>

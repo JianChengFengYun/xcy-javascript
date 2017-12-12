@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+	<head>
+		<title>for循环</title>
+		<meta charset="utf-8" />
+		<script>
+/**********
+三要素：
+	1.循环条件：加数<=100;
+	2.循环变量：加数，每次加1；
+	3.循环体：当前的加数累加到sum中；
+
+			var sum=0;
+			var i=0;
+			while(i<=100){
+				sum+=i;
+				i++;
+			}
+			console.log(sum);
+			
+			var product=1;
+			for(var j=1;j<=100;j++){
+				product*=j;
+			}
+			console.log(product);
+
+			var sum2=0;
+			for(var n=1;n<1000;n+=2){
+				sum2+=1/n;
+			}
+			console.log(sum2);
+********/
+
+
+/*********
+定义函数：输出乘法口诀表任意一行；
+比如：
+第三行：
+1*3=3 2*3=6 3*3=9
+
+假设用户输入的行号：n
+定义变量str 保存所有子算式拼成的一个字符串；
+三要素：
+1.循环条件：乘数<=n;
+2.循环变量：乘数，从1开始，每次加1；
+3.循环体：拼子算式：乘数+“*”+n+“=”+乘数*n+“空格”；
+					将子算式拼到str中；
+退出循环 ，输出str的字符串
+
+			function fun(n){
+				var str="";
+				for(var i=1;i<=n;i++){
+					str+=i+"*"+n+"="+i*n+" ";
+				}
+				console.log(str);
+			}
+*******/
+
+
+			for(var j=1,product=1;j<=100;product*=j++);
+			console.log(product);
+
+			for(var n=1,sum2=0;n<1000;sum2+=1/n,n+=2);
+			console.log(sum2);
+
+			function fun(n){
+				for(var i=1,str="";i<=n;str+=i+"*"+n+"="+i++*n+" ");
+				console.log(str);
+			}
+
+/***
+	定义变量n，贮存已输出的闰年个数；
+	从year开始一次判断今后每一年
+	只要碰到闰年，就输出
+	三要素：
+	1.循环条件：n<5；
+	2.循环变量：n,从0开始，碰到闰年才+1;
+				year每次+1；
+	3.循环体：判断当前年份，如果是闰年
+				n+1
+				输出year
+
+***/
+
+			function getLeapYears(year){
+				year=parseInt(year);
+				for(var n=0;n<5;n==0?year++:year+=4){
+						console.log("当前年份"+year);
+					if(year%4==0&&year%100!=0||year%400==0){
+						console.log(year);
+						n++;
+					}
+				}
+			}
+
+			
+			for(var i=0;i<9;i++){
+				if(i==4){
+					continue;
+				}else{
+					console.log("跳到"+i);
+				}
+			}
+
+
+		</script>
+	</head>
+	<body>
+		 <button onclick="fun(prompt('输入第几行:'))">打印乘法口诀的一行</button>
+		 <button onclick="getLeapYears(prompt('输入闰年:'))">5个闰年</button>
+	</body>
+</html>

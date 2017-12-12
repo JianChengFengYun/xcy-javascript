@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简易日历</title>
+</head>
+<style>
+*{padding:0px;margin:0px;}
+.box{width:300px;height:400px;font-size:12px;font-family:Arial, Helvetica, sans-serif; background:#000;color:#FFF;border:1px solid #000; }
+.boxul{list-style:none;width:300px;float:left;}
+.boxul li{width:100px;height:50px;line-height:50px;font-weight:bold;text-align:center;float:left; }
+.text{width:300px;height:200px;line-height:30px;background:#FFF;color:#F6F;text-align:left;float:left;border:1px solid #000;}
+.text p{color:#333;}
+
+.active{background:#fff;color:#F6F;}
+
+</style>
+<script>
+window.onload=function()
+{
+	var arr=[
+			 '一月活动内容',
+			 'eryue',
+			 '三月3333',
+			 '四月',
+			 '5月活动内容',
+			 '6eryue',
+			 '7月3333',
+			 '8月',
+			 '9月活动内容',
+			 '10eryue',
+			 '11月3333',
+			 '12月',
+			 ]
+	var oDiv=document.getElementById('div1');
+
+	var oBtn=oDiv.getElementsByTagName('li');
+
+	var aDiv=oDiv.getElementsByTagName('div');
+	
+	for(var i=0;i<oBtn.length;i++)
+	{
+
+		oBtn[i].index=i;
+		oBtn[i].onmouseover=function()
+		{
+
+			for(var i=0;i<oBtn.length;i++)
+			{
+			oBtn[i].className='';
+			}
+			this.className='active';
+			aDiv[0].innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';
+		};
+	};
+
+};
+</script>
+<body>
+
+<div id="div1" class="box">
+        <ul class="boxul">
+                <li class="active">1月</li>
+                <li>2月</li>
+                <li>3月</li>
+                <li>4月</li>
+                <li>5月</li>
+                <li>6月</li>
+                <li>7月</li>
+                <li>8月</li>
+                <li>9月</li>
+                <li>10月</li>
+                <li>11月</li>
+                <li>12月</li>
+        </ul>
+        <div class="text">
+        		<h2>1月活动</h2>
+                <p>一月活动内容</p>
+        </div>
+</div>
+
+</body>
+</html>

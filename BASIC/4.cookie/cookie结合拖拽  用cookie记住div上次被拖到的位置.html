@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+function setcookie(name,value,iday)
+{
+		var oDate=new Date();
+		oDate.setDate(oDate.getDate()+iday);
+		document.cookie=name+'='+value+';expires='+oDate;
+};
+
+function getcookie(name)
+{
+	//user=name; pass=123; username=mingzi; password=123456; aaa=777; bbb=888	
+	var arr=document.cookie.split('; ');
+	//arr->['user=name','pass=123',.....]
+	for( var i=0;i<arr.length;i++)
+	{
+		var arr2=arr[i].split('=');
+		//arr2->['user','name']
+		if(name==arr2[0])
+		{
+			return arr2[1];
+		}
+	};
+			return '';
+};
+
+function removecookie(name)
+{
+	setcookie(name,'1',-1)//昨天就过期
+};
+
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div');
+	
+	var disX=0;
+	var disY=0;
+	
+	var X=getcookie('X');
+	var Y=getcookie('Y');
+	
+	if(X)
+	{
+		oDiv.style.left=X+'px';
+		oDiv.style.top=Y+'px';
+	};
+	oDiv.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		disX=oEvent.clientX-oDiv.offsetLeft;
+		disY=oEvent.clientY-oDiv.offsetTop;
+		
+			document.onmousemove=function (ev)
+			{
+				var oEvent=ev||event;
+				var L=oEvent.clientX-disX;
+				var T=oEvent.clientY-disY
+				
+				if(L<0)
+				{
+					L=0;
+				}
+				else if(L>document.documentElement.clientWidth-oDiv.offsetWidth)
+				{
+					L=document.documentElement.clientWidth-oDiv.offsetWidth;
+				};
+				
+				if(T<0)
+				{
+					T=0;
+				}
+				else if(T>document.documentElement.clientHeight-oDiv.offsetHeight)
+				{
+					T=document.documentElement.clientHeight-oDiv.offsetHeight;
+				};
+				
+				oDiv.style.left=L+'px';
+				oDiv.style.top=T+'px';
+			};
+			
+			document.onmouseup=function ()
+			{
+				document.onmousemove=null;
+				document.onmouseup=null;
+				
+				setcookie('X',oDiv.offsetLeft,30);
+				setcookie('Y',oDiv.offsetTop,30);
+			};
+			
+		return false;//屏蔽火狐下面的bug
+	};
+};
+</script>
+
+</head>
+
+<body>
+<div id="div" style="width:300px; height:200px; background:red; position:absolute;"></div>
+</body>
+</html>

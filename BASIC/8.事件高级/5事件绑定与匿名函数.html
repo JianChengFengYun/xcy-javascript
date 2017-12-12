@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+function a()
+{
+	alert('asd')
+};
+function b()
+{
+	alert(123);
+};
+//事件绑定：在同一事件上加上两个函数以上；
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn1');
+	//IE
+/*	oBtn.attachEvent('onclick',a);
+	oBtn.detachEvent('onclick',a)//删除绑定
+*/
+	oBtn.attachEvent('onclick',function(){alert(1)});
+	oBtn.detachEvent('onclick',function(){alert(1)})//绑定匿名函数 无法删除 如下
+	
+	var a=function()
+	{
+			alert('a');	
+	};
+	var b=function()
+	{
+			alert('a');	
+	};
+	
+	alert(a==b)//false 
+};
+</script>
+
+</head>
+
+<body>
+<input type="button" value="按钮" id="btn1" />
+</body>
+</html>

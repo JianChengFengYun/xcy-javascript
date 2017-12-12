@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+//var oDate=new Date();
+//alert(oDate.getHours());
+//alert(oDate.getMinutes());
+//alert(oDate.getSeconds());
+function buling(n)
+{
+	if(n<10)
+	{
+		return '0'+n;
+	}
+	else
+	{
+		return ''+n;
+	};//补零 且 将数字转换成字符串
+};
+window.onload=function()
+{
+	var aImg=document.getElementsByTagName('img');
+	//var sty='173155';
+	function tick(){
+	var oDate=new Date();
+	var sty=buling(oDate.getHours())+buling(oDate.getMinutes())+buling(oDate.getSeconds());
+	
+	for(var i=0;i<aImg.length;i++)
+	{
+		aImg[i].src='images/'+sty.charAt(i)+'.jpg';//获取字符串某一位的东西 兼容各种浏览器
+	}}
+	setInterval(tick,1000);
+	tick();
+};
+</script>
+</head>
+
+<body>
+<div style="width:200px;height:200px; background:#66F;">
+<img src="images/0.jpg" />
+<img src="images/0.jpg" />
+<img src="images/0.jpg" />
+<img src="images/0.jpg" />
+<img src="images/0.jpg" />
+<img src="images/0.jpg" />
+</div>
+</body>
+</html>

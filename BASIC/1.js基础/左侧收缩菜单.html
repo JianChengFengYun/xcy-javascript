@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px; list-style:none; font-size:12px;}
+div{width:100px; background:#666; margin:0px auto;}
+p{line-height:30px;width:100px;color:#ffffff;text-align:center;font-weight:bold;cursor:default; }
+ul{ background:#999;color:#333;line-height:25px;display:none;}
+</style>
+<script>
+window.onload=function()
+{
+	var day=new Date().getDay();
+switch (day)
+{
+case 0:
+  x="Today it's Sunday";
+  break;
+case 1:
+  x="Today it's Monday";
+  break;
+case 2:
+  x="Today it's Tuesday";
+  break;
+case 3:
+  x="Today it's Wednesday";
+  break;
+case 4:
+  x="Today it's Thursday";
+  break;
+case 5:
+  x="Today it's Friday";
+  break;
+case 6:
+  x="Today it's Saturday";
+  break;
+}
+alert(x);
+	var odiv=document.getElementById('div1');
+	var abtn=odiv.getElementsByTagName('p');
+	var aul=odiv.getElementsByTagName('ul');
+	var e=0;
+	for(var i=0;i<abtn.length;i++)
+	{
+		
+		abtn[i].index=i;
+		abtn[i].onclick=function()
+		{
+			if(aul[this.index].style.display!='block')
+			{
+				for(e=0; e<aul.length;e++)
+				{
+					aul[e].style.display='none';
+				}
+				aul[this.index].style.display='block';
+			}
+			else
+			{
+				aul[this.index].style.display='none'
+			}
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+
+ <div id="div1">
+     <p>一级分类</p>
+     <ul>
+        <li>分类1</li>
+        <li>分类2</li>
+        <li>分类3</li>
+        <li>分类4</li>
+     </ul>
+     <p>一级分类</p>
+     <ul>
+        <li>分类1</li>
+        <li>分类2</li>
+        <li>分类3</li>
+        <li>分类4</li>
+     </ul>
+     <p>一级分类</p>
+     <ul>
+        <li>分类1</li>
+        <li>分类2</li>
+        <li>分类3</li>
+        <li>分类4</li>
+     </ul>
+     <p>一级分类</p>
+     <ul>
+        <li>分类1</li>
+        <li>分类2</li>
+        <li>分类3</li>
+        <li>分类4</li>
+     </ul>
+ </div>
+</body>
+</html>

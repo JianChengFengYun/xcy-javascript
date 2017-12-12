@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> 鄙视题 函数自调</title>
+  <meta charset="utf-8" />
+  <script>
+/*
+以下函数正确的是：
+*/
+var arr=[2,5,345,77];
+//function compare(a,b){return a-b};
+//var compare=function(a,b){return a-b};
+	//var compare=new Function(a,b,return a-b);		错的，（）全都要加引号；
+//var compare=new Function("a","b","return a-b");
+//console.log(arr.sort(compare));
+console.log(arr.sort(function(a,b){return a-b}));//升序
+console.log(arr.sort(function(a,b){return b-a}));//降序
+
+
+/**************************************/
+/***1.png***/
+function fun(a){
+a++;
+console.log(a);
+}
+/***2.png***/
+var a=100;
+/***3.png***/
+fun(a);/***4.png***/
+/***5.png***/
+console.log(a);
+
+/**************************************/
+var a=100;
+(function(a){
+a++;
+console.log(a);
+})(a);
+console.log(a);
+  </script>
+ </head>
+
+<script>
+//定义匿名函数：输出“页面加载开始”
+(function(){
+alert("页面加载开始!");
+})();
+</script>
+
+ <body>
+ welcome to my website!
+ </body>
+
+<script>
+//定义匿名函数：输出“页面加载结束”
+(function(){
+alert("页面加载结束!");	
+})();
+</script>
+
+</html>

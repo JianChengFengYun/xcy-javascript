@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<title>++</title>
+		<meta charset="utf-8" />
+		<script>
+			/*
+			var money=10;
+			var total=money++;
+			document.write(total+"<br />");
+			document.write(money+"<br />");
+			*/
+
+			var n=2;
+			/*
+			var r=n++ + ++n + n++;
+			 返回:2     :4     :4
+			     n=3    n=4   n=5
+			document.write(r+"<br />");// 10
+			document.write(n+"<br />");// 5
+			*/
+
+			var m=++n + n++ + ++n;
+			 //返回:3     :3     :5
+			//     n=3    n=4   n=5
+			document.write(m+"<br />");// 11
+			document.write(n+"<br />");// 5
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

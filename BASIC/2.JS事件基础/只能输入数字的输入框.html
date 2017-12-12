@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTex=document.getElementById('tex1');
+	
+	oTex.onkeydown=function(ev)
+	{
+		var oEvent=ev||event;
+		
+		//alert(oEvent.keyCode);
+		// F5   116
+		// 删除←  8
+		//Delete  46
+		//小键盘0——9   96——105
+		// 大键盘0——9   48——57
+		// 左上右下   37——40
+		if(oEvent.keyCode!=116&&oEvent.keyCode!=8&&oEvent.keyCode!=46&&(oEvent.keyCode<48||oEvent.keyCode>57)&&(oEvent.keyCode<96||oEvent.keyCode>105)&&(oEvent.keyCode<37||oEvent.keyCode>40))
+		{
+			return false;
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<input name="" type="text" id="tex1" />//输入框能输入东西是默认的
+只能输入数字的输入框
+</body>
+</html>

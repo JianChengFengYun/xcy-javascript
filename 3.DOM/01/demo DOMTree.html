@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DOM Tree</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<h1>我的标题</h1>
+		<a href="http://www.baidu.com">我的链接</a>
+	</body>
+	<script>
+		/*console.log(document.body.nodeType);
+		console.log(document.body.nodeName);
+		console.log(document.body.nodeValue);*/
+
+		console.log(document.body.childNodes[3].nodeType);
+		console.log(document.body.childNodes[3].nodeName);
+		console.log(document.body.childNodes[3].nodeValue);
+
+
+		console.log(document.body.childNodes[1].firstChild.nodeType);
+		console.log(document.body.childNodes[1].firstChild.nodeName);
+		console.log(document.body.childNodes[1].firstChild.nodeValue);
+
+		function getProto(obj){//打印任意对象的原型链；
+			while((obj=Object.getPrototypeOf(obj))!=null){
+				console.log(obj);
+			};
+		}
+		//getProto(document);
+		//document-->HTMLDocument.prototype	--HTML DOM
+		//		  -->Document.prototype		--核心 DOM
+		//		  -->Node.prototype			--核心 DOM
+
+		//getProto(document.body);
+		//body-->HTMLBodyElement.prototype	--HTML DOM HTMLHeadElement
+		//		  -->HTMLElement.prototype  --HTML DOM
+		//		      -->Element.prototype	--HTML DOM
+		//		      -->Node.prototype		--核心 DOM
+
+		//getProto(document.body.childNodes[3].childNodes[0]);
+		//"我的链接"-->text.prototype			--HTML DOM 
+		//		   -->Node.prototype			--核心 DOM
+
+		getProto(document.body.childNodes[3].getAttributeNode("href"));
+		//"href"-->Attr.prototype			--HTML DOM 
+		//		-->Node.prototype			--核心 DOM
+
+	</script>
+</html>

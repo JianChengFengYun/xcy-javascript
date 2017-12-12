@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link id="link1" href="css/huanfu1.css" rel="stylesheet" type="text/css" />
+<script>
+window.onload=function()
+{
+	var olink=document.getElementById('link1');
+	document.getElementsByTagName('input')[0].onclick=function()
+	{
+		olink.href='css/huanfu1.css';
+	};
+	document.getElementsByTagName('input')[1].onclick=function()
+	{
+		olink.href='css/huanfu2.css';
+	};
+};
+</script>
+</head>
+
+<body>
+<table width="400" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>可以换肤的提交框：<input type="button" value="黄色" /><input type="button" value="红色" /></td>
+  </tr>
+  <tr>
+    <td>输入姓名：<input name="" type="text" /></td>
+  </tr>
+  <tr>
+    <td>输入密码：<input name="" type="password" /></td>
+  </tr>
+  <tr>
+    <td>请留言：<textarea name="" cols="" rows=""></textarea></td>
+  </tr>
+  <tr>
+    <td><input name="" type="submit" value="提交" /></td>
+  </tr>
+</table>
+
+</body>
+</html>

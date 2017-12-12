@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>打开新链接方式总结</title>
+		<script>
+/*打开新链接方式总结：
+1. 在当前窗口打开，可后退
+2. 在当前窗口打开，不可后退
+3. 在新窗口打开，可重复打开
+4. 在新窗口打开，不可重复打开
+*/
+//window.open():打开新连接；
+
+//1.在当前窗口打开，可后退
+function fun1(){
+		open("http://tmooc.cn/web/library/library.html","_self");
+};
+
+//2.在当前窗口打开，不可后退
+function fun2(){
+	//使用新连接替换旧链接；
+	//location:当前窗口正在打开的URL对象；
+		location.replace("http://tmooc.cn/web/library/library.html");
+};
+
+//3.在新窗口打开，可重复
+function fun3(){
+		open("http://tmooc.cn/web/library/library.html"/*,"_blank"*/);//js中默认的target是_blank;
+};
+
+//4.在新窗口打开，不可重复打开
+function fun4(){
+		open("http://tmooc.cn/web/library/library.html","tmooc");//tmooc:自定义窗口名；
+};
+
+
+		</script>
+	</head>
+	<body>
+		<a href="http://tmooc.cn/web/library/library.html" target="_self">在当前窗口打开，可后退</a>
+		<a href="javascript:fun1();">在当前窗口打开，可后退</a>
+		<br />
+		<br />
+		<a href="javascript:fun2();">在当前窗口打开，不可后退</a>
+		<br />
+		<br />
+		<a href="http://tmooc.cn/web/library/library.html" target="_blank">在新窗口打开，可重复打开</a>
+		<a href="javascript:fun3();">在新窗口打开，可重复打开</a>
+		<br />
+		<br />
+		<a href="http://tmooc.cn/web/library/library.html" target="tmooc">在新窗口打开，只能打开一个</a>
+		<a href="javascript:fun4();">在新窗口打开，只能打开一个</a>
+	</body>
+</html>

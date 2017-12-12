@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<title>如何判断一个对象中是否包含某个成员indexOf trim</title>
+		<meta charset="utf-8" />
+		<script>
+			//数组的indexof方法在IE8下undefined;自己定义；
+			//if(! Array.prototype.hasOwnProperty("indexOf")){
+			//if(!("indexOf" in Array.prototype)){
+			if(!Array.prototype.indexOf){
+				Array.prototype.indexOf=function(kword){
+					for(var i=0;i<this.length;i++){
+						if(this[i]==kword){
+							return i;
+						}
+					}
+					return -1;
+				}
+			}
+			var arr=[1,2,3,4,5];
+			var arr1=[8,9,10,11,12];
+			document.write(arr.indexOf(4));alert(0);
+			document.write(arr1.indexOf(8));
+
+			//trim方法在IE8下undefined;自己定义；
+			if(!String.prototype.trim){
+				String.prototype.trim=function(){
+					return this.replace(/^\s*|\s*$/g,"");
+				}
+			}
+			var str="	 hello word		";
+			str=str.trim();
+			document.write(str);
+
+		 </script>
+	</head>
+	<body>
+	</body>
+</html>

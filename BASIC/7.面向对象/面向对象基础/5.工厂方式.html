@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+//用工厂方式构造对象
+function CreatePerson(name,sex) //构造行数：用来创建对象
+{
+	var obj=new Object();//原料
+	
+	obj.name=name;       //加工
+	obj.sex=sex;
+	obj.showname=function()
+	{
+		alert('我的名字是'+this.name)
+	};
+	obj.showsex=function()
+	{
+		alert('我是'+this.sex+'的')
+	};
+	
+	return obj;      //出厂
+};
+
+var p1=CreatePerson('blue','男');
+var p2=CreatePerson('red','女');
+
+alert(p1.showname==p2.showname)
+
+/*p1.showname();
+p1.showsex();
+p2.showname();
+p2.showsex();
+*/
+
+</script>
+</head>
+
+<body>
+<div>工厂方式的缺点：1.没有new；2.浪费资源：每个对象都有一套自己的资源；</div>
+</body>
+</html>

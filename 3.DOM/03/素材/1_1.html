@@ -1,0 +1,81 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态创建表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+</style>
+<script>
+	//假如从服务器拿到json字符串
+	var json="[{'ename':'Tom','salary':'5000','age':'25'},{'ename':'John','salary':'7000','age':'28'},{'ename':'Mary','salary':'6000','age':'26'}]"
+	var emps=eval("("+json+")");
+	//console.log(obj);
+	//页面加载后，创建table及子对象；
+	window.onload=function(){
+		/*1.创建空table；
+		  2.添加表头行；
+		  2.1 创建空的tr对象，临时保存在tr中；
+		  2.2 创建空的3个th对象，第一个th的内容是“姓名”，第2个th的内容是“薪资”，第3个th的内容是“年龄”，
+		  2.3 将th追加到tr；
+		  2.4 将tr加到table；*/
+		  var table=document.createElement("table");
+		  var tr=document.createElement("tr");
+		  var th1=document.createElement("th");
+		  var th2=document.createElement("th");
+		  var th3=document.createElement("th");
+		  th1.innerHTML="姓名";
+		  th2.innerHTML="薪资";
+		  th3.innerHTML="年龄";
+		  tr.appendChild(th1);
+		  tr.appendChild(th2);
+		  tr.appendChild(th3);
+		  table.appendChild(tr);
+		  /*
+			3.遍历数组中每个对象；
+			  每遍历一个对象，创建一个空的tr；
+			  创建一个空的td，其中放入当前对象的ename属性值；
+			  创建一个空的td，其中放入当前对象的salary属性值；
+			  创建一个空的td，其中放入当前对象的age属性值；
+		  */
+		  for(var r=0;r<emps.length;r++){
+			var tr=document.createElement("tr");
+
+			var td1=document.createElement("td");
+			var td2=document.createElement("td");
+			var td3=document.createElement("td");
+			td1.innerHTML=emps[r]["ename"];
+			td2.innerHTML="&yen;"+emps[r]["salary"];
+			td3.innerHTML=emps[r]["age"];
+		    tr.appendChild(td1);
+		    tr.appendChild(td2);
+		    tr.appendChild(td3);
+		    table.appendChild(tr);
+
+		  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+		  //最后将table挂到data；
+		  document.querySelector("#data").appendChild(table);
+
+	};
+</script>
+</head>
+<body>
+	<div id="data"></div>
+</body>
+</html>

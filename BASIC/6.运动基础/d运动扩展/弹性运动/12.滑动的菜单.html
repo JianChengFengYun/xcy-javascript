@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px;}
+#div1{width:400px;height:30px;position:relative; margin:50px auto;}
+#div1 div{width:100px;height:5px;position:absolute;top:25px;background:#F00; z-index:-5;}
+#div1 li{ float:left;width:98px;height:28px;border:#CCC 1px solid; list-style:none;}
+</style>
+<script>
+var iSpeed=0;
+var left=0;
+function startMove(obj,iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		iSpeed+=(iTarget-obj.offsetLeft)/5;
+		iSpeed*=0.7;//速度是小数 而left是取的整数，舍弃小数 运动后就会少1px  将left设为变量 就能是小数;
+		left+=iSpeed;
+		
+		if(Math.abs(iSpeed)<1&&Math.abs(left-iTarget)<1)
+		{
+			clearInterval(obj.timer);
+			obj.style.left=iTarget+'px';
+								//document.title=obj.offsetLeft;
+
+		}
+		else
+		{
+			obj.style.left=left+'px';
+		};
+	},30);
+};
+
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oBg=oDiv.getElementsByTagName('div')[0];
+	var aLi=oDiv.getElementsByTagName('li');
+	
+	var i=0;
+	for(i=0;i<aLi.length;i++)
+	{
+		aLi[i].onmouseover=function()
+		{
+			startMove(oBg,this.offsetLeft);
+
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<div></div>
+    <ul>
+        <li>首页</li>
+        <li>首页</li>
+        <li>首页</li>
+        <li>首页</li>
+    </ul>
+</div>
+</body>
+</html>

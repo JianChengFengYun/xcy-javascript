@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<title>分支</title>
+		<meta charset="utf-8" />
+		<script>
+			var unitPrice=prompt("单价：");
+			var count=prompt("数量：");
+			var money=prompt("收款金额：");
+			var total=unitPrice*count;
+			//total>=500&&(total*=0.8);
+			if(total>=500){
+				total*=0.8;
+			}
+
+			if(money>=total){
+				var change=money-total;
+				document.write("应收："+total+"; 找零："+change+"。")
+			}else{
+				var change=total-money;
+				document.write("应收："+total+"; 还差："+change+"。")
+
+			}
+
+		</script>
+	</head>
+	<body>
+
+
+	</body>
+</html>

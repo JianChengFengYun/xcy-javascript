@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+*{margin:0px;padding:0px;}
+#div{width:20px;height:402px;position:relative;background:#ccc;float:left;}
+#div1{width:20px; height:20px; background:#f00;position:absolute;}
+#div2{width:200px;height:400px;border:1px solid #333;float:left;position:relative; overflow:hidden;}
+#div3{position:absolute;}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var oParent=document.getElementById('div');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	
+	oDiv.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		var disY=oEvent.clientY-oDiv.offsetTop;
+		
+
+		
+		document.onmousemove=function (ev)
+		{
+			var oEvent=ev||event;
+			var t=oEvent.clientY-disY;
+			
+			if(t<0)
+			{
+				t=0;
+			}
+			else if(t>oParent.offsetHeight-oDiv.offsetHeight)
+			{
+				t=oParent.offsetHeight-oDiv.offsetHeight;
+			};
+			oDiv.style.top=t+'px';
+			
+			//document.title=t;
+			//document.title=t/(oParent.offsetHeight-oDiv.offsetHeight);
+			var scale=t/(oParent.offsetHeight-oDiv.offsetHeight);
+			oDiv3.style.top=-(oDiv3.offsetHeight-oDiv2.offsetHeight)*scale+'px';
+		};
+		
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+			
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div2">
+	<div id="div3">
+    	从美国当地时间9月19日开盘即大涨近四成，到9月24日收盘，股价最终停在90美元附近，阿里巴巴的纽交所开局可圈可点，打破了之前一些股评师“美股版中石油”的预言（中石油自A股上市后就跌破发行价，始终未能涨回原价）。阿里250.3亿美元的融资额，马云200亿美元的持股市值，成功跻身中国内地首富，不过这并不是马云的目标，他想做的是打造更完善的生态圈。
+　　在改变了许多人的生活后，接下来还有哪些人和行业会被阿里改变呢？至少来自中国内地的大部分投资者没有从打新阿里的盛宴中分得一杯羹。嘉实等多家机构宣布自己的资管计划没有获得阿里股份的配售。业内人士分析，这可能跟阿里希望投资者能长期持股有关。
+　　阿里上市以后，造就了这一融资传奇的VIE模式也再被高度关注。2011年商务部已出台文件，警示了这类模式的风险，有专家呼吁VIE模式风险不容小觑，应早日暂停。
+　　对最大IPO、超2000亿市值、首富……无感？ “阿里生态圈”才是马云真正的梦想？
+　　马云和他的“圈”
+　　《中国经济周刊》 记者 孙冰|北京、杭州报道
+　　一场无与伦比的IPO终于落幕了：一个白手起家、其貌不扬的瘦小男人成为了中国内地首富、一家来自中国的公司创下有史以来全球最大的IPO纪录，并将全球第二大互联网公司和全球最大电商公司的桂冠戴在了头上……
+　　虽然在15年前的湖畔花园，马云究竟是如何给当年的创业伙伴们描绘未来的，我们难闻其详，但是料想应该不会是上述的那些吧，因为财富和名利似乎可以成为一个人攀到山腰的动力，但却很难成为将你送至巅峰的引擎，特别是在还要经历很多九死一生的情况下。
+　　今天，外界谈论最多的是马云的商业成功和财富帝国，而马云讲的仍然是“改变亿万人的生活，甚至改变整个世界”这个足以上升为信仰的梦想。“梦想还是要有的，万一实现了呢？”马云说。
+　　外界对马云的溢美之词已经堪称“豪华”，看似登上人生巅峰、志得意满的马云下一个梦想又是什么呢？在上市前发表的公开信中，马云24次提到了“生态系统”，在上市过程中，只要谈到阿里的未来，马云在讲的都是“阿里生态圈”，而不是阿里巴巴这一家公司会如何如何。
+    </div>
+</div>
+<div id="div">
+    <div id="div1">
+    </div>
+</div>
+</body>
+</html>

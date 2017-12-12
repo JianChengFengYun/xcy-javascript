@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title>判断一个对象是不是数组</title>
+		<meta charset="utf-8" />
+  <script>
+	document.write(typeof("Hello")+"<br>"); //string
+	document.write(typeof(123)+"<br>"); //number
+	document.write(typeof({a:1})+"<br>"); //object
+	document.write(typeof([])+"<br>"); //object
+	//如果当前浏览器的Array构造函数对象中不包含isArray
+	if(!Array.isArray){
+	//    为Array构造函数添加isArray方法
+		Array.isArray=function(obj){//4种
+			//判断obj是不是数组类型
+			//1. 如果Array.prototype在obj的原型链中
+		  //return Array.prototype.isPrototypeOf(obj);
+			//2. instanceof: 
+			//语法：obj instanceof 构造函数名
+			//判断obj对象是否被构造函数创建
+			//return obj instanceof Array;
+			//实例：一个构造函数创建出的每个具体对象
+			//3. 原型对象的constructor属性
+			//return obj.constructor==Array;
+			//4. 利用Object原型的toString方法
+			/*call,apply
+				call,在调用方法的一瞬间更换调用方法的对象*/
+return Object.prototype.toString.apply(obj)==
+                                      "[object Array]";
+		}
+	//  
+	}
+	document.write(Array.isArray([])+"<br>");  //true
+	document.write(Array.isArray({})+"<br>"); //false
+	document.write(Array.isArray("Hello")+"<br>"); //	
+
+  </script>
+	</head>
+	<body>
+	</body>
+</html>

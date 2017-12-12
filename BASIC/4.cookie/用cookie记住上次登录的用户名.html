@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+function setcookie(name,value,iday)
+{
+		var oDate=new Date();
+		oDate.setDate(oDate.getDate()+iday);
+		document.cookie=name+'='+value+';expires='+oDate;
+};
+
+function getcookie(name)
+{
+	//user=name; pass=123; username=mingzi; password=123456; aaa=777; bbb=888	
+	var arr=document.cookie.split('; ');
+	//arr->['user=name','pass=123',.....]
+	for( var i=0;i<arr.length;i++)
+	{
+		var arr2=arr[i].split('=');
+		//arr2->['user','name']
+		if(name==arr2[0])
+		{
+			return arr2[1];
+		}
+	};
+			return '';
+};
+
+function removecookie(name)
+{
+	setcookie(name,'1',-1)//昨天就过期
+};
+
+
+window.onload=function()
+{
+	var oForm=document.getElementById('form1');
+	var aUse=document.getElementsByName('name')[0];
+	var aBtnclear=document.getElementsByTagName('a')[0];
+	
+	oForm.onsubmit=function()
+	{
+		setcookie('name',aUse.value,30);
+	};
+	aUse.value=getcookie('name');
+	aBtnclear.onclick=function()
+	{
+		removecookie('name');
+		aUse.value='';
+	};
+};
+</script>
+</head>
+
+<body>
+<form id="form1" action="http://www.baidu.com">
+用户名：<input type="text" name="name"/><br />
+密码：<input name="pass" type="password" /><br />
+<input name="" type="submit" value="提交"/>
+<a href="#">清除信息</a>
+</form>
+</body>
+</html>

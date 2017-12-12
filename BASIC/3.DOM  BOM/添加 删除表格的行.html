@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTab=document.getElementById('tab');
+	var Aname=document.getElementById('tex1');
+	var Aage=document.getElementById('tex2');
+	var obtn=document.getElementById('btn');
+	
+	var id=oTab.tBodies[0].rows.length+1;
+	
+	obtn.onclick=function()
+	{
+		var oTr=document.createElement('tr');
+		
+		
+		var oTd=document.createElement('td');
+		oTd.innerHTML=id++;
+		oTr.appendChild(oTd);
+		
+		var oTd=document.createElement('td');
+		oTd.innerHTML=Aname.value;
+		oTr.appendChild(oTd);
+		
+		var oTd=document.createElement('td');
+		oTd.innerHTML=Aage.value;
+		oTr.appendChild(oTd);
+		
+		var oTd=document.createElement('td');
+		oTd.innerHTML='<a href="#">删除</a>';
+		oTr.appendChild(oTd);
+		
+		
+		oTd.getElementsByTagName('a')[0].onclick=function()
+		{
+			oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+		}
+		
+		oTab.tBodies[0].appendChild(oTr);
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<p>姓名<input name="" type="text" id="tex1" />年龄<input name="" type="text" id="tex2" /><input name="" type="button" value="添加" id="btn" /></p>
+<table width="300" border="1" id="tab">
+    <thead>
+          <tr>
+                <th>ID</th>
+                <th>姓名</th>         
+                <th>年龄</th>
+                <th>编辑</th>
+          </tr>
+    </thead>
+    <tbody>
+          <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>33</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>44</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>55</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>44</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>55</td>
+                <td>&nbsp;</td>
+          </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

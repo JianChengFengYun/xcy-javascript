@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var obtn=document.getElementById('btn');
+	var otext=document.getElementById('text1');
+	var ttext=document.getElementById('text2');
+	obtn.onclick=function()
+	{
+		
+		
+		if(isNaN(otext.value))//判断是不是非数字
+		{
+			alert('你第一个框输入的数字有误')
+		}
+		else if(isNaN(ttext.value))
+		{
+			alert('你输入的第二个数字有误')
+		}
+		else
+		{
+			alert(parseInt(otext.value)+parseInt(ttext.value))
+		}
+	};
+};
+</script>
+
+
+</head>
+
+<body>
+<input id="text1" type="text" />
+<input id="text2" type="text" />
+<input id="btn" type="button" value="求和" />
+</body>
+</html>

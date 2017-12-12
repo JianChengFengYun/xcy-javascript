@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+	<script type="text/javascript">
+	//页面加载事件：个每个checkbox添加onclick事件
+	window.onload = function(){
+		var names = document.getElementsByName("s1");
+		for(var i=0;i<names.length;i++)
+		{
+			names[i].onclick = calcPrice;
+		}
+	}
+	
+	//全选
+	function selectAll()
+	{
+		var names = document.getElementsByName("s1");
+		for(var i=0;i<names.length;i++)
+		{
+			names[i].checked = true;
+		}
+		//调用相加函数
+		calcPrice();
+	}
+	//反选
+	function reserveCheck (){
+			var names = document.getElementsByName("s1");
+			for(var i=0;i<names.length;i++){
+				if(names[i].checked){
+					names[i].checked=false;
+				}else{
+					names[i].checked=true;
+				}
+		}
+		//调用相加函数
+		calcPrice();
+	}
+	
+	//相加数字：判断checkbox是否选择，如果选中则得到value相加
+	function calcPrice(){
+		var names = document.getElementsByName("s1");
+		var allPrice = 0;
+		for(var i=0;i<names.length;i++){
+			if(names[i].checked){
+				// +=  表示先相加再赋值；  如： allPrice += 2  表示 allPrice = allPrice +2；
+				//取的值names[i].value 为字符类型，需要转换为数字类型才能数学相加；转换类型函数有:Number(),parseFloat(),parseInt()
+				//如果不转换只是字符相加则结果为：012345 
+				allPrice += Number(names[i].value);
+			}
+		}
+		 document.getElementById("price").innerHTML = "总价："+allPrice+"元";
+	}
+	</script>
+<body>
+<input type="button" onclick="reserveCheck()" value="反选"  />
+<input type="button" onclick="selectAll()" value="全选"  />
+<div id="price" >总价：0</div>
+	<input type="checkbox" name="s1"  value="1" />1
+	<input type="checkbox" name="s1"  value="2" />2
+	<input type="checkbox" name="s1"  value="3" />3
+	<input type="checkbox" name="s1"  value="4"/>4
+	<input type="checkbox" name="s1"  value="5"  />5
+</body>
+</html>

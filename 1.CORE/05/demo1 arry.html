@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<title>数组</title>
+		<meta charset="utf-8" />
+		<script>
+/*
+			var week=['日','一','二','三','四','五','六'];
+			for(var i=0;i<week.length;i++){
+				week[i]="星期"+week[i];
+			}
+			console.log(week);
+*/
+/******
+请用户反复输入一个名字：
+没输入一个，就存入数组emps中；
+
+1.先定义一个空数组 emps
+  在定义一个变量i，保存现在输入的位置，i从0开始；
+2.循环三要素：
+	循环条件：输入不等于exit；
+	循环变量：输入；
+	循环体：请用户输入姓名
+			再将姓名存入i位置
+			i++
+3.退出循环后，输出emps平匹配吧，
+
+
+
+			var emps=[];
+			var i=0;
+			var input="";
+			while(input!="exit"){
+				input=prompt("输入员工姓名：");
+				if(input!="exit"){
+					 emps[i++]=input;
+				}
+			console.log(emps);
+
+			}
+
+
+
+			var emps=[];
+			var i=0;
+			var input="";
+			while((input=prompt("输入员工姓名："))!="exit"){
+				//赋值运算的结果是 等号右边的值
+					 emps[i++]=input;
+				 	console.log(emps);
+
+			}
+*******/
+			var emps=[];
+			var input="";
+			while((input=prompt("输入姓名："))!="exit"){
+				emps[emps.length]=input;
+				console.log(emps);
+			}
+
+			
+
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

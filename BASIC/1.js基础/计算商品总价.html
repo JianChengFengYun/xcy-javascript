@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+td{height:30px;text-align:center;line-height:30px;}
+p{ float:left; margin:0px; padding:0px;margin-left:20px;}
+</style>
+<script>
+window.onload=function()
+{
+	var abtn=document.getElementsByTagName('p');
+	var abox=document.getElementsByTagName('input');
+	var oprice=document.getElementById('price');
+	
+	
+	abtn[0].onclick=function()
+	{
+		for(var i=0;i<abox.length;i++)
+		{
+			abox[i].checked=true;
+		};
+		shanghe();
+	};	
+	abtn[1].onclick=function()
+	{
+		for(var i=0;i<abox.length;i++)
+		{
+			abox[i].checked=false;
+		};
+		shanghe();
+	};
+	for(var i=0;i<abox.length;i++)
+	{
+		abox[i].onclick=shanghe;
+	};
+	function shanghe()
+	{
+		var allprice=0;
+		for(var i=0;i<abox.length;i++)
+		{
+			if(abox[i].checked)
+			{
+				allprice += Number(abox[i].value);
+			}
+			
+		};
+		oprice.innerHTML=allprice+'元';
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<table width="200" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><p>全选</p><p>不选</p></td>
+    <td>价格</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" value="2" /></td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" value="2" /></td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" value="2" /></td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" value="2" /></td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" value="2" /></td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" value="2" /></td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>商品总价：</td>
+    <td id="price">0:00元</td>
+  </tr>
+</table>
+
+
+
+</body>
+</html>

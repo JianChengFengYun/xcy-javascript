@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8" />
+  <script>
+	/*定义一个构造函数包含所有飞行物的属性*/
+	function Flyer(fname,speed){
+		this.fname=fname;
+		this.speed=speed;
+		if(!Flyer.prototype.fly){
+			Flyer.prototype.fly=function(){
+console.log(this.fname+" 以时速: "+this.speed+" 飞行");
+			}
+		}
+	}
+
+	/*再定义一个飞机构造函数，除包含飞行物的所有属性外，还扩展容量属性*/
+	function Plane(fname,speed,capacity){
+		//先调用Flyer构造函数
+		//用当前正在创建的对象强行调用window.Flyer
+		//并传入所需参数
+		Flyer.call(this,fname,speed); //this?
+		//Flyer.apply(this,[fname,speed]);
+		this.capacity=capacity;
+		Object.setPrototypeOf(Plane.prototype
+		                     ,Flyer.prototype);
+		if(!Plane.prototype.fly){
+			Plane.prototype.fly=function(){
+console.log(this.fname+"搭载 "+this.capacity+"人 以时速: "+this.speed+" 飞行");
+			}
+		}
+	}
+	var A380=new Plane("A380",1800,555);
+	//__proto__-->Plane.prototype
+	//1. 创建空对象：
+	//2. 调用Plane()
+	//     先调用Flyer构造函数
+	//     再添加capacity属性
+	A380.fly();
+  </script>
+ </head>
+
+ <body>
+  
+ </body>
+</html>

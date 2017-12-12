@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>字符串</title>
+		<meta charset="utf-8" />
+		<script>
+		var pid="422988198809074027";
+		//获得生日
+		var birth=pid.slice(6,-5+1);
+		console.log(birth);
+
+		//获取性别
+		var gender=pid[pid.length-2]%2==0?"女":"男";
+		console.log(gender);
+
+		var n=100;//原始类型的值，本身没有任何方法
+		console.log(new Number(n).toString(2));
+		/**********临时的Number被释放*/
+		var str="张";//原始类型的值，本身没有任何方法
+		console.log(new String(str).charCodeAt().toString(2));
+		/**********临时的String被释放*/
+
+			var path="c:\\windows\\remp\\index.html \n\t http://www.baidu.com";
+			console.log(path);
+		 </script>
+	</head>
+	<body>
+		<button onclick="gitCities(prompt('输入省：'))">click</button>
+	</body>
+</html>

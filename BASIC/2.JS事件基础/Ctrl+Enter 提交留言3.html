@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oText1=document.getElementById('text1');
+	var oText2=document.getElementById('text2');
+	var oBtn=document.getElementById('btn');
+	
+	oBtn.onclick=function()
+	{
+			oText1.value=oText1.value+oText2.value+'\n';
+			oText2.value='';
+	};
+	
+	oText2.onkeydown=function(ev)
+	{
+		var oEvent=ev||event;
+		//alert(oEvent.keyCode)
+		//enter    13
+		//ctrl    17		
+		if(oEvent.keyCode==13&&oEvent.ctrlKey)//ctrl+回车提交  ctrlKey:布尔值,按着ctrl时是true;抬起时false;
+		{
+			oText1.value=oText1.value+oText2.value+'\n';
+			oText2.value='';
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<textarea name="" cols="100" rows="10" id="text1"></textarea><br />
+<input name="" type="text" id="text2" />
+<input name="" type="button" id="btn" value="提交" />
+</body>
+</html>

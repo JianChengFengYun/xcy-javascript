@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>联动菜单</title>
+<meta charset="utf-8" />
+<script>
+	/*使用 HTML DOM 的方式实现联动菜单*/
+	var categories=[
+{"id":10,"name":'男装',"children":[
+	{"id":101,"name":'正装'},
+	{"id":102,"name":'T恤'},
+	{"id":103,"name":'裤衩'}
+]},
+{"id":20,"name":'女装',"children":[
+	{"id":201,"name":'短裙'},
+	{"id":202,"name":'连衣裙'},
+	{"id":203,"name":'裤子',"children":[
+		{"id":2031,"name":'长裤'},
+		{"id":2032,"name":'九分裤'},
+		{"id":2033,"name":'七分裤'}
+	]},
+]},
+{"id":30,"name":'童装',"children":[
+	{"id":301,"name":'帽子'},
+	{"id":302,"name":'套装',"children":[
+		{"id":3021,"name":"0-3岁"},
+		{"id":3022,"name":"3-6岁"},
+		{"id":3023,"name":"6-9岁"},
+		{"id":3024,"name":"9-12岁"}
+	]},
+	{"id":303,"name":'手套'}
+]}
+];
+
+//遍历一级分类：
+function loadData(data){//data保存了当前同级分类的数组；
+	//创建一个select对象；
+	//在select中增加默认项“请选择”；值为0；
+	//遍历data中每个类别对象；
+	//没遍历一个就要在select中追加一个option；内容：name;value值为当前对象的id属性；
+	var sel=document.createElement("select");
+	sel.add(new Option("-请选择-",0));
+	for(var i=0;i<data.length;i++){
+		sel.add(new Option(data[i]["name"],data[i]["id"]))
+	};
+	document.querySelector("#category").appendChild(sel);
+	//为新创建添加切换事件；
+	sel.onchange=function(){
+		//如果选"请选择"将后面所有元素select都删除；
+
+		//获得和选中项位置对应的类别子对象；
+
+	}
+};
+
+window.onload=function(){
+	loadData(categories);
+
+};
+
+</script>
+</head>
+<body>
+	<div id="category"></div>
+</body>
+</html>

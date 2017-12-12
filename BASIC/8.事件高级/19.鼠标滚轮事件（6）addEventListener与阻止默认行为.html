@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+//事件下阻止默认行为；
+/*document.oncontextmenu=function()
+{
+	return false;  //阻止默认行为（右键菜单）
+};
+*/
+//绑定事件下阻止默认行为；return false  在火狐和chrome下会失效。
+/*function addEvent(obj,sEvent,fn)
+{
+	if(obj.attachEvent)
+	{
+		obj.attachEvent('on'+sEvent,fn);
+	}
+	else
+	{
+		obj.addEventListener(sEvent,fn,false);
+	}
+};
+function menu()
+{
+	return false;
+};
+addEvent(document,'contextmenu',menu);
+*/
+/*document.attachEvent('oncontextmenu',function()
+											  {
+												return false;  
+											  });*/
+/*document.addEventListener('contextmenu',function()
+												 {
+													 return false;
+												 },false);
+*/
+document.addEventListener('contextmenu',function(ev)
+												 {
+													 var oEvent=ev||event;
+													 oEvent.preventDefault();//FF下特有的阻止默认事件的方法；也可阻止CHROME下的默认事件。
+												 },false);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

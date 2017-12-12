@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+	<head>
+		<title>解决 频繁拼接字符串 浪费内存 </title>
+		<meta charset="utf-8" />
+		<script>
+		/*正三角 拼接字符串 方法
+		 var n=5;
+		 for(var r=1;r<=n;r++){
+			for(var i=0,str="";i<r;str+="*",i++);
+			console.log(str);
+		 }
+		 */
+		 /*正三角
+		 先将要拼接的字符串放入数组；
+		最后 arr.join("");
+		
+		 var n=5;
+		 for(var r=1;r<=n;r++){
+			for(var i=0,arr=[];i<r;arr[arr.length]="*",i++);
+			console.log(arr.join(""));
+		 }
+		 */
+
+
+
+
+		/*反三角 拼接字符串 方法 
+		 var n=5;
+		 for(var r=1;r<=n;r++){
+			for(var i=0,str="";i<n;str+=i<(n-r)?" ":"*",i++);
+			console.log(str);
+		 }
+		*/
+
+		/*反三角 
+		先将要拼接的字符串放入数组；
+		最后 arr.join("");
+		
+		 var n=5;
+		 for(var r=1;r<=n;r++){
+			for(var i=0,arr=[];i<n;arr[arr.length]=i<(n-r)?" ":"*",i++);
+			console.log(arr.join(""));
+		 }
+		*/			
+
+
+		/*等腰三角 拼接字符串 方法 
+		 var n=5;
+		 for(var r=1;r<=n;r++){
+			for(var i=0,str="";i<n+r-1;str+=i<(n-r)?" ":"*",i++);
+			console.log(str);
+		 }
+		*/
+
+		/*等腰三角 
+		先将要拼接的字符串放入数组；
+		最后 arr.join("");
+			
+		 var n=5;
+		 for(var r=1;r<=n;r++){
+			for(var i=0,arr=[];i<n+r-1;arr[arr.length]=i<(n-r)?" ":"*",i++);
+			console.log(arr.join(""));
+		 }
+		*/	
+
+
+
+
+		/*乘法口诀表 拼接字符串 方法 
+		
+		 var n=9;
+		 for(var r=1;r<=n;r++){
+			for(var i=1,str="";i<=r;str+=i+"×"+r+"="+i*r+" ",i++);
+			console.log(str);
+		 }
+		*/
+
+		/*乘法口诀表 
+		先将要拼接的字符串放入数组；
+		最后 arr.join("");
+		
+		*/	
+		 var n=9;
+		 for(var r=1;r<=n;r++){
+			for(var i=1,arr=[];i<=r;i++){
+				arr[arr.length]=[i,"×",r,"=",i*r,i*r<10?"  ":" "].join("");
+			}
+			console.log(arr.join(""));
+			//console.log(arr);
+		 }
+
+
+
+		 </script>
+	</head>
+	<body>
+
+	</body>
+</html>

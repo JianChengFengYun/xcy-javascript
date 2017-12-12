@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px;}
+#div1{width:100px; height:100px; background:#f00; position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn1');
+	var oDiv=document.getElementById('div1');
+	
+	oBtn.onclick=function()
+	{
+		var iSpeedX=6;
+		var iSpeedY=8;
+		setInterval(function(){
+			var leftN=oDiv.offsetLeft+iSpeedX;
+			var topN=oDiv.offsetTop+iSpeedY;
+			
+			if(topN>=document.documentElement.clientHeight-oDiv.offsetHeight)
+			{
+				iSpeedY*=-1;
+			}
+			else if(topN<=0)
+			{
+				iSpeedY*=-1;
+				topN=0;
+			};
+			if(leftN>=document.documentElement.clientWidth-oDiv.offsetWidth)
+			{
+				iSpeedX*=-1;
+			}
+			else if(leftN<=0)
+			{
+				iSpeedX*=-1;
+				leftN=0;
+			};
+			
+			oDiv.style.left=leftN+'px';
+			oDiv.style.top=topN+'px';
+		},30)
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="开始运动" id="btn1" />
+<div id="div1">碰到底边和右边的时候瞬间出现滚动条</div>
+</body>
+</html>

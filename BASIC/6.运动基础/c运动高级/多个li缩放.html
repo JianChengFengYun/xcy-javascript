@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px;}
+#ul1{ width:300px; margin:0px auto;}
+#ul1 li{width:88px; height:88px; margin:5px; float:left; background:#CCC; border:1px solid #f00;list-style:none; z-index:1; }
+</style>
+<script type="text/javascript" src="move2.js"></script>
+<script>
+window.onload=function()
+{
+	var oul=document.getElementById('ul1');
+	var ali=oul.getElementsByTagName('li');
+	var minzindex=2;
+	
+	var i=0;
+	for( i=0;i<ali.length;i++)
+	{
+		ali[i].style.left=ali[i].offsetLeft+'px';
+		ali[i].style.top=ali[i].offsetTop+'px';
+	}
+	
+	
+	for( i=0;i<ali.length;i++)
+	{
+		ali[i].style.position='absolute';
+		ali[i].style.margin=0;
+	};
+	
+	for( i=0;i<ali.length;i++)
+	{
+		ali[i].onmouseover=function()
+		{
+			this.style.zIndex=minzindex++;
+			startMove(this,{width:200,height:200,marginLeft:-56,marginTop:-56})
+		};
+		ali[i].onmouseout=function()
+		{
+			startMove(this,{width:88,height:88,marginLeft:5,marginTop:5})
+		};
+	};
+
+};
+
+</script>
+
+</head>
+
+<body>
+<ul id="ul1">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</body>
+</html>

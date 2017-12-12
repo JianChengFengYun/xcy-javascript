@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+    <STYLE>
+*{margin:0px;padding:0px;}
+li{ list-style:none;}
+div{float:left; font-size:12px;}
+body{ background:#dedede;}
+#div1{ width:600px;}
+#nav{width:600px;height:30px;background:#ccc; font-weight:bold;float:left;}
+#nav td{width:100px;height:30px;line-height:30px;text-align:center;float:left;}
+#div1 div{width:100px;text-align:center; background-color:#999; border-left:#96F 1px solid; overflow:hidden; display:none;}
+#div1 ul li{width:100%;float:left; height:30px;line-height:30px;}
+#div1 a{color:#fff; text-decoration:none; overflow:hidden;}
+#div1 a:hover{color:#f00; text-decoration:underline;}
+.active{ background:#333;}
+</STYLE>
+<script>
+window.onload=function()
+{
+	var odiv=document.getElementById('div1');
+	var aBtn=odiv.getElementsByTagName('td');
+	var aDiv=odiv.getElementsByTagName('div');
+	var time=null;
+	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onmouseover=function()
+		{
+			clearTimeout(time);
+
+			for(var i=0;i<aBtn.length;i++)
+			{
+			aBtn[i].className='';
+			aDiv[i].style.display='none';
+			}
+			this.className='active';
+			if(aDiv[this.index].innerHTML=="")return; 
+			aDiv[this.index].style.display='block'
+		};
+		aBtn[i].onmouseout=function()
+		{
+			time=setTimeout(function(){aDiv[this.index].style.display='none';},1000);
+		};
+		aDiv[i].onmouseover=function()
+		{
+			clearTimeout(time);
+		};
+		aDiv[i].onmouseout=function()
+		{
+			var a=this;
+			time=setTimeout(function(){a.style.display='none';},1000);
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+<table  id="nav" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="active"><a href="#">首页</a></td>
+    <td><a href="#">公司简介</a></td>
+    <td><a href="#">产品中心</a></td>
+    <td><a href="#">新闻中心</a></td>
+    <td><a href="#">联系我们</a></td>
+    <td><a href="#">在线招聘</a></td>
+  </tr>
+</table>
+<div style="position:absolute; left: 0px; top: 30px;"></div>
+<div style="position:absolute; left: 100px; top: 30px;">
+	<ul>
+    	<li><a href="#">关于公司</a></li>
+    	<li><a href="#">服务理念</a></li>
+    </ul>
+</div>
+<div style="position:absolute; left: 200px; top: 30px;">
+	<ul>
+    	<li><a href="#">茶叶</a></li>
+    	<li><a href="#">服饰</a></li>
+    	<li><a href="#">租房</a></li>
+    	<li><a href="#">买车</a></li>
+    </ul>
+</div>
+<div style="position:absolute; left: 300px; top: 30px;">
+	<ul>
+    	<li><a href="#">公司新闻</a></li>
+    	<li><a href="#">行业资讯</a></li>
+    </ul>
+</div>
+<div style="position:absolute; left: 400px; top: 30px;"></div>
+<div style="position:absolute; left: 500px; top: 30px;"></div>
+</div>
+</body>
+</html>

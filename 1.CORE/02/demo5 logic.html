@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<title>逻辑运算符</title>
+		<meta charset="utf-8" />
+		<script>
+			//var H=226,D=2.5,B=false;
+			//var H=166,D=218,B=false;
+			var H=183,D=5,B=true;
+			document.write(H>180 && D>1 && B==true);
+			console.log(D>10 || B)
+
+			// 用户的 总价 超过500 打8折；
+			// 利用&&短路逻辑
+			var total=parseFloat(prompt("输入总价："));
+			total>=500&&(total=total*0.8);
+			document.write(total);
+
+			//请用户输入一个回复，如果用户未输入，则输出：主人很懒，社么也没留下！
+			var input=window.prompt("请回复：");
+			input!=""||(input="主人很懒，社么也没留下！");
+			document.write("回复是："+input);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

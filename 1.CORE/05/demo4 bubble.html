@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>冒泡排序</title>
+		<meta charset="utf-8" />
+		<script>
+			var arr=[123,2,599,8,7,23];
+			//遍历数组中每个元素
+			//下标从0开始，到<arr.length-1结束，下标++
+			//如果当前元素>下一个位置的元素 交换两元素的位置；
+			//声明变量pmt，用于交换；
+			/******
+			for(var i=0,tmp=0;i<arr.length-1;i++){
+				if(arr[i]>arr[i+1]){
+					tmp=arr[i];
+					arr[i]=arr[i+1];
+					arr[i+1]=tmp;
+				}
+
+			}
+			//第n轮：n从1开始，到<length结束；
+			for(var i=0,tmp=0;i<arr.length-n;i++){
+				if(arr[i]>arr[i+1]){
+					tmp=arr[i];
+					arr[i]=arr[i+1];
+					arr[i+1]=tmp;
+				}
+
+			}
+			*******/
+			for(var n=1;n<arr.length;n++){
+				for(var i=0,tmp=0;i<arr.length-n;i++){
+					if(arr[i]>arr[i+1]){
+						tmp=arr[i];
+						arr[i]=arr[i+1];
+						arr[i+1]=tmp;
+					}
+
+				}
+			}
+			console.log(arr);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

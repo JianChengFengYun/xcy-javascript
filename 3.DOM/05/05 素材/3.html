@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/3.css"/>
+		<script>
+			/*1. 体验事件冒泡*/
+			           /*event*/
+			function fun(      ){
+				var e=window.event||arguments[0];
+				//var src=e.srcElement||e.target;
+				this.style.backgroundColor="yellow";
+				alert(this.className);
+				this.style.backgroundColor="";
+				/*取消冒泡*/
+				if(e.stopPropagation){
+					e.stopPropagation();
+				}else{
+					e.cancelBubble=true;
+				}
+			}
+			window.onload=function(){
+var divs=document.querySelectorAll("div");//找到所有div
+for(var i=0;i<divs.length;i++){//遍历每个div
+	//为每个div绑定onclick事件处理函数为fun
+	divs[i].addEventListener("click",fun,false);
+					//div.onclick(); this-->div
+					//      fun
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!--<div class="d1" onclick="fun()">-->
+		             <!--d1.onclick=function(){
+							eval("fun()");
+							//fun();
+					     }
+					 -->
+		<div class="d1">
+			<div class="d2">
+				<div class="d3">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

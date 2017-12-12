@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTab=document.getElementById('tab');
+	var Aren=document.getElementById('tex1');
+	var obtn=document.getElementById('btn');
+
+	obtn.onclick=function()
+	{
+		for( var i=0;i<oTab.tBodies[0].rows.length;i++)
+		{
+				/*var getname=Aren.value;
+				var gethtml=oTab.tBodies[0].rows[i].cells[1].innerHTML;
+				//if(getname==gethtml)精确搜索
+				if(getname.toLowerCase()==gethtml.toLowerCase())//忽略大小写:将内容都转化为小写在搜索（比较）
+				{
+					oTab.tBodies[0].rows[i].style.background="red";
+				}
+				else
+				{
+					oTab.tBodies[0].rows[i].style.background="";
+				};*/
+				
+				/*var getname=Aren.value.toLowerCase();
+				var gethtml=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+				if(gethtml.search(getname)!=-1)//模糊搜索 找到并返回字符串位置 没找到返回-1
+				{
+					oTab.tBodies[0].rows[i].style.background="red";
+				}
+				else
+				{
+					oTab.tBodies[0].rows[i].style.background="";
+				};*/
+				
+				var getname=Aren.value.toLowerCase();
+				var gethtml=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+				var arr=getname.split(' ');//将字符串用空格拆开
+				oTab.tBodies[0].rows[i].style.background="";
+				for(var j=0;j<arr.length;j++)
+				{
+					if(gethtml.search(arr[j])!=-1) //循环将每个关键词都找一遍
+					{
+						oTab.tBodies[0].rows[i].style.background="red";
+					}
+				};
+			
+		};
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<p><input name="" type="text" id="tex1" value="" /><input name="" type="button" value="搜索" id="btn" /></p>
+<table width="300" border="1" id="tab">
+    <thead>
+          <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>编辑</th>
+          </tr>
+    </thead>
+    <tbody>
+          <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>33</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>2</td>
+                <td>Blue</td>
+                <td>44</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>55</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>44</td>
+                <td>&nbsp;</td>
+          </tr>
+          <tr>
+                <td>3</td>
+                <td>队五</td>
+                <td>55</td>
+                <td>&nbsp;</td>
+          </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

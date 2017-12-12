@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0px; padding:0px; list-style:none;}
+#ul1{ width:300px;line-height:30px;height:30px;}
+#ul1 li{width:98px;height:28px; border:1px #99F solid; background:#9CC; float:left; text-align:center;}
+#ul1 dl{ position:absolute;width:98px; top:30px;height:0; background:#99C; overflow:hidden;filter:alpha(opacity:0); opacity:0;}
+</style>
+<script type="text/javascript" src="move2.js"></script>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.getElementsByTagName('li');
+	var i=0;
+	
+	for(i=0;i<aLi.length;i++)
+	{
+		aLi[i].onmouseover=function()
+		{
+			var oDl=this.getElementsByTagName('dl')[0];
+			
+			oDl.style.height='auto';
+			var iHeight=oDl.offsetHeight;
+			oDl.style.height=0;
+			startMove(oDl,{height:iHeight,opacity:100})
+		};
+		aLi[i].onmouseout=function()
+		{
+			var oDl=this.getElementsByTagName('dl')[0];
+			
+			startMove(oDl,{height:0,opacity:0});
+		};
+
+	};
+	
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+        <li>首页<br />
+            <dl>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            </dl>
+        </li>
+        <li>产品<br />
+            <dl>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            </dl>
+</li>
+        <li>新闻<br />
+            <dl>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            	<dd>aghag</dd>
+            </dl>
+        </li>
+    </ul>
+</body>
+</html>

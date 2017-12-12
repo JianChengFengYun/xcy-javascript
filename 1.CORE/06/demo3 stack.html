@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>栈 队列</title>
+		<meta charset="utf-8" />
+		<script>
+			//十进制转二进制；
+			/*
+			定义一个数组，保存每次的的余数
+			循环条件:dec!=0;
+			用dec反复%2，将余数压入输入；
+			将dec替换为(dec/2)取整的结果；
+			*/
+			function dec2bin(dec){
+				var bin=[];
+				while(dec>0){
+					bin.unshift(dec%2);
+					dec=parseInt(dec/2)
+				}
+				return bin.join("");
+			}
+			var n=107;
+			//console.log(dec2bin(n));
+
+			var shen=5;
+			var ren=[];
+			for(var i=0;i<6;i++){
+				ren.push("顾客"+i);
+			};
+			console.log(ren);
+			while(shen>0){
+				var first=ren.shift();
+				console.log(first+"抢到一部，还剩："+(--shen));
+				console.log(ren);
+			}
+			console.log(ren+"没抢上");
+
+
+
+
+
+		 </script>
+	</head>
+	<body>
+
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script> 
+document.oncontextmenu = function(){ //右键菜单事件
+return false; //阻止系统自带的事件 
+} 
+document.onkeydown = function(){ //键盘按下事件
+if (event.ctrlKey && window.event.keyCode==67){ //ctrl+c
+return false; 
+}} 
+document.body.oncopy = function (){ 
+return false; 
+} 
+document.onselectstart = function(){ 
+//return false; 
+} 
+</script> 
+
+</head>
+
+<body>
+默认行为：浏览器自带的一些行为，比如：右键 submit提交 等
+</body>
+</html>

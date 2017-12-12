@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<title>for循环</title>
+		<meta charset="utf-8" />
+		<script>
+
+
+/*********
+定义函数：输出乘法口诀表任意一行；
+比如：
+第三行：
+1*3=3 2*3=6 3*3=9
+
+假设用户输入的行号：n
+定义变量str 保存所有子算式拼成的一个字符串；
+三要素：
+1.循环条件：乘数<=n;
+2.循环变量：乘数，从1开始，每次加1；
+3.循环体：拼子算式：乘数+“*”+n+“=”+乘数*n+“空格”；
+					将子算式拼到str中；
+退出循环 ，输出str的字符串
+
+
+				for(var n=1;n<=9;n++){
+					for(var i=1,str="";i<=n;i++){
+						str+=i+"*"+n+"="+i*n+" ";
+						i*n<10&&(str+=" ");
+					}
+					console.log(str);
+
+				}
+*******/
+
+/*
+输出正三角
+
+
+			function fun(m)
+			{
+				for(var n=1;n<=m;n++){
+					for(var i=1,star="";i<=n;star+="*",i++);//这个循环输出的是一行的内容，没循环一次输出一个字符；
+					console.log(star);
+				}
+			}
+*/
+/*
+			function fun(m)
+			{
+					for(var i=0,star="*";i<m;star+="*",i++){
+						console.log(star);//star没有清空；
+					}
+			}
+*/
+
+/*
+输出反三角
+*/
+
+			function fun1(m)//m:行数；
+			{
+				for(var n=1;n<=m;n++){   //n：第几行
+				/*输出三角中的任意一行！*/
+				//每行输出l-r个空格,之后都是*
+				/*三要素：
+				1. 循环条件：字符个数<l
+				2. 循环变量：字符个数，从0开始，每次+1
+						  star="",每次向其中拼一个字符
+				3. 循环体：如果字符个数<(l-r),拼空格
+						 否则拼*
+				*/
+					for(var i=0,star="";i<m;i++){  //这个循环输出的是一行的内容，没循环一次输出一个字符；i<m;一行要输出m个字符；
+						star+=i<(m-n)?" ":"*";
+							/*i是第几个字符的位置*/
+					}
+					console.log(star);
+				}
+			}
+
+
+
+
+
+
+
+
+		</script>
+	</head>
+	<body>
+		<button onclick="fun(prompt('输入行数：'))">输出正三角</button>
+		<button onclick="fun1(prompt('输入行数：'))">输出反三角</button>
+	</body>
+</html>

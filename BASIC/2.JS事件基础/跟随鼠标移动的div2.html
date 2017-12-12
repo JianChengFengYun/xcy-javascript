@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+div{width:100px;height:100px; background:red; position:absolute;}
+</style>
+<script>
+document.onmousemove=function(ev)
+{
+	var oEvent=ev||event;
+	var oDiv=document.getElementById('div1');
+	/*//非chrome
+	oDiv.style.left=document.documentElement.scrollLeft+oEvent.clientX+'px';
+	oDiv.style.top=document.documentElement.scrollTop+oEvent.clientY+'px';
+	//chrome
+	oDiv.style.left=document.body.scrollLeft+oEvent.clientX+'px';
+	oDiv.style.top=document.body.scrollTop+oEvent.clientY+'px';*/
+	
+	var disX=document.documentElement.scrollLeft||document.body.scrollLeft
+	var disY=document.documentElement.scrollTop||document.body.scrollTop
+	oDiv.style.left=disX+oEvent.clientX+'px';
+	oDiv.style.top=disY+oEvent.clientY+'px';
+};
+</script>
+</head>
+
+<body style="height:2000PX;">设置高有滚动条之后，div与鼠标分离。因为clientX与clientY是可视区坐标。
+<div id="div1"></div>
+</body>
+</html>

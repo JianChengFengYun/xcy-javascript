@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+div{width:100px;height:50px;margin-top:50px; background:#F00;}
+</style>
+<script>
+window.onload=function()
+{
+	var aDiv=document.getElementsByTagName('div');
+	
+	var i=0;
+	
+	for(i=0;i<aDiv.length;i++)
+	{
+		aDiv[i].onmouseover=function()
+		{
+			
+			startmove(this,300)
+		};
+		aDiv[i].onmouseout=function()
+		{
+			startmove(this,100)
+		};
+	};
+};
+
+var timer=null;
+
+function startmove(obj,itarget)
+{
+	
+	clearInterval(timer);
+	
+	timer=setInterval(function()
+					 {
+								   var ispeed=(itarget-obj.offsetWidth)/8;
+								   ispeed>0?ispeed=Math.ceil(ispeed):ispeed=Math.floor(ispeed);
+								   if(obj.offsetWidth==itarget)
+								   {
+									   clearInterval(timer);
+								   }
+								   else
+								   {
+									   obj.style.width=obj.offsetWidth+ispeed+'px';
+								   };
+					 },30);
+};
+
+</script>
+</head>
+
+<body>
+<div ></div>
+<div ></div>
+<div ></div>
+<div ></div>
+</body>
+</html>

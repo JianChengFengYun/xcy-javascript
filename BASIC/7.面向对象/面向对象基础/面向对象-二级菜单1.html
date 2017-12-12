@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0px;padding:0px;}
+li{list-style:none;}
+.nav{width:800px;height:30px; background:#033;color:#FFF;font-size:12px;margin:10px auto; position:relative;}
+
+
+.yiji{width:180px;line-height:30px; background:#066;margin: 0px 10px;text-align:center;float:left;font-size:12px;}
+.yiji-active{ background:#09F;position:relative; z-index:5;}
+
+.list-ul{width:200px;line-height:30px; background:#09F;display:none; }
+.list-ul-active{width:200px;line-height:30px; background:#033; position:relative;z-index:3;}
+
+.child-list{width:200px;line-height:30px; background:#033;display:none;}
+</style>
+<script type="text/javascript">
+window.onload=function()
+{
+	var oNav=document.getElementById('nav');
+	var aLi=oNav.getElementsByTagName('li');
+	var aUl=oNav.getElementsByTagName('ul');
+	var i=0;
+	
+	for(i=0;i<aLi.length;i++)
+	{
+		if(aLi[i].className=='yiji')
+		{
+			aLi[i].onmouseover=function()
+			{
+				var oH2=this.getElementsByTagName('h2')[0];                                        
+				var aSpan=oH2.getElementsByTagName('span')[0];
+				var oUllist=this.getElementsByTagName('ul')[0];
+				oUllist.style.display='block';
+				oH2.className='yiji-active';
+				aSpan.innerHTML='—';
+
+			};
+			aLi[i].onmouseout=function()
+			{
+				var oH2=this.getElementsByTagName('h2')[0];
+				var aSpan=oH2.getElementsByTagName('span')[0];
+				var oUllist=this.getElementsByTagName('ul')[0];
+				oUllist.style.display='none';
+				oH2.className='';
+				aSpan.innerHTML='+';
+			};
+		}		
+		else if(aLi[i].className=='list-li')
+		{
+			aLi[i].onmouseover=function()
+			{
+				var oH2=this.getElementsByTagName('h2')[0];
+				var aSpan=oH2.getElementsByTagName('span')[0];
+				var oUllist=this.getElementsByTagName('ul')[0];
+				oUllist.style.display='block';
+				oH2.className='list-ul-active';
+				aSpan.innerHTML='—';
+
+			};
+			aLi[i].onmouseout=function()
+			{
+				var oH2=this.getElementsByTagName('h2')[0];
+				var aSpan=oH2.getElementsByTagName('span')[0];
+				var oUllist=this.getElementsByTagName('ul')[0];
+				oUllist.style.display='none';
+				oH2.className='';
+				aSpan.innerHTML='+';
+			};
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+  <ul id="nav" class="nav">
+ <!--------第1个----------->
+                <li class="yiji">
+                		<h2><span>+</span>商品分类</h2>
+ 
+                        <ul class="list-ul">
+ 
+                                <li class="list-li"><h2><span>+</span>家居</h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:200px; top:30px;z-index:1;">
+ 
+                                                <li >生活超市</li>
+ 
+                                                <li >布艺</li>
+ 
+                                                <li >家具</li>
+ 
+                                                <li >娱乐</li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li class="list-li"><h2><span>+</span> 服装鞋帽</h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:200px; top:30px;z-index:1;">
+ 
+                                                <li >帽子</li>
+ 
+                                                <li >针织</li>
+ 
+                                                <li >连衣裙 2014新款</li>
+ 
+                                                <li >凉鞋</li>
+ 
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+  <!--------第2个----------->
+                <li class="yiji">
+                		<h2><span>+</span> 第一级菜单 </h2>
+ 
+                        <ul class="list-ul">
+ 
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:400px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:400px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+                                </li>
+                                
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:400px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:400px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+<!--------第3个----------->
+                <li class="yiji">
+                		<h2><span>+</span> 第一级菜单 </h2>
+ 
+                        <ul class="list-ul">
+ 
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:600px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:600px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+<!--------第4个----------->
+                <li class="yiji">
+                		<h2><span>+</span> 第一级菜单 </h2>
+ 
+                        <ul class="list-ul">
+ 
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:800px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+ 
+                                </li>
+ 
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:800px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+                                </li>
+                                
+                                <li class="list-li"><h2><span>+</span> 第二级菜单 </h2>
+ 
+                                        <ul class="child-list" style=" position:absolute; left:800px; top:30px;z-index:1;">
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                                <li >第三级菜单</li>
+ 
+                                        </ul>
+                                </li>
+                        </ul>
+                </li>
+ 
+        </ul>
+
+</body>
+</html>

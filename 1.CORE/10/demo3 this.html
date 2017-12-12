@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<title>如何判断一个对象中是否包含某个成员</title>
+		<meta charset="utf-8" />
+  <script>
+	//this-->window
+
+
+
+
+	/*this.*/a=100;
+	//window.a=100;
+	(function(){
+		var a=99;
+		console.log(this.a);
+		         //window.a
+	})(); //100
+
+	/*鄙视题*/
+	//this-->window
+	var a=2;
+	//this-->window
+	function fun(){//地址0x1011
+		console.log(this.a);
+	}
+	//this-->window
+	var o={a:3,fun:fun};//this-->o
+	         //0x1011
+	var p={a:4};//this-->p
+	o.fun(); //this-->o    3
+	  //console.log(o.a) //3
+	(p.fun=o.fun)(); //2
+	//p.fun=0x1011
+	//p={a:4,fun:0x1011}
+	//返回o.fun中的值！0x1011
+	//(0x1011)();-->匿名函数自调-->this-->window
+	/*赋值表达式的结果相当于等号右侧表达式*的值**/
+	p.fun(); //4
+
+
+  </script>
+	</head>
+	<body>
+	<button onclick="console.log(format(new Date()))">格式化日期</button>
+	</body>
+</html>

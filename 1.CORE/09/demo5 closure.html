@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> 闭包</title>
+  <meta charset="utf-8" />
+  <script>
+//定义一个取号机函数；
+//每调用一次，顺序生成一个不重复的序号；
+function outer(){
+	var n=1;
+	function inner(){
+		return n++;
+	}
+	return inner;
+}
+var getNumICBC=outer();
+console.log(getNumICBC());
+console.log(getNumICBC());
+var n=99;
+console.log(getNumICBC());
+
+
+var getNumCCBC=outer();
+console.log(getNumCCBC());
+console.log(getNumCCBC());
+var n=99;
+console.log(getNumCCBC());
+  </script>
+ </head>
+
+
+ <body>
+ welcome to my website!
+ </body>
+
+
+</html>
