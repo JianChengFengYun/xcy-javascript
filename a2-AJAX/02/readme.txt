@@ -1,4 +1,4 @@
-【Ajax】
+﻿【Ajax】
 接受服务器的响应数据：
 	使用XMLHttpRequest核心对象的responseText属性；该属性只能接受文本(HTML)格式；
 	问题：
@@ -122,7 +122,7 @@ Ajax中的JSON格式
 		   没有responseJSON属性
 		 使用eval()函数进行转换
 
-作业 - 使用JSON格式完成二级联动
+- 使用JSON格式完成二级联动
 
 HTML(文本格式)、XML格式及JSON格式的优缺点   ****
 HTML格式
@@ -135,7 +135,7 @@ JSON格式
 	优点 - 轻量级
 	缺点 - 可能转换失败
 
-回顾内容
+
 DOM - 独立于任何开发语言的
 DOM的分类
 	DOM CORE
