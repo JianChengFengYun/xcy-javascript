@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>登录成功后的页面</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <h1>欢迎你,<span id="user"></span></h1>
+  <script>
+	window.onload = function(){
+		// "user=zhangwuji; pwd=123; job=jiaozhu"
+		var cookies = document.cookie;
+		// 使用split()方法进行切割,数组
+		var arr = cookies.split("; ");
+		// 定义
+		var value;
+		// 遍历切割后的数组
+		for(var i=0;i<arr.length;i++){
+			var cookie = arr[i];
+			var arr1 = cookie.split("=");
+			if(arr1[0] == "user"){
+				value = arr1[1];
+				break;
+			}
+		}
+		// 将从Cookie获取的用户名信息得到,写入<span>
+		var user = document.getElementById("user");
+		user.innerHTML = value;
+	}
+  </script>
+ </body>
+</html>

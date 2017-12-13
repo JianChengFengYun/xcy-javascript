@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>getJSON方法的使用</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <input type="button" value="getJSON" id="btn">
+  <script>
+	$("#btn").click(function(){
+		/*
+		 * $.getJSON(url,data,callback)方法
+		 * * url - 请求地址
+		 * * data - 请求数据
+		 * * callback - 请求成功后的回调函数
+		 *
+		 * * 该方法返回的数据格式一定是JSON格式
+		 */
+		$.getJSON("11.php",function(data){
+			console.log(data);
+		});
+	});
+  </script>
+ </body>
+</html>

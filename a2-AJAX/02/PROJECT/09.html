@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>JSON的两个数据结构</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <script>
+	/*
+	var arr = ['zhangwuji','zhouzhiruo','zhaomin'];
+	console.log(arr);
+	var obj = {
+		'name1' : 'zhangwuji',
+		'name2' : 'zhouzhiruo',
+		'name3' : 'zhaomin'
+	}
+	console.log(obj);
+	*/
+	/*
+	var person1 = {
+		'明教' : ['张无忌','金毛狮王'],
+		'峨眉' : ['灭绝师太','周芷若']
+	}
+	console.log(person1);
+
+	var person2 = [
+		{
+			'明教' : '张无忌'
+		},
+		{
+			'峨眉' : '周芷若'
+		}
+	];
+	console.log(person2);
+	*/
+
+	var wuxia = {
+		'yttlj' : [
+			{
+				'mingjiao' : ['zhangwuji','jinmaoshiwang ']
+			},
+			{
+				'emei' : ['zhouzhiruo','miejueshitai ']
+			}
+		]
+	}
+	console.log(wuxia.yttlj[0].mingjiao[0]);
+  </script>
+ </body>
+</html>

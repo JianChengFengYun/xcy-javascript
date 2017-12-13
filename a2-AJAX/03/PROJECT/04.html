@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>jQuery中的ajax方法</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <input type="button" value="ajax" id="btn">
+  <script>
+	$("#btn").click(function(){
+		/*
+		 * $.ajax(options)方法
+		 * * 选项 - 格式是 {key:value}
+		 *   * url - 请求地址
+		 *   * type - 请求类型,默认为GET
+		 *   * async - 是否异步,默认为true
+		 *   * contentType - POST方式发送数据的前提
+		 *     * 默认值为application/x-www-form-urlencoded
+		 *   * data - 请求数据,格式必须为key:value
+		 *   * success - 请求成功后的回调函数
+		 *     function(data,textStatus){}
+		 *     * data - 服务器端响应的数据内容
+		 *     * textStatus - 表示Ajax请求的状态
+		 *       * success
+		 *   * error - 请求失败后的回调函数
+		 *     function(XMLHttpRequest,textStatus, errorThrown){}
+		 *     * XMLHttpRequest - Ajax的核心对象
+		 *     * textStatus - 表示Ajax请求的状态
+		 *       * error、timeout、notmodified等
+		 *     * errorThrown - 错误异常信息
+		 *   * dataType - 设置响应数据格式
+		 */
+		var user = {"name":"zhangwuji","pwd":"123"};
+		
+		$.ajax({
+			url : "04.php",
+			type : "post",
+			async : true,
+			data : user,
+			success : function(data,textStatus){
+				console.log(data);
+				console.log(textStatus)
+			},
+			error : function(XMLHttpRequest,textStatus, errorThrown){
+				console.log(textStatus);
+				console.log(errorThrown);
+			}
+		});
+	});
+  </script>
+ </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>jQuery中的load方法</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <input type="button" value="load" id="btn">
+  <div></div>
+  <script>
+	// 1. 获取button按钮,绑定click事件
+	$("#btn").click(function(){
+		/*
+		 * 2. click事件的处理函数中,调用load()方法
+		 *  $().load(url,data,callback)
+		 *   * url - 必要,设置当前Ajax请求的地址
+		 *   * data - 可选,设置当前Ajax请求的数据
+		 *     * 格式必须是key/value格式
+		 *   * callback - 可选,当前Ajax请求成功后的回调函数
+		 *     * 该回调函数的形参(data)就是服务器端响应的数据内容
+		 *
+		 *  注意
+		 *  * 服务器端响应的数据自动写入到<div>元素
+		 *    * 现象的原因 - div元素调用load()方法
+		 *  * load()方法的请求类型
+		 *    * 没有请求数据时,请求类型是GET
+		 *    * 发送请求数据时,请求类型是POST
+		 *    * load()方法的请求类型由是否发送请求数据来决定
+		 *  * load()方法接收服务器端的响应数据
+		 *    * 是以字符串类型(HTML格式)来接收
+		 */
+		// 请求数据格式为KEY/VALUE,就是Object对象
+		var user = {"name":"zhangwuji","pwd":"123"};
+		$("div").load("01.php",user,function(data){
+			console.log(data);
+		});
+	});
+	
+  </script>
+ </body>
+</html>

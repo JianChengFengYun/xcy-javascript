@@ -1,0 +1,88 @@
+﻿回顾AJAX内容:
+ * jQuery中的Ajax
+   * $.ajax(options) - 最复杂
+     * url - 请求地址
+     * type - 请求类型
+     * data - 请求数据
+     * dataType - 响应数据的格式
+       * 默认 - HTML格式
+       * xml
+       * json
+     * success - 请求成功后的回调函数
+       function(data,textStatus){}
+       * data - 响应的数据内容
+       * textStatus - success
+     * error - 请求失败后的回调函数
+       function(XMLHttpRequest,textStatus,errorThrown){}
+       * XMLHttpRequest - Ajax的核心对象
+       * textStatus - error、timeout及notmodified等
+       * errorThrown - 错误异常信息
+   * load(url,data,callback) - 最简单,局限性最大
+     * url - 请求地址
+     * data - 请求数据,格式是key:value
+     * callback - 请求成功后的回调函数
+       function(data){}
+       * data - 响应的数据内容,默认为文本格式
+     * 问题
+       * 不能自定义请求类型
+         * 没有请求数据时,请求类型是GET
+	 * 发送请求数据时,请求类型是POST
+       * 默认使用的数据格式为HTML格式
+         * 无法使用XML格式或JSON格式
+   * $.get(url,data,callback,type) - 请求类型是GET
+     * url - 请求地址
+     * data - 请求数据,格式是key:value
+     * callback - 请求成功后的回调函数
+       function(data){}
+       * data - 响应的数据内容,默认为文本格式
+     * type - 设置响应的数据格式
+       * 默认 - HTML格式(文本)
+       * xml
+       * json
+   * $.post(url,data,callback,type) - 请求类型是POST
+     * 与$.get()方法基本保持一致
+   * $.getScript(url,callback) - 动态读取脚本
+     * url - 脚本所在的地址(本地或服务器端)
+   * $.getJSON(url,callback) - 返回JSON格式数据
+ * 表单的异步提交
+   * 表单的序列化
+     * 方法
+       * serialize()
+         * 返回JSON字符串
+	 * 格式 - {key:value}
+       * serializeArray()
+         * 返回JSON对象
+	 * 格式 - 数组
+     * 注意
+       * 定义表单元素的name属性值
+   * jQuery.form插件
+   * 表单如何实现异步交互
+     * 将submit按钮替换为button
+       * 为button按钮绑定click事件
+       * 在click事件的处理函数中
+         * 表单序列化
+	 * 实现Ajax异步提交
+     * 依旧使用submit按钮
+       * 为<form>表单元素绑定submit事件
+       * 在submit事件的处理函数中
+         * 表单序列化
+	 * 实现Ajax异步提交
+	 * 阻止表单的默认行为
+ * 跨域请求
+   * 跨域
+     * 完全跨域 - IP地址不同
+     * 跨子域 - IP地址相同,端口号不同
+   * 域名
+     * 顶级域名
+       http://www.baidu.com
+     * 二级域名
+       http://wenku.baidu.com
+     * 三级域名
+   * 万维网协议
+     * 同源策略 - 位于不同的域之间不能相互访问
+   * 实现跨域
+     * 使用JSONP(JSON With Padding-JSON的使用模式)实现跨域
+     * 什么是JSONP
+       * 在HTML页面中的<script>元素具有开放策略,通过该元素可以跨域请求
+     * 使用$.getJSON()方法实现跨域
+       $.getJSON("url?callback=?",function(data){});

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>使用文本格式的Ajax</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <input type="button" value="ajax" id="btn">
+  <script>
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		// 1. 创建核心对象
+		var xhr = getXhr();
+		// 2. 建立连接
+		xhr.open("get","01.php");
+		// 3. 发送请求
+		xhr.send(null);
+		// 4. 接收响应
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				// 山东省,辽宁省,吉林省
+				var data = xhr.responseText;
+				console.log(data);
+			}
+		}
+	}
+	function getXhr(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else{
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+  </script>
+ </body>
+</html>

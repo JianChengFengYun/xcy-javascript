@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ajax中的readyState属性</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <input type="button" value="readyState" id="btn">
+  <script>
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		// 1 创建XMLHttpRequest核心对象
+		var xhr = getXhr();
+		// 2 注册监听
+		xhr.onreadystatechange = function(){
+			alert(xhr.readyState);
+		}
+		// 3 建立连接
+		xhr.open("get","04.php");
+		// 4 发送请求
+		xhr.send(null);
+		
+	}
+	function getXhr(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else{
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+  </script>
+ </body>
+</html>

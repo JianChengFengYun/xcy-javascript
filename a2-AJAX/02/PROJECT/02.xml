@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+	<!-- 这是注释 -->
+	<user number="01">
+		<name>zhangwuji</name>
+		<age>18</age>
+		<job>jiaozhu</job>
+		<addr>guangmingding</addr>
+		<love />
+	</user>
+	<user number="02">
+		<name>zhangwuji</name>
+		<age>18</age>
+		<job>jiaozhu</job>
+		<addr>guangmingding</addr>
+		<love />
+	</user>
+</users>

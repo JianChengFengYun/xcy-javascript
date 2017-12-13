@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>jQuery中的get方法或post方法</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <input type="button" value="get" id="btn">
+  <script>
+	$("#btn").click(function(){
+		/*
+		 * $.get(url,data,callback,type)
+		 * * url - 设置当前Ajax请求的地址
+		 * * data - 设置当前Ajax请求的数据
+		 *   * 格式要求为key:value,构建Object
+		 * * callback - 当前Ajax请求成功后的回调函数
+		 *   * 该回调函数的形参(data)接收服务器端的响应数据
+		 * * type - 设置服务器端响应的数据格式
+		 *   * 默认值 - HTML格式
+		 *   * xml - XML格式
+		 *   * json - JSON格式
+		 *
+		 * 注意
+		 * * 无论是否发送请求数据,请求类型都是GET
+		 * * $.get()方法可以使用HTML格式、XML格式及JSON格式
+		 */
+		var user = {"name":"zhangwuji","pwd":"123"};
+		$.get("02.php",user,function(data){
+			//console.log(eval("("+data+")"));
+			console.log(data);
+		},"json");
+	});
+  </script>
+ </body>
+</html>

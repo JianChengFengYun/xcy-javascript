@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>表单中使用Ajax</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <form id="myform" name="myform" action="03.php" method="post" enctype="application/x-www-form-urlencoded">
+	用户名:<input type="text" id="user" name="user"><br>
+	密码:<input type="text" id="pwd" name="pwd"><br>
+	<input type="button" id="btn" value="登录">
+  </form>
+  <script>
+	/*
+	 * <form>表单元素,存在submit按钮,提交表单
+	 * 使用Ajax提交表单的话,不需要使用submit
+	 * * 将submit按钮修改为button
+	 */
+	// 1. 为button按钮绑定onclick事件
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		// 使用Ajax实现提交表单
+		var xhr = getXhr();
+		xhr.open("post","03.php");
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		// send()发送用户名和密码
+		var user = document.getElementById("user").value;
+		var pwd = document.getElementById("pwd").value;
+
+		xhr.send("user="+user+"&pwd="+pwd);
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4 && xhr.status == 200){
+				var data = xhr.responseText;
+				console.log(data);
+			}
+		}
+	}
+	function getXhr(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else{
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+  </script>
+ </body>
+</html>

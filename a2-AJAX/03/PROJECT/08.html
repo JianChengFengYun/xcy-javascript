@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>表单的Ajax请求</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <form id="myform" name="myform" action="08.php" method="post">
+	用户名:<input type="text" id="username" name="username"><br>
+	密码:<input type="text" id="password" name="password"><br>
+	<input type="button" value="登录" id="btn">
+  </form>
+  <script>
+	/*
+	 * 需求
+	 * * 当用户输入完毕用户名和密码,点击"登录"按钮时
+	 * * 使用jQuery中的$.post()方法执行Ajax的异步请求
+	 * * 服务器端判断登录是否成功(模拟)
+	 */
+	$("#btn").click(function(){
+		/* data封装表单中的用户名和密码的信息
+		var data = {
+			"username" : $("#username").val(),
+			"password" : $("#password").val()
+		};
+		*/
+		var data = $("#myform").serialize();
+		
+		/*
+		 * 客户端向服务器端发送的请求数据内容
+		 * * 格式要求必须为 {key:value}
+		 * * 手工方式构建这种格式的数据
+		 * 如果这种完成
+		 * * 无论具有多少表单元素,表单只有一个
+		 * * 只获取表单,通过某种机制自动将表单所有元素的值,构建成{key:value}格式的数据
+		 * 
+		 * 表单的序列化
+		 * * serialize() - JSON字符串
+		 *   * 使用表单元素的name属性值
+		 *   * {key:value}
+		 * * serializeArray() - JSON对象
+		 *   * JSON对象是由一个对象数组组成的
+		 *   * [ele1,ele2,ele3,...]
+		 */
+		$.post("08.php",data,function(data){
+			// data服务器端响应的数据内容
+			console.log(data);
+		});
+	});
+  </script>
+ </body>
+</html>

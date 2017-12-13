@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>jQuery.form插件</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+  <script src="jquery.form.js"></script>
+ </head>
+
+ <body>
+  <form onsubmit="return formSubmit();" id="myform" action="10.php" method="post">
+	用户名:<input type="text" id="username" name="username"><br>
+	密码:<input type="text" id="password" name="password"><br>
+	<input type="submit" value="登录" id="btn">
+  </form>
+  <script>
+	/*
+	 * 问题
+	 * * 如果使用submit按钮,如何实现表单的异步提交
+	 * * 当点击"submit"按钮时,触发onsubmit事件
+	 *   * 如果返回false,表示阻止表单提交
+	 *   * 如果返回true,表示允许表单提交
+	 */
+	function formSubmit(){
+		// 表单序列化,得到表单中的所有数据内容
+		// 实现表单的异步提交
+		/*
+		$("#myform").ajaxSubmit({
+			url : "10.php",
+			type : "post",
+			dataType : "json",
+			success : function(){}
+		});
+		*/
+		$("#myform").ajaxSubmit(function(){
+			/*
+			 * 表示异步请求成功后的回调函数
+			 * * 问题
+			 *   * 设置表单提交的地址
+			 *   * 设置表单提交的请求类型
+			 * * 原因
+			 *   * 默认使用<form>表单中的action和method属性值
+			 */
+		});
+		// 表示阻止表单提交
+		return false;
+	}
+  </script>
+ </body>
+</html>

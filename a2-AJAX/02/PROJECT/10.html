@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ajax中的JSON格式</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <input type="button" value="Ajax" id="btn">
+  <script>
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		var xhr = getXhr();
+		xhr.open("post","10.php");
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		/*
+		 * 在客户端如何构建JSON格式
+		 * * 构建符合JSON格式的字符串
+		 */
+		var user = '{"name":"zhangwuji","pwd":"123456"}';
+		xhr.send("user="+user);
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var data = xhr.responseText;
+				/*
+				 * 使用eval()函数进行转换
+				 * * 使用"()"将其包裹,eval()函数强制将其转换为JSON格式(javascript代码)
+				 * * 不使用"()"将其包裹,eval()函数将其识别为一个空的代码块
+				 */
+				var json = eval("("+data+")");
+				console.log(json);
+			}
+		}
+	}
+	function getXhr(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else{
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+  </script>
+ </body>
+</html>

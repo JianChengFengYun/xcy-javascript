@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title>GET方式的ajax</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+	<form>
+	<input type="text" placeholder="请输入用户名" id="user" />
+	<input type="password" id="pwd" />
+	<input type="button" value="注册" id="btn" />
+	</form>
+	<script>
+	var btn=document.getElementById('btn');
+	btn.onclick=function(){
+	var user=document.getElementById('user').value;
+		var xhr=getXHR();
+		xhr.open('post','demo1.php');
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		xhr.send('user='+user);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					var data=xhr.responseText;
+					alert(data);
+				}
+			}
+		}
+	}
+	function getXHR(){
+		var xhr=null;
+		if(window.XMLHttpRequest){
+			xhr=new XMLHttpRequest();
+		}else{
+			xhr=new ActiveXObject('Microsoft.XMLHttp');
+		}
+		return xhr;
+	}
+	</script>
+	</body>
+</html>

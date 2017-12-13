@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>XML格式的二级联动</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <select id="province">
+	<option>请选择</option>
+	<option>山东省</option>
+	<option>辽宁省</option>
+	<option>吉林省</option>
+  </select>
+  <select id="city">
+	<option>请选择</option>
+  </select>
+  <script>
+	// 向客户端响应的数据 - XML格式
+	var provinceEle = document.getElementById("province");
+	provinceEle.onchange = function(){
+		var city = document.getElementById("city");
+		var opts = city.getElementsByTagName("option");
+		for(var z=opts.length-1;z>0;z--){
+			city.removeChild(opts[z]);
+		}
+		
+		var xhr = getXhr();
+		xhr.open("post","09.php");
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		xhr.send("province="+provinceEle.value);
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var xmlDoc = xhr.responseXML;
+				var cities = xmlDoc.getElementsByTagName("city");
+				for(var i=0;i<cities.length;i++){
+					var cityEle = cities[i];
+					// 得到城市信息
+					var cityValue = cityEle.getAttribute("name");
+
+					var option = document.createElement("option");
+					var txtNode = document.createTextNode(cityValue);
+					option.appendChild(txtNode);
+
+					city.appendChild(option);
+				}
+			}
+		}
+	}
+	function getXhr(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else{
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+  </script>
+ </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>使用文本格式的Ajax</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <script>
+  for(var i=0;i<3;i++){
+	  (function(i){
+		setTimeout(function(){console.log(i)},100);
+
+	  })(i)
+  }
+  	var emp = { 
+		work: function(){ 
+			var sum = 0; 
+			for(var i=0; i<arguments.length && arguments[0]>0; i++){ 
+				sum += arguments[i] + arguments.callee(--arguments[i]); 
+				} 
+				return sum;
+			}
+		}; 
+	console.log( emp.work(3, 2, 1) );
+
+  </script>
+ </body>
+</html>

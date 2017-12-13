@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<provinces>
+	<province>
+		<name>山东省</name>
+		<cities>
+			<city>青岛市</city>
+			<city>济南市</city>
+			<city>威海市</city>
+			<city>日照市</city>
+			<city>德州市</city>
+		</cities>
+	</province>
+	<province>
+		<name>辽宁省</name>
+		<cities>
+			<city>沈阳市</city>
+			<city>大连市</city>
+			<city>铁岭市</city>
+			<city>锦州市</city>
+			<city>丹东市</city>
+		</cities>
+	</province>
+	<province>
+		<name>吉林省</name>
+		<cities>
+			<city>长春市</city>
+			<city>松原市</city>
+			<city>四平市</city>
+			<city>辽源市</city>
+			<city>白城市</city>
+		</cities>
+	</province>
+</provinces>

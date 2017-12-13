@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>序列化完成用户注册功能</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <form id="regist">
+	用户名:<input type="text" name="username"><br>
+	密码:<input type="text" name="password"><br>
+	确认密码:<input type="text" name="repassword"><br>
+	email:<input type="text" name="email"><br>
+	地址:<input type="text" name="addr"><br>
+	<input type="button" value="注册" id="btn">
+  </form>
+  <script>
+	// 需求 - 表单Ajax异步提交,表单序列化
+	$("#btn").click(function(){
+		// 1. 表单序列化
+		var data = $("#regist").serialize();
+		
+		// 2. 表单异步提交
+		$.post("09.php",data,function(data){
+			console.log(data);
+		});
+	});
+  </script>
+ </body>
+</html>

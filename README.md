@@ -1,2 +1,4 @@
 # xcy-javascript
-javascript demos
+- javascript demos
+- http
+- ajax

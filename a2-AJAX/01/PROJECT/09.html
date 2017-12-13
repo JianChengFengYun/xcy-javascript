@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ajax实现页面评论</title>
+  <meta charset="utf-8" />
+  <style>
+	div {
+		width : 100%;
+		height : 50px;
+	}
+  </style>
+ </head>
+
+ <body>
+  <!-- 用户登录功能 -->
+  <div id="login">
+	请输入用户名:
+	<input type="text" id="username" name="username">
+	<input type="button" id="loginUser" value="登录">
+  </div>
+  <!-- 用户输入评论功能 -->
+  <div id="comment">
+	请输入你的评论:
+	<input type="text" id="mycomment" name="mycomment">
+	<input type="button" id="update" value="评论">
+  </div>
+  <!-- 显示用户的评论 -->
+  <div id="mylist">
+	
+  </div>
+  <script>
+	/*
+	 * 需求分析
+	 * * 使用Ajax方式实现用户登录功能
+	 * * 必须保证用户登录后,才能提交评论
+	 * * 使用Ajax方式实现提交评论功能
+	 *   * 服务器端将所有评论进行响应
+	 * * 将所有评论内容,显示在HTML页面中
+	 */
+	// 完成用户登录的Ajax - 点击"登录"按钮时
+	  // 服务器端响应的数据 - 用户名
+	// 1. 获取"登录"按钮
+	// 2. 为"登录"按钮绑定onclick事件
+		// 3. 完成Ajax的异步请求
+		var xhr = getXhr();
+		xhr.open("post","09.php");
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		xhr.send();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				// 返回用户名信息
+				var data = xhr.responseText;
+				// id为login的div元素 - 欢迎你,xxx!
+			}
+		}
+
+
+	// 完成用户评论的Ajax - 点击"评论"按钮时
+	  // 将所有评论内容进行响应
+  </script>
+ </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ajax案例一</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <!-- 二级联动 -->
+  <select id="province">
+	<option>请选择</option>
+	<option>山东省</option>
+	<option>辽宁省</option>
+	<option>吉林省</option>
+  </select>
+  <select id="city">
+	<option>请选择</option>
+  </select>
+  <script>
+	// 1. 为<select>元素绑定onchange事件
+	var provinceEle = document.getElementById("province");
+	provinceEle.onchange = function(){
+		// 将id为city的元素内容清空
+		var city = document.getElementById("city");
+		var opts = city.getElementsByTagName("option");
+		for(var z=opts.length-1;z>0;z--){
+			city.removeChild(opts[z]);
+		}
+		
+		// 2. 获取用户当前选择的省份名称
+		var province = provinceEle.value;
+		// 3. 创建对应的城市列表 - 数组
+		var cities = [];
+		switch (province){
+			case "山东省":
+				cities = ["青岛市","济南市","威海市","日照市","德州市"];
+				break;
+			case "吉林省":
+				cities = ["长春市","松原市","吉林市","通化市","四平市"];
+				break;
+			case "辽宁省":
+				cities = ["沈阳市","大连市","铁岭市","丹东市","锦州市"];
+				break;
+		}
+		// 遍历城市列表
+		for(var i=0;i<cities.length;i++){
+			// 4. 创建<option>元素
+			var option = document.createElement("option");
+			// 5. 将城市的信息添加到<option>元素上
+			var textNode = document.createTextNode(cities[i]);
+			option.appendChild(textNode);
+			// 6. 将创建的所有<option>元素添加到id为city元素上
+			city.appendChild(option);
+		}
+			
+	}
+  </script>
+ </body>
+</html>

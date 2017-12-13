@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>用户登录Cookie</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <form id="login" onsubmit="return submitForm();" action="13_result.html" method="post">
+	用户名:<input type="text" id="user" name="user"><br>
+	密码:<input type="text" id="pwd" name="pwd"><br>
+	<input type="submit" value="登录">
+  </form>
+  <script>
+	function submitForm(){
+		// 将用户名信息存储在Cookie文件中
+		// 1. 获取id=username元素
+		var user = document.getElementById("user");
+		// 2. 获取用户名信息
+		var username = user.value;
+		/*
+		 * 构建增加Cookie文件的相关信息
+		 * * 将用户名信息存储
+		 * * Cookie文件的有效时间
+		 */
+		var time = new Date().getTime()+1000*3600*24*7;
+		var d = new Date(time);
+		// 将用户名信息和有效时间,存储在Cookie中
+		document.cookie = "user="+username+";expires="+d;
+		document.cookie = "pwd=123;expires="+d;
+		document.cookie = "job=jiaozhu;expires="+d;
+		
+		return true;
+	}
+  </script>
+ </body>
+</html>

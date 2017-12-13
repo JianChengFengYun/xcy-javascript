@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>jQuery中的ajax实现简单聊天</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <input type="text" id="chatdata">
+  <input type="button" value="发送" id="btn">
+  <div></div>
+  <script>
+	/*
+	 * 需求
+	 * * 客户端
+	 *   * 用户在输入框中输入聊天内容
+	 *   * 点击"发送"按钮,使用$.ajax()执行Ajax请求
+	 *   * 接收服务器端响应数据,写入<div>元素中
+	 * * 服务器端
+	 *   * 接收客户端发送的聊天内容
+	 *   * 将聊天内容响应回去(JSON格式)
+	 */
+	var chatlist = "";
+	
+	// 1. 获取"发送"按钮,绑定click事件
+	$("#btn").click(function(){
+		var chatdata = {"value":$("#chatdata").val()};
+		
+		$.ajax({
+			url : "05.php",
+			type : "post",
+			data : chatdata,
+			dataType : "json",
+			success : function(data,textStatus){
+				chatlist += "<p>"+data.chat+"</p>";
+
+				$("div").html($(chatlist));
+			}
+		});
+	});
+  </script>
+ </body>
+</html>

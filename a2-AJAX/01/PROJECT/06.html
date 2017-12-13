@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Ajax实现二级联动</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <select id="province">
+	<option>请选择</option>
+	<option>山东省</option>
+	<option>辽宁省</option>
+	<option>吉林省</option>
+  </select>
+  <select id="city">
+	<option>请选择</option>
+  </select>
+  <script>
+	/*
+	 * 需要思考哪些事情?
+	 * * 在什么时候执行Ajax的异步请求?
+	 *   * 当用户选择具体的省份信息时
+	 */
+	// 1. 为id为province元素绑定onchange事件
+	var provinceEle = document.getElementById("province");
+	provinceEle.onchange = function(){
+		// 清空
+		var city = document.getElementById("city");
+		var opts = city.getElementsByTagName("option");
+		for(var z=opts.length-1;z>0;z--){
+			city.removeChild(opts[z]);
+		}
+		
+		if(provinceEle.value != "请选择"){
+			// 2. 执行Ajax异步请求
+			var xhr = getXhr();
+			xhr.open("post","06.php");
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send("provcince="+provinceEle.value);
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					// 接收服务器端的数据内容
+					var data = xhr.responseText;
+					// data是字符串,转换为数组
+					var cities = data.split(",");
+					for(var i=0;i<cities.length;i++){
+						var option = document.createElement("option");
+						var textNode = document.createTextNode(cities[i]);
+						option.appendChild(textNode);
+						
+						city.appendChild(option);
+					}
+				}
+			}
+		}
+		
+	}
+	// 定义创建XMLHttpRequest对象的函数
+	function getXhr(){
+		var xhr = null;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+		}else{
+			xhr = new ActiveXObject("Microsoft.XMLHttp");
+		}
+		return xhr;
+	}
+  </script>
+ </body>
+</html>

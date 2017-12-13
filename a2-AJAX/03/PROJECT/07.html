@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>动态读取脚本</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <input type="button" value="读取" id="btn">
+  <div id="comments"></div>
+  <script>
+	$("#btn").click(function(){
+		/*
+		 * $.getScript(url,callback)
+		 *  * url - 读取脚本的地址
+		 *  * callback - 读取成功后的回调函数
+		 *    function(data){}
+		 */
+		//$.getScript("script.js");
+		$.getScript("07.php",function(data){
+			console.log(data);
+		});
+	});
+  </script>
+ </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>DOM解析XML</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <script>
+	/*
+	 * 定义函数 - 用于封装XML解析器的创建
+	 * * W3Schoole帮助文件提供的相关内容(已过时)
+	 * * 该函数的内容已经过时
+	 */
+	/*
+	function parseXML(xml){
+		var xmlDoc = null;
+		try{
+			xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+		}catch(e){
+			xmlDoc = document.implementation.createDocument("","",null);
+		}
+		xmlDoc.async=false;
+		// load()方法 - 返回解析后的DOM对象
+		return xmlDoc.load(xml);
+	}
+
+	var xmlDoc = parseXML("03.xml");
+	console.log(xmlDoc);
+	*/
+
+	/*
+	 * 创建DOM解析XML的解析器 - 目前
+	 * * IE浏览器
+	 *   new ActiveXObject("Microsoft.XMLDOM");
+	 * * 其他浏览器
+	 *   创建一个DOM的解析器
+	 *   var parser = new DOMParser();
+	 *   使用DOM解析器解析XML文件
+	 *   var xmlDoc = parser.parseFromString(xmlFile,"application/xml");
+	 *
+	 * 当前报错:
+	 * * 目前主流浏览器
+	 *   * 不允许读取本地文件
+	 *   * 不允许读取外部文件
+	 */
+	function parseXML(xmlFile){
+		// 创建解析XML后的DOM对象
+		var xmlDoc = null;
+		// 根据不同浏览器进行解析
+		if(window.DOMParser){
+			// 其他浏览器
+			var parser = new DOMParser();
+			xmlDoc = parser.parseFromString(xmlFile,"application/xml");
+		}else{
+			// IE浏览器
+			var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+			xmlDoc.async = false;
+			xmlDoc.loadXML(xmlFile);
+		}
+		return xmlDoc;
+	}
+	/*
+	 * 测试
+	 * 使用DOM的XML解析器 - 解析符合XML格式的字符串
+	 * <user>
+	 *   <name>zhangwuji</name>
+	 * </user>
+	 */
+	var xmlDoc = parseXML("<user id='u' name='u'><name>zhangwuji</name></user>");
+	//console.log(xmlDoc);
+	/*
+	 * DOM解析XML与解析HTML没有任何区别
+	 * * 注意
+	 *   * DOM解析XML使用ById或ByName两个方式
+	 *   * 实际开发中只用getElementsByTagName()方法
+	 *   * 原因 - 属性值在XML格式中都是有效数据
+	 */
+	/*
+	var userEle = xmlDoc.getElementsByTagName("user")[0];
+	var nameEle = userEle.getElementsByTagName("name")[0];
+	var nameTxt = nameEle.childNodes[0].nodeValue;
+	console.log(nameTxt);
+	*/
+	var userEle = xmlDoc.getElementsByName("u")[0];
+	console.log(userEle);
+  </script>
+ </body>
+</html>

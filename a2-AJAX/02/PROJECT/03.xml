@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<china>
+	<province name="山东省">
+		<city name="青岛市" />
+		<city name="济南市" />
+		<city name="威海市" />
+		<city name="日照市" />
+		<city name="德州市" />
+	</province>
+	<province name="辽宁省">
+		<city name="沈阳市" />
+		<city name="大连市" />
+		<city name="铁岭市" />
+		<city name="锦州市" />
+		<city name="丹东市" />
+	</province>
+	<province name="吉林省">
+		<city name="长春市" />
+		<city name="松原市" />
+		<city name="四平市" />
+		<city name="白城市" />
+		<city name="辽源市" />
+	</province>
+</china>

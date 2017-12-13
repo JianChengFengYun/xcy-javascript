@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>实现跨域</title>
+  <meta charset="utf-8" />
+  <script src="jquery-1.11.3.js"></script>
+ </head>
+
+ <body>
+  <!--
+	创建12.html页面和12.php页面(模拟)
+	* 12.html页面 - 放置在一个域
+	* 12.php页面  - 放置在另一个域
+  -->
+  <input type="button" value="跨域请求" id="btn">
+  <script>
+	$("#btn").click(function(){
+		/*
+		 * 利用$.getJSON()方法实现跨域请求
+		 * * url - 请求地址
+		 * * callback - 回调函数
+		 *
+		 * 如何实现跨域请求
+		 * * 使用JSONP形式的回调函数来加载其他网域的JSON数据
+		 *   * JSONP - JSON Padding(JSON的一种使用模式)
+		 *     * 核心内容 - HTML的<script>元素具有开放策略
+		 * * 实现方式
+		 *   * $.getJSON()方法的url后增加请求数据
+		 *     url?callback=?
+		 */
+		$.getJSON("12.php?callback=?",function(data){
+//callback - jQuery111301099282749928534_1448354123194
+//callback({"msg":"get success."}) - 就是服务器端响应的数据
+			console.log(data);
+		});
+	});
+  </script>
+ </body>
+</html>
