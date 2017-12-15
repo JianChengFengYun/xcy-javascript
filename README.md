@@ -1,4 +1,11 @@
 # xcy-javascript
 - javascript demos
+    - 对象
+    - 构造函数
+    - 闭包
 - http
 - ajax
+- Dom
+- 游戏
+    - 2048
+    - 俄罗斯方块
